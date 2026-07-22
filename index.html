@@ -1,0 +1,566 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="robots" content="noindex,nofollow">
+<title>Einstein QGR Workshop — Leader Hub</title>
+<!-- qgr-workshop-hub v1.1 2026-07-22 — leans redlined by Cameron (damages split · theme-for-everyone · sales-comp alternatives) -->
+
+<!--
+  QGR WORKSHOP HUB — V1 (leader-facing mirror of the QGR Command HQ)
+  ==================================================================
+  · Sibling surface of index.html (Cameron's HQ) — same brand tokens, same
+    qgrhq-q3-2026-v2- localStorage prefix convention, NOT a fork.
+  · V1 = the Debate/Ballot module built for real; the rest of the hub is
+    link tiles to what already exists.
+  · Vote capture is EXPORT-AND-RETURN (the Mover Promotion workshop idiom):
+    leader inputs → JSON/markdown export → sends to Cameron → Cameron
+    aggregates before the room. Leaders never see each other's votes
+    pre-room (anti-anchoring by design — there is nothing to leak because
+    nothing is shared).
+  · POST-V1 UPGRADE PATH: Replit with a real backend for live aggregation
+    (submit → server → Cameron's aggregate view updates in real time).
+    V1 deliberately ships without a backend so it can go out this week.
+  · SEED REDLINE: the 4 debate questions live in the DEBATES constant at
+    the top of the script — Cameron redlines the `lean` text there before
+    this goes to leaders. Everything displayed comes from that constant.
+  · HOSTING: do NOT deploy until Cameron signs off + a who-sees-what pass
+    runs (no TUR diagnostic, no leadership evals, no sensitive comp on
+    this page — the financial deck tile deliberately carries NO link).
+-->
+<style>
+:root{
+  --orange-50:#FEF6EC; --orange-100:#FDE3C2; --orange-200:#FABD84; --orange-500:#EF8B22; --orange-700:#D96B10; --orange-900:#CC5500;
+  --navy-50:#EEF1F4; --navy-100:#CDD5DA; --navy-200:#9AADB7; --navy-400:#507080; --navy-500:#27343D; --navy-700:#1A2329; --navy-900:#0B1014;
+  --blue-50:#EBF4FB; --blue-100:#C3DFEF; --blue-500:#0979C3; --blue-700:#065E9A; --blue-900:#023B63;
+  --grey-50:#F4F5F5; --grey-100:#E2E3E4; --grey-200:#C0C2C4; --grey-400:#787C7F; --grey-500:#53575A; --grey-700:#363839; --grey-900:#191A1B;
+  --success:#69995D; --error:#CC0100; --text-faint:#5F6468;
+  --radius-sm:6px; --radius-md:12px; --radius-lg:20px; --radius-pill:999px;
+  --shadow-sm:0 1px 2px rgba(39,52,61,.08); --shadow-md:0 4px 12px rgba(39,52,61,.10); --shadow-lg:0 12px 32px rgba(39,52,61,.14);
+}
+*{margin:0;padding:0;box-sizing:border-box}
+html{font-size:16px}
+body{font-family:'Roboto',-apple-system,BlinkMacSystemFont,'Segoe UI',Helvetica,Arial,sans-serif;color:var(--grey-700);background:var(--grey-50);font-size:14px;line-height:1.5}
+h1,h2,h3,h4{color:var(--navy-500);font-weight:700}
+a{color:var(--blue-500)}
+button{font:inherit;cursor:pointer}
+::selection{background:var(--blue-100)}
+
+#appHeader{background:var(--navy-500);color:#fff;padding:14px 24px;display:flex;align-items:center;justify-content:space-between;gap:16px;flex-wrap:wrap;position:sticky;top:0;z-index:50;box-shadow:var(--shadow-md)}
+#appHeader .brand{display:flex;align-items:baseline;gap:10px;flex-wrap:wrap}
+#appHeader .brand .bebas{font-family:'Bebas Neue','Roboto',sans-serif;font-size:26px;letter-spacing:.03em;color:#fff}
+#appHeader .brand .tag{font-size:12px;color:var(--navy-100)}
+#appHeader .savebox{font-size:11px;color:var(--navy-100);text-align:right}
+#appHeader .savebox b{color:#fff}
+main{max-width:1080px;margin:0 auto;padding:24px 20px 90px}
+.view{display:none}
+.view.active{display:block}
+.muted{color:var(--text-faint)}
+.small{font-size:12px}
+.tiny{font-size:11px}
+
+#storageWarn{display:none;background:#F8DCDC;color:#8E0000;border:1px solid #E6B2B2;border-radius:var(--radius-md);padding:12px 16px;font-size:12.5px;font-weight:700;margin-bottom:16px}
+#storageWarn.show{display:block}
+
+/* ---- Landing: who are you ---- */
+.landing-intro{background:#fff;border:1px solid var(--grey-100);border-radius:var(--radius-md);padding:24px;margin-bottom:20px}
+.landing-intro h2{font-size:20px;margin-bottom:6px}
+.landing-intro p{font-size:13px;color:var(--grey-500);max-width:760px}
+.leader-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(230px,1fr));gap:14px}
+.l-card{background:#fff;border:1px solid var(--grey-100);border-radius:var(--radius-md);padding:16px 18px;box-shadow:var(--shadow-sm);display:flex;justify-content:space-between;align-items:center;gap:10px}
+.l-card .lname{font-size:14px;font-weight:700;color:var(--navy-500)}
+.l-card .lrole{font-size:11.5px;color:var(--grey-400)}
+.l-card .open-btn{background:var(--navy-500);color:#fff;border:none;border-radius:var(--radius-sm);padding:7px 14px;font-size:11.5px;font-weight:700;white-space:nowrap}
+.l-card .open-btn:hover{background:var(--navy-700)}
+.l-card .started{font-size:10px;color:var(--success);font-weight:700}
+
+/* ---- Anti-anchoring band ---- */
+.privacy-band{background:var(--blue-50);border:1px solid var(--blue-100);border-radius:var(--radius-md);padding:14px 20px;font-size:12.5px;color:var(--blue-900);margin-bottom:20px;display:flex;gap:10px;align-items:flex-start}
+.privacy-band .pb-ico{font-size:16px;line-height:1.3}
+
+/* ---- Hub head + tiles ---- */
+.backlink{background:none;border:none;color:var(--blue-500);font-size:12.5px;font-weight:700;padding:0;margin-bottom:14px;display:inline-block}
+.hub-head{display:flex;justify-content:space-between;align-items:center;background:#fff;border:1px solid var(--grey-100);border-radius:var(--radius-md);padding:18px 24px;margin-bottom:20px;gap:16px;flex-wrap:wrap}
+.hub-head h2{font-size:21px;margin:0}
+.hub-head .sub{font-size:12px;color:var(--grey-400);margin-top:2px}
+.hub-head .progress-wrap{display:flex;align-items:center;gap:10px}
+.progress-track{width:180px;height:8px;background:var(--grey-100);border-radius:4px;overflow:hidden}
+.progress-fill{height:100%;background:var(--orange-500);transition:width .3s}
+
+.tile-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(300px,1fr));gap:14px;margin-bottom:26px}
+.tile{background:#fff;border:1px solid var(--grey-100);border-radius:var(--radius-md);padding:16px 18px;box-shadow:var(--shadow-sm)}
+.tile h4{font-size:13.5px;display:flex;align-items:center;gap:7px;margin-bottom:5px}
+.tile p{font-size:11.5px;color:var(--grey-400);line-height:1.5}
+.tile .tlink{font-size:11.5px;font-weight:700;display:inline-block;margin-top:7px}
+.tile.live{border-color:var(--orange-200)}
+.tile .now{font-size:9.5px;font-weight:700;background:var(--orange-100);color:var(--orange-900);border-radius:var(--radius-pill);padding:1px 8px;text-transform:uppercase;letter-spacing:.04em}
+.tile .soon{font-size:9.5px;font-weight:700;background:var(--grey-100);color:var(--grey-500);border-radius:var(--radius-pill);padding:1px 8px;text-transform:uppercase;letter-spacing:.04em}
+.tile.soft{border-style:dashed;background:var(--grey-50)}
+
+/* ---- Debate cards ---- */
+.section{background:#fff;border:1px solid var(--grey-100);border-radius:var(--radius-md);padding:24px;margin-bottom:16px}
+.section > .shead{display:flex;justify-content:space-between;align-items:center;margin-bottom:6px;gap:10px;flex-wrap:wrap}
+.section h3{font-size:16px;display:flex;align-items:center;gap:8px}
+.section .shelp{font-size:12.5px;color:var(--grey-400);margin-bottom:16px;line-height:1.5;max-width:820px}
+.section .done-chip{font-size:10.5px;color:var(--success);font-weight:700}
+
+.q-card{border:1px solid var(--grey-100);border-radius:var(--radius-md);margin-bottom:16px;overflow:hidden}
+.q-card .qhead{display:flex;justify-content:space-between;align-items:flex-start;gap:10px;padding:16px 20px;cursor:pointer;user-select:none}
+.q-card .qhead:hover .qtitle{color:var(--blue-700)}
+.q-card .qtitle{font-size:15px;font-weight:700;color:var(--navy-500)}
+.q-card .qnum{color:var(--orange-900);margin-right:4px}
+.q-card .caret{font-size:11px;color:var(--grey-400);white-space:nowrap}
+.qsum{font-size:11px;font-weight:700;border-radius:var(--radius-pill);padding:2px 10px;white-space:nowrap}
+.qsum.voted{background:#E3EEDF;color:#3E6636}
+.qsum.open{background:var(--grey-100);color:var(--grey-500)}
+.q-card.collapsed .qbody{display:none}
+.q-card .qbody{padding:0 20px 20px}
+.ctx-block{font-size:13px;color:var(--grey-500);line-height:1.65;margin-bottom:12px}
+.ctx-block b{color:var(--navy-500)}
+.lean-block{background:var(--orange-50);border:1px solid var(--orange-100);border-radius:var(--radius-md);padding:14px 18px;margin-bottom:14px}
+.lean-block .lean-label{font-size:10px;font-weight:700;text-transform:uppercase;letter-spacing:.05em;color:var(--orange-900);margin-bottom:6px}
+.lean-block .lean-body{font-size:13px;color:var(--navy-500);line-height:1.65}
+.lean-block .lean-body ul{margin:6px 0 0 18px}
+.lean-block .lean-body li{margin-bottom:3px}
+.debate-line{font-size:13px;color:var(--navy-500);font-weight:700;background:var(--navy-50);border-radius:var(--radius-sm);padding:10px 14px;margin-bottom:16px;line-height:1.55}
+.debate-line .dl-tag{font-size:10px;font-weight:700;text-transform:uppercase;letter-spacing:.05em;color:var(--navy-400);display:block;margin-bottom:3px}
+
+.your-take{border-top:1px dashed var(--grey-200);padding-top:14px}
+.your-take .yt-label{font-size:12px;font-weight:700;color:var(--navy-500);margin-bottom:8px}
+.chiprow{display:flex;gap:6px;align-items:stretch;flex-wrap:wrap;margin-bottom:10px}
+.chip{border:1.5px solid var(--grey-200);background:#fff;border-radius:var(--radius-sm);padding:8px 14px;font-size:12.5px;font-weight:700;color:var(--grey-500);text-align:center}
+.chip:hover{border-color:var(--navy-400)}
+.chip.sel{background:var(--navy-500);border-color:var(--navy-500);color:#fff}
+.chip.sel.good{background:var(--success);border-color:var(--success)}
+.chip.sel.mid{background:var(--orange-700);border-color:var(--orange-700)}
+.chip.sel.bad{background:var(--error);border-color:var(--error)}
+.chip.sel.und{background:var(--navy-400);border-color:var(--navy-400)}
+.q-block{margin-top:10px}
+.q-block label{display:block;font-size:12px;font-weight:700;color:var(--navy-500);margin-bottom:3px}
+.q-block label .qhint{font-weight:400;color:var(--grey-400)}
+.q-block textarea{width:100%;border:1px solid var(--grey-200);border-radius:var(--radius-sm);padding:9px 11px;font:inherit;font-size:12.5px;resize:vertical;min-height:64px}
+.q-block textarea.note-missing{border-color:var(--orange-500);background:var(--orange-50)}
+.cos-row{margin-top:12px;display:flex;align-items:center;gap:10px;flex-wrap:wrap}
+.cos-row button{background:#fff;color:var(--navy-500);border:1px solid var(--grey-200);border-radius:var(--radius-sm);padding:8px 14px;font-size:11.5px;font-weight:700}
+.cos-row button:hover{border-color:var(--navy-400)}
+.cos-row .cos-hint{font-size:11px;color:var(--grey-400)}
+
+/* export */
+.export-actions{display:flex;gap:10px;flex-wrap:wrap;margin-top:8px}
+.export-actions button{background:var(--navy-500);color:#fff;border:none;border-radius:var(--radius-sm);padding:11px 20px;font-size:12.5px;font-weight:700}
+.export-actions button:hover{background:var(--navy-700)}
+.export-actions button.secondary{background:#fff;color:var(--navy-500);border:1px solid var(--grey-200)}
+.export-actions button.secondary:hover{border-color:var(--navy-400)}
+textarea.mdpreview{width:100%;min-height:140px;margin-top:12px;border:1px solid var(--grey-200);border-radius:var(--radius-sm);padding:10px;font-family:monospace;font-size:11px;resize:vertical;display:none}
+textarea.mdpreview.show{display:block}
+
+footer{background:var(--navy-700);color:var(--navy-100);text-align:center;padding:14px;font-size:11px;position:fixed;bottom:0;left:0;right:0;z-index:40}
+.toast{position:fixed;bottom:52px;right:24px;background:var(--navy-500);color:#fff;padding:10px 18px;border-radius:var(--radius-sm);font-size:12.5px;box-shadow:var(--shadow-lg);opacity:0;transform:translateY(6px);transition:.25s;z-index:300;pointer-events:none}
+.toast.show{opacity:1;transform:translateY(0)}
+@media (max-width:640px){
+  #appHeader .savebox{display:none}
+  .hub-head .progress-wrap{width:100%}
+}
+</style>
+</head>
+<body>
+<header id="appHeader">
+  <div class="brand"><span class="bebas">EINSTEIN QGR WORKSHOP</span><span class="tag">Leader Hub · Q3 2026 QGR · July 29–30 · V1.1</span></div>
+  <div class="savebox" id="saveBox">Local only — nothing leaves this computer until you export<br><b id="saveStamp">—</b></div>
+</header>
+<main>
+  <div id="storageWarn"></div>
+  <section class="view active" id="view-landing"></section>
+  <section class="view" id="view-hub"></section>
+</main>
+<footer>Internal tool · your ballot stays on this computer until YOU export and send it to Cameron · Einstein Moving Company</footer>
+<div class="toast" id="toast"></div>
+
+<script>
+/* ============ Constants ============ */
+// Same storage-prefix family as the QGR Command HQ (index.html) — sibling surface, not a fork.
+const LS_KEY = "qgrhq-q3-2026-v2-workshop";
+const QUARTER = "Q3 2026 QGR (deciding Q3, reviewing Q2)";
+
+const LEADERS = [
+  { id:"cameron", name:"Cameron Brown",  role:"CEO" },
+  { id:"paul",    name:"Paul Morin",     role:"CFO / COO" },
+  { id:"amanda",  name:"Amanda Ware",    role:"Director of CX" },
+  { id:"brian",   name:"Brian Herzig",   role:"CTXH Regional Manager" },
+  { id:"mike",    name:"Mike Vandenbroader", role:"DFWT Regional Manager · Head of Ops" },
+  { id:"matisen", name:"Matisen Harper", role:"Director of IT" },
+  { id:"anne",    name:"Anne Bosse",     role:"Director of Employee Experience" }
+];
+
+/* ============================================================
+   DEBATE SEED — Q3 2026 slate (4 questions, locked 7/22).
+   Source: qgr-debate-questions-seed-2026-Q3.md
+   ⚠ REDLINE ZONE: Cameron edits the `lean` HTML below before this
+   goes to leaders. The lean is displayed as a CURRENT LEAN, never
+   a decision — the label is baked into the UI, keep the text
+   consistent with that framing.
+   ============================================================ */
+const DEBATES = [
+  {
+    id: "flex-days",
+    title: "Flex days for frontline managers",
+    context: "Our claims/CX reps already have flex days — effectively one extra day off every other week (a 4-day week every other week), and it's worked well. The question is whether we extend flex days to <b>frontline managers (BMs/OMs)</b>, now that we have more sales-side CX coverage than ever, a wave of people coming out of training, and the dashboards/KPIs to actually measure manager output.",
+    lean: "Yes — a strong morale/retention lever that makes tenure sticky, likely a <b>Q3+ rollout, not a peak-summer launch.</b> Structure with hard guardrails:<ul>" +
+      "<li><b>KPI-gated</b> — a manager only earns their flex day if they're hitting/ahead on their positional critical KPIs (e.g., ahead of sales target), so it doubles as a sales incentive.</li>" +
+      "<li><b>Coverage-protected</b> — no flex day if it leaves the branch short (e.g., can't take it if it means both managers are out).</li>" +
+      "<li><b>No OT or premium pay</b> for working a flex day.</li>" +
+      "<li><b>Seasonal + scheduled by us</b> — flex days aren't guaranteed in every season, and we set which day(s), not automatically a Friday.</li></ul>",
+    debate: "Do we roll flex days out to frontline managers — and are these the right guardrails (KPI-gated, coverage-protected, no premium pay, seasonal)? Specifically: <i>which</i> KPIs gate it, and when do we launch?"
+  },
+  {
+    id: "damages-metric",
+    title: "How damages are used as a company-wide metric",
+    context: "Damages have been treated inconsistently — sometimes as individual accountability, sometimes branch-level — and the Einstein Games scoring exposed how messy the data is. We've been converging on branch-level framing, but this one is <b>genuinely split inside leadership</b>, which is exactly why it's on the ballot.",
+    lean: "Two views are on the table:<ul>" +
+      "<li><b>Remove damages as an individual metric</b> (Anne's position) — damages come out of mover promotions and the individual performance bonus entirely. Branch/region-level only: baseline per branch, drive the average down through monthly training themes + branch competition. No pay-docking. (Games kept damages branch-level this quarter on a damages-per-Rippling-hour basis.)</li>" +
+      "<li><b>Keep an individual read at the quarterly level</b> (Cameron + Paul's concern) — eliminating damages from promotions and bonuses may throw away a real signal. Individual and crew damages aren't fair game for weekly or biweekly coaching, but at a <b>quarterly</b> level they show clear trends and patterns that arguably should matter to both promotions and bonuses.</li></ul>",
+    debate: "Should damages be part of the individual performance bonus? Should damages be tracked down to the individual / crew level at all? And is the way we manage damages today the right form — or should it take a different shape entirely?"
+  },
+  {
+    id: "q3-theme",
+    title: "Q3 theme lock",
+    context: "The 7/15 Rob Lynch pre-work showed strong cross-leader convergence toward <b>\"speed to competence / build field-ready crews fast\"</b> — the placeholder is a <b>\"Back to School\" training theme</b>. Estimate Accuracy is the other candidate but likely slots to Q4 (gated on mover-app timestamps).",
+    lean: "Lock <b>Q3 = speed to competence — for everyone</b>: movers, managers, and CX reps, not just the field. \"Back to School\" is the working name (a stronger frame is welcome). The focus: <b>ongoing training, improved training days, and additional certifications</b> — and <b>every leader owns something</b> that keeps investing in the team's ongoing training and speed to competence. The training app is one piece; so are Brian's Scrum certification work and the call-grading program — a number of existing efforts already feed this. Estimate Accuracy → Q4.",
+    debate: "Is speed-to-competence-for-everyone the right Q3 theme, and does \"Back to School\" capture it — or is there a stronger frame? And what would <i>you</i> own: which ongoing-training or certification piece would you carry for your team?"
+  },
+  {
+    id: "mgr-sales-comp",
+    title: "Quarterly sales-comp component — for managers",
+    context: "The underlying problem: <b>frontline managers (BMs) have nothing that directly influences them to drive sales.</b> One proposed fix is a <b>separate, weighted quarterly sales-comp component</b> — not a raw multiplier on their pay — with the Amanda + Matisen quarterly-pace board as the prerequisite so attainment is visible and fair. But a new pay component isn't the only way to close the gap.",
+    lean: "The pay-component version on the table is a <b>separate weighted sales component tied to branch attainment</b>, with upside <b>gated on hitting other-KPI thresholds</b> (so a manager can't win on sales while other numbers slip) and real teeth on those thresholds. <b>But it may not be necessary:</b> if flex days (question 1) are conditioned on sales attainment, that alone may give managers the direct sales incentive — without adding a pay component at all.",
+    debate: "Do managers need a sales-comp component at all — or is some mix of the alternatives enough: flex days conditioned on sales attainment, ongoing coaching and management, tying sales to other initiatives, or sales competitions every other quarter or so? If we DO add pay, is \"branch attainment, gated on other KPIs\" the right structure — or does it distort behavior?"
+  }
+];
+
+const POSITIONS = [
+  { v:"agree",     label:"Agree with the lean",    cls:"good", title:"The lean as written is the right call" },
+  { v:"agree-mod", label:"Agree, with changes",    cls:"mid",  title:"Right direction, but I'd change something — say what in your reasoning" },
+  { v:"disagree",  label:"Disagree",               cls:"bad",  title:"I'd go a different way — make the case in your reasoning" },
+  { v:"undecided", label:"Undecided — debate it live", cls:"und", title:"I genuinely can't call it yet — write down what would swing you" }
+];
+
+/* ============ State ============ */
+let STATE = { leaders:{}, lastSaved:null };
+let currentLeaderId = null;
+let saveTimer = null;
+let EXPANDED = new Set();
+
+function loadState(){
+  try{ const raw = localStorage.getItem(LS_KEY); if(raw) STATE = Object.assign(STATE, JSON.parse(raw)); }catch(e){ console.warn("state load failed", e); }
+}
+function queueSave(){
+  clearTimeout(saveTimer);
+  saveTimer = setTimeout(()=>{
+    STATE.lastSaved = new Date().toISOString();
+    try{
+      localStorage.setItem(LS_KEY, JSON.stringify(STATE));
+      renderSaveStamp();
+    }catch(e){
+      const w = document.getElementById("storageWarn");
+      w.textContent = "⚠ NOT SAVING — this browser is blocking local storage. Don't close this tab. Export your ballot from the bottom section now and keep the file.";
+      w.classList.add("show");
+      document.getElementById("saveStamp").textContent = "NOT SAVING";
+    }
+  }, 250);
+}
+function renderSaveStamp(){
+  const el = document.getElementById("saveStamp");
+  el.textContent = STATE.lastSaved ? "Saved " + new Date(STATE.lastSaved).toLocaleTimeString([], {hour:"2-digit",minute:"2-digit"}) : "—";
+}
+function emptyBallot(leader){
+  return {
+    quarter: QUARTER,
+    votes: {},   // debate id -> { position, reasoning }
+    startedAt: null,
+    leader: { id: leader.id, name: leader.name, role: leader.role }
+  };
+}
+function getBallot(leader){
+  if(!STATE.leaders[leader.id]) STATE.leaders[leader.id] = emptyBallot(leader);
+  const b = STATE.leaders[leader.id];
+  if(!b.votes) b.votes = {};
+  return b;
+}
+function leaderById(id){ return LEADERS.find(l=>l.id===id); }
+function esc(s){ return String(s==null?"":s).replace(/&/g,"&amp;").replace(/</g,"&lt;").replace(/>/g,"&gt;").replace(/"/g,"&quot;"); }
+function stripHtml(s){ const d=document.createElement("div"); d.innerHTML=s; return (d.textContent||"").replace(/\s+/g," ").trim(); }
+function toast(msg){
+  const t = document.getElementById("toast");
+  t.textContent = msg; t.classList.add("show");
+  setTimeout(()=>t.classList.remove("show"), 2400);
+}
+
+/* ============ Progress ============ */
+function ballotProgress(ballot){
+  let done = 0, total = DEBATES.length * 2; // a position + reasoning per question
+  DEBATES.forEach(d=>{
+    const v = ballot.votes[d.id]||{};
+    if(v.position) done++;
+    if((v.reasoning||"").trim()) done++;
+  });
+  return total ? Math.round(done/total*100) : 0;
+}
+function votedCount(ballot){
+  return DEBATES.filter(d=>{
+    const v = ballot.votes[d.id]||{};
+    return v.position && (v.reasoning||"").trim();
+  }).length;
+}
+
+/* ============ Landing ============ */
+function renderLanding(){
+  const wrap = document.getElementById("view-landing");
+  let html = '<div class="landing-intro"><h2>Walk into the QGR already prepared</h2>'+
+    '<p>This is your prep hub for the Q3 QGR (July 29&ndash;30). The heart of it is the <b>debate ballot</b>: the four biggest open decisions on the table, with the context and where leadership is currently leaning &mdash; you register your position and reasoning <i>before</i> the room, ideally after talking it through with your AI chief of staff. Plan on 20&ndash;30 focused minutes. Everything saves automatically on this computer; nothing is shared until you export your ballot and send it to Cameron.</p></div>';
+  html += privacyBandHtml();
+  html += '<div class="leader-grid">';
+  LEADERS.forEach(l=>{
+    const b = STATE.leaders[l.id];
+    const pct = b ? ballotProgress(b) : 0;
+    html += '<div class="l-card"><div><div class="lname">'+esc(l.name)+(pct>0?' <span class="started">'+pct+'%</span>':'')+'</div><div class="lrole">'+esc(l.role)+'</div></div>'+
+      '<button class="open-btn" data-open="'+esc(l.id)+'">'+(pct>0?"Continue":"Open my hub")+'</button></div>';
+  });
+  html += '</div>';
+  wrap.innerHTML = html;
+  wrap.querySelectorAll("[data-open]").forEach(btn=>btn.addEventListener("click", ()=>openLeader(btn.dataset.open)));
+}
+
+function privacyBandHtml(){
+  return '<div class="privacy-band"><span class="pb-ico">🗳</span><div><b>Your ballot is yours alone until the room.</b> Nobody sees anybody else\'s position before the QGR &mdash; on purpose. You get the question, the context, and the current lean; you form your own take. Cameron collects everyone\'s exported ballots and brings the honest spread into the room. First independent thought, then the debate.</div></div>';
+}
+
+/* ============ Leader hub ============ */
+function openLeader(id){
+  currentLeaderId = id;
+  const leader = leaderById(id);
+  const ballot = getBallot(leader);
+  if(!ballot.startedAt){ ballot.startedAt = new Date().toISOString(); queueSave(); }
+  const firstOpen = DEBATES.find(d=>!(ballot.votes[d.id]||{}).position);
+  EXPANDED = new Set(firstOpen ? [firstOpen.id] : []);
+  document.getElementById("view-landing").classList.remove("active");
+  document.getElementById("view-hub").classList.add("active");
+  renderHub();
+  window.scrollTo(0,0);
+}
+function backToLanding(){
+  currentLeaderId = null;
+  document.getElementById("view-hub").classList.remove("active");
+  document.getElementById("view-landing").classList.add("active");
+  renderLanding();
+  window.scrollTo(0,0);
+}
+
+function renderHub(){
+  const leader = leaderById(currentLeaderId);
+  const ballot = getBallot(leader);
+  const wrap = document.getElementById("view-hub");
+  const pct = ballotProgress(ballot);
+  const keepY = window.scrollY; // full re-render must not move the page under the user
+
+  let html = '<button class="backlink" id="backBtn">&larr; All leaders</button>';
+  html += '<div class="hub-head"><div><h2>'+esc(leader.name)+'</h2><div class="sub">'+esc(leader.role)+' · Q3 2026 QGR prep</div></div>'+
+    '<div class="progress-wrap"><span class="tiny muted">Ballot '+pct+'% complete</span><div class="progress-track"><div class="progress-fill" style="width:'+pct+'%"></div></div></div></div>';
+  html += privacyBandHtml();
+  html += tilesHtml();
+  html += debateSectionHtml(leader, ballot);
+  html += exportSectionHtml(leader, ballot);
+  wrap.innerHTML = html;
+  wireHub(leader, ballot);
+  window.scrollTo(0, keepY);
+}
+
+/* ---- Hub shell tiles (V1 = links to what exists, not rebuilds) ---- */
+function tilesHtml(){
+  return '<div class="tile-grid">'+
+    '<div class="tile live"><h4>🗳 Debate Ballot <span class="now">Start here</span></h4><p>The four open decisions of this QGR. Read, think, talk it through with your COS, register your take, export. This is the piece that has to land before the room.</p><a class="tlink" href="#sec-debates" data-scrollto="sec-debates">Jump to the ballot ↓</a></div>'+
+    '<div class="tile"><h4>📅 Agenda</h4><p>Two full days, July 29&ndash;30, execution-focused. Day 1 = review the quarter (AARs, packet, grade sync). Day 2 = decide Q3 (theme, rocks, the ballot debates). The detailed agenda lands here before the QGR.</p></div>'+
+    '<div class="tile"><h4>✅ My Action Items</h4><p>Your open items live where they always do — your board. Sweep them before the room so the QGR starts clean.</p><a class="tlink" href="https://einsteinmoving.monday.com/boards/1146915251" target="_blank" rel="noopener">Open the Sky Board →</a></div>'+
+    '<div class="tile"><h4>📊 My QG Success Rates</h4><p>All 40 Q2 goals with self-grades (PROJ until the Day-1 grade sync). Know your own scorecard cold before you walk in.</p><a class="tlink" href="https://einsteinadmin.github.io/goals-dashboard/" target="_blank" rel="noopener">Open the Goals Dashboard →</a></div>'+
+    '<div class="tile"><h4>📈 Financial Packet + Presentation</h4><p>The Q2 financial analysis deck is sensitive — <b>Cameron shares access with you directly</b> rather than linking it here. If you don\'t have it by 7/28, ask him.</p></div>'+
+    '<div class="tile"><h4>🪞 Self-Eval (CHOICES) <span class="soon">If assigned</span></h4><p>The AAR + CHOICES self-eval exercise (the one leadership ran on itself, now pushed down to managers). If Cameron asks you to run one, it happens in the Manager AAR tool — he\'ll send the link.</p></div>'+
+    '<div class="tile soft"><h4>🌱 Goal Pre-work <span class="soon">Optional</span></h4><p>If you want a head start, you <i>can</i> begin drafting Q3 super-green definitions or your CHOICES self-eval with your COS. But easy does it — <b>we may just do this together in the room. Don\'t over-invest.</b></p></div>'+
+    '</div>';
+}
+
+/* ---- Debate section ---- */
+function debateSectionHtml(leader, ballot){
+  const voted = votedCount(ballot);
+  let html = '<div class="section" id="sec-debates"><div class="shead"><h3>🗳 The ballot — four open decisions</h3>'+
+    (voted===DEBATES.length?'<span class="done-chip">✓ all '+DEBATES.length+' answered</span>':'<span class="tiny muted">'+voted+' of '+DEBATES.length+' answered</span>')+'</div>'+
+    '<div class="shelp">For each question: the context, then <b>how leadership is currently leaning &mdash; a lean, not a mandate.</b> The lean is a starting point for the debate, and disagreeing with it is exactly what this ballot is for. Register your position, write your reasoning in your own words, and use the <b>COS prompt</b> button to pressure-test your take with your AI chief of staff before you lock it in.</div>';
+  DEBATES.forEach((d,i)=>{
+    const v = ballot.votes[d.id]||{};
+    const open = EXPANDED.has(d.id);
+    const complete = v.position && (v.reasoning||"").trim();
+    const posLabel = v.position ? (POSITIONS.find(p=>p.v===v.position)||{}).label : null;
+    html += '<div class="q-card'+(open?'':' collapsed')+'">'+
+      '<div class="qhead" data-qtoggle="'+esc(d.id)+'"><div class="qtitle"><span class="qnum">'+(i+1)+' ·</span> '+esc(d.title)+'</div>'+
+      '<div><span class="qsum '+(complete?'voted':'open')+'">'+(complete?esc(posLabel):(v.position?esc(posLabel)+' · reasoning owed':'not answered'))+'</span> <span class="caret">'+(open?'▾ close':'▸ open')+'</span></div></div>'+
+      '<div class="qbody">'+
+      '<div class="ctx-block">'+d.context+'</div>'+
+      '<div class="lean-block"><div class="lean-label">How leadership is currently leaning — a current lean, not a decision</div><div class="lean-body">'+d.lean+'</div></div>'+
+      '<div class="debate-line"><span class="dl-tag">The debate</span>'+d.debate+'</div>'+
+      '<div class="your-take"><div class="yt-label">Your take</div>'+
+      '<div class="chiprow">'+POSITIONS.map(p=>
+        '<button class="chip'+(v.position===p.v?' sel '+p.cls:'')+'" data-pos="'+esc(d.id)+'" data-val="'+esc(p.v)+'" title="'+esc(p.title)+'">'+esc(p.label)+'</button>'
+      ).join("")+'</div>'+
+      '<div class="q-block"><label>Your reasoning <span class="qhint">— the why, in your words. If you picked "with changes," name the changes. If undecided, what would swing you?</span></label>'+
+      '<textarea data-reason="'+esc(d.id)+'" class="'+(v.position && !(v.reasoning||"").trim()?'note-missing':'')+'" placeholder="Specific beats polished — your seat sees things the room can\'t.">'+esc(v.reasoning||"")+'</textarea></div>'+
+      '<div class="cos-row"><button data-cos="'+esc(d.id)+'">🎙 Copy COS discussion prompt</button><span class="cos-hint">Paste it to your AI chief of staff — it will argue both sides against your reality, then hand back a sharpened position.</span></div>'+
+      '</div></div></div>';
+  });
+  html += '</div>';
+  return html;
+}
+
+/* ---- Export section ---- */
+function exportSectionHtml(leader, ballot){
+  return '<div class="section" id="sec-export"><div class="shead"><h3>📤 Submit your ballot</h3></div>'+
+    '<div class="shelp">When all four are answered: <b>download the JSON ballot and send the file to Cameron</b> (Slack DM or email) — he aggregates everyone\'s before the room. The markdown copy is the readable version for your own notes or your COS.</div>'+
+    '<div class="export-actions">'+
+      '<button id="btnJson">Download JSON ballot → send to Cameron</button>'+
+      '<button id="btnMd" class="secondary">Copy markdown version</button>'+
+      '<button id="btnMdPreview" class="secondary">Preview</button>'+
+    '</div><textarea class="mdpreview" id="mdPreview" readonly></textarea></div>';
+}
+
+/* ============ Wiring ============ */
+function wireHub(leader, ballot){
+  const wrap = document.getElementById("view-hub");
+  document.getElementById("backBtn").addEventListener("click", backToLanding);
+
+  wrap.querySelectorAll("[data-scrollto]").forEach(a=>{
+    a.addEventListener("click", (e)=>{
+      e.preventDefault();
+      const el = document.getElementById(a.dataset.scrollto);
+      if(el) el.scrollIntoView({behavior:"smooth", block:"start"});
+    });
+  });
+  wrap.querySelectorAll("[data-qtoggle]").forEach(h=>{
+    h.addEventListener("click", (e)=>{
+      if(e.target.closest("button,textarea,a")) return;
+      const id = h.dataset.qtoggle;
+      if(EXPANDED.has(id)) EXPANDED.delete(id); else EXPANDED.add(id);
+      renderHub();
+    });
+  });
+  wrap.querySelectorAll("[data-pos]").forEach(btn=>{
+    btn.addEventListener("click", ()=>{
+      const id = btn.dataset.pos, val = btn.dataset.val;
+      if(!ballot.votes[id]) ballot.votes[id] = {};
+      ballot.votes[id].position = ballot.votes[id].position===val ? null : val;
+      queueSave(); renderHub();
+    });
+  });
+  wrap.querySelectorAll("[data-reason]").forEach(ta=>{
+    ta.addEventListener("input", ()=>{
+      const id = ta.dataset.reason;
+      if(!ballot.votes[id]) ballot.votes[id] = {};
+      ballot.votes[id].reasoning = ta.value;
+      queueSave();
+    });
+  });
+  wrap.querySelectorAll("[data-cos]").forEach(btn=>{
+    btn.addEventListener("click", ()=>{
+      const d = DEBATES.find(x=>x.id===btn.dataset.cos);
+      const prompt = buildCosPrompt(leader, ballot, d);
+      copyText(prompt, "COS prompt copied — paste it to your AI chief of staff");
+    });
+  });
+  document.getElementById("btnJson").addEventListener("click", ()=>{
+    const missing = DEBATES.filter(d=>{ const v=ballot.votes[d.id]||{}; return !v.position || !(v.reasoning||"").trim(); });
+    downloadFile("qgr-ballot-"+leader.id+"-q3-2026.json", JSON.stringify(buildJsonBallot(leader, ballot), null, 2), "application/json");
+    toast(missing.length ? "Ballot downloaded — heads up, "+missing.length+" question"+(missing.length>1?"s":"")+" still incomplete" : "Ballot downloaded — send the file to Cameron");
+  });
+  document.getElementById("btnMd").addEventListener("click", ()=>{
+    const md = buildMarkdown(leader, ballot);
+    const pv = document.getElementById("mdPreview");
+    pv.value = md; pv.classList.add("show");
+    copyText(md, "Markdown copied");
+  });
+  document.getElementById("btnMdPreview").addEventListener("click", ()=>{
+    const pv = document.getElementById("mdPreview");
+    pv.value = buildMarkdown(leader, ballot); pv.classList.toggle("show");
+  });
+}
+function copyText(text, okMsg){
+  if(navigator.clipboard && navigator.clipboard.writeText){
+    navigator.clipboard.writeText(text).then(()=>toast(okMsg), ()=>toast("Copy blocked — select it from the preview below"));
+  } else {
+    const pv = document.getElementById("mdPreview");
+    if(pv){ pv.value = text; pv.classList.add("show"); }
+    toast("Copy not available in this browser — select it from the preview below");
+  }
+}
+
+/* ============ Export builders ============ */
+function buildJsonBallot(leader, ballot){
+  return {
+    schema: "einstein-qgr-ballot/v1",
+    exportedAt: new Date().toISOString(),
+    quarter: QUARTER,
+    leader: { id: leader.id, name: leader.name, role: leader.role },
+    ballot: DEBATES.map(d=>{
+      const v = ballot.votes[d.id]||{};
+      return {
+        id: d.id, title: d.title,
+        question: stripHtml(d.debate),
+        leanShown: stripHtml(d.lean),   // snapshot of the lean the leader saw, in case it gets redlined later
+        position: v.position||null,
+        positionLabel: v.position ? (POSITIONS.find(p=>p.v===v.position)||{}).label : null,
+        reasoning: (v.reasoning||"").trim()
+      };
+    }),
+    startedAt: ballot.startedAt||null
+  };
+}
+function buildMarkdown(leader, ballot){
+  const d = new Date().toISOString().slice(0,10);
+  let md = "# QGR Ballot — "+leader.name+" — "+d+"\n*"+leader.role+" · Q3 2026 QGR (7/29–30)*\n\n";
+  DEBATES.forEach((q,i)=>{
+    const v = ballot.votes[q.id]||{};
+    const posLabel = v.position ? (POSITIONS.find(p=>p.v===v.position)||{}).label : "—";
+    md += "## "+(i+1)+" · "+q.title+"\n";
+    md += "- The debate: "+stripHtml(q.debate)+"\n";
+    md += "- **My position: "+posLabel+"**\n";
+    md += "- My reasoning: "+((v.reasoning||"").trim()||"—")+"\n\n";
+  });
+  return md;
+}
+function buildCosPrompt(leader, ballot, d){
+  const v = ballot.votes[d.id]||{};
+  const posLabel = v.position ? (POSITIONS.find(p=>p.v===v.position)||{}).label : "no position yet";
+  return "You are my thinking partner for a leadership debate at Einstein Moving Company's quarterly QGR (July 29–30). I'm "+leader.name+", "+leader.role+". Nobody sees my ballot before the room, so be honest, not diplomatic.\n\n"+
+    "## The question\n"+d.title+"\n\n"+
+    "## Context\n"+stripHtml(d.context)+"\n\n"+
+    "## How leadership is currently leaning (a lean, NOT a decision — I'm free to disagree)\n"+stripHtml(d.lean)+"\n\n"+
+    "## The debate\n"+stripHtml(d.debate)+"\n\n"+
+    "## My draft take\nPosition: "+posLabel+"\nReasoning so far: "+((v.reasoning||"").trim()||"(blank — help me form one)")+"\n\n"+
+    "## What I need from you\n"+
+    "1. Steelman BOTH sides — the strongest honest case for the lean and the strongest case against it.\n"+
+    "2. Pressure-test my draft against what you know about my department and my seat: where does this decision hit MY world, and what would I see go wrong first?\n"+
+    "3. Ask me the 2–3 questions that would most change my answer.\n"+
+    "4. Then help me land a final position (Agree with the lean / Agree, with changes / Disagree / Undecided) and 3–6 sentences of reasoning in MY voice — specific, from my seat, no corporate speak.\n\n"+
+    "I'll paste the final reasoning back into my ballot and export it to Cameron before the QGR.";
+}
+function downloadFile(filename, text, mime){
+  const blob = new Blob([text], {type: mime||"text/plain"});
+  const url = URL.createObjectURL(blob);
+  const a = document.createElement("a");
+  a.href = url; a.download = filename; document.body.appendChild(a); a.click();
+  setTimeout(()=>{ document.body.removeChild(a); URL.revokeObjectURL(url); }, 100);
+}
+
+/* ============ Boot ============ */
+loadState();
+renderSaveStamp();
+renderLanding();
+</script>
+</body>
+</html>
