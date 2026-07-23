@@ -5,7 +5,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <meta name="robots" content="noindex,nofollow">
 <title>Einstein QGR Workshop — Leader Hub</title>
-<!-- qgr-workshop-hub v1.5 2026-07-23 — PA-Directs tile wired LIVE (einstein-pa-directs-da2d210013ca, eval-session handoff closed); v1.4: hidden leans · +2 no-lean ballot Qs · goal pre-work scaffold · per-leader action items (DRAFT) · export schema v3 -->
+<!-- qgr-workshop-hub v1.5.1 2026-07-23 — FIX: ballotProgress() now guards missing choices/votes so a legacy/partial saved ballot can't throw and blank the landing (Cameron empty-hub repro). v1.5: PA-Directs tile wired LIVE (einstein-pa-directs-da2d210013ca, eval-session handoff closed); v1.4: hidden leans · +2 no-lean ballot Qs · goal pre-work scaffold · per-leader action items (DRAFT) · export schema v3 -->
 
 <!--
   QGR WORKSHOP HUB — V1 (leader-facing mirror of the QGR Command HQ)
@@ -408,13 +408,18 @@ function toast(msg){
 /* ============ Progress ============ */
 function ballotProgress(ballot){
   // ballot (position + reasoning per question) + CHOICES (a score with its note per value)
+  // NOTE: callers may pass a RAW stored ballot (e.g. renderLanding), so guard every
+  // field here — a legacy save missing `choices`/`votes` must never throw and blank the page.
   let done = 0, total = DEBATES.length * 2 + CORE_VALUES.length;
+  const votes = (ballot && ballot.votes) || {};
+  const items = (ballot && ballot.choices && ballot.choices.items) || {};
+  const notes = (ballot && ballot.choices && ballot.choices.itemNotes) || {};
   DEBATES.forEach(d=>{
-    const v = ballot.votes[d.id]||{};
+    const v = votes[d.id]||{};
     if(v.position) done++;
     if((v.reasoning||"").trim()) done++;
   });
-  CORE_VALUES.forEach(cv=>{ if(ballot.choices.items[cv] && (ballot.choices.itemNotes[cv]||"").trim()) done++; });
+  CORE_VALUES.forEach(cv=>{ if(items[cv] && (notes[cv]||"").trim()) done++; });
   return total ? Math.round(done/total*100) : 0;
 }
 function choicesDone(ballot){ return CORE_VALUES.every(cv=>ballot.choices.items[cv]); }
