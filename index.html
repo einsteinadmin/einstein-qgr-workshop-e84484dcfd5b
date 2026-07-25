@@ -5,7 +5,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <meta name="robots" content="noindex,nofollow">
 <title>Einstein QGR Workshop — Leader Hub</title>
-<!-- qgr-workshop-hub v1.6 2026-07-23 — Frontline Packet tile added (DRAFT preview, q2-materials). Prior: v1.5.1 — FIX: ballotProgress() now guards missing choices/votes so a legacy/partial saved ballot can't throw and blank the landing (Cameron empty-hub repro). v1.5: PA-Directs tile wired LIVE (einstein-pa-directs-da2d210013ca, eval-session handoff closed); v1.4: hidden leans · +2 no-lean ballot Qs · goal pre-work scaffold · per-leader action items (DRAFT) · export schema v3 -->
+<!-- qgr-workshop-hub v1.8.1 2026-07-25 — Cameron's eyeball fixes + DEPLOY: Brian/Mike routing dropdowns now carry the FULL manager seats (BM+OM+FM, 15 and 10, mirroring the mgr-AAR roster — BMs alone was missing people) · M1 merged into 11728355420 (same thing per Cameron; Mike 8→7 cards) · 3 fresh reference pulses created in lieu of un-archiving (Ongoing Education 12626630060 · Damage Score 12626624482 · A4 eNPS 12626620998) — every card now links to a live pulse. Prior: v1.8 2026-07-25 — PHASE 2: the pick-5 goal module (replaces the goal pre-work scaffold). Each leader gets THEIR slice of the walked Q3 shortlist (43 cards, trued-up Master Backlog 7/24 — every card links to its live reference pulse) · CUT, NOT CONFIRM: pick 5, every unpicked card gets routed (room decides / assign to a direct via dropdown / park) · Green + Super Green + How-measured bars unlock ONLY on picked cards, ALL BLANK by Cameron's ruling (no pre-drafted bars, the 12 existing drafts deliberately withheld) · leaders nominate their OWN 2 criticals · additions flagged for the room, no forced trade · shared targets labeled both sides · own COS prompt · export schema v5 (+goals block; prework dropped, legacy drafts carried as legacyPrework). Prior: v1.7 2026-07-24 — Cameron's ballot fold: +3 questions (sales COMPETITION for everyone; sales-training + Carly/Magic-Moments targeted to Amanda via the new `forLeaders` field) · new SPEED-TO-COMPETENCE BUILD SHEET (5 role tracks + theme name + Green/Super-Green gates, own COS prompt) · core-vs-optional questions (CORE_QIDS — progress meter counts core only) · open-ended question type (no position chips) · export schema v4 (+buildsheet, +core/openEnded/targeted flags; ballot[] now leader-filtered) · fixed stale "four open decisions" copy. Prior: v1.6 — Frontline Packet tile added (DRAFT preview, q2-materials). Prior: v1.5.1 — FIX: ballotProgress() now guards missing choices/votes so a legacy/partial saved ballot can't throw and blank the landing (Cameron empty-hub repro). v1.5: PA-Directs tile wired LIVE (einstein-pa-directs-da2d210013ca, eval-session handoff closed); v1.4: hidden leans · +2 no-lean ballot Qs · goal pre-work scaffold · per-leader action items (DRAFT) · export schema v3 -->
 
 <!--
   QGR WORKSHOP HUB — V1 (leader-facing mirror of the QGR Command HQ)
@@ -177,6 +177,25 @@ details.lean-reveal .lr-hint{font-weight:400;color:var(--navy-400)}
 .chip .csub{display:block;font-size:8.5px;font-weight:700;letter-spacing:.02em;text-transform:uppercase;color:var(--grey-400);margin-top:1px;line-height:1.1}
 .chip.sel .csub{color:rgba(255,255,255,.85)}
 
+/* build sheet — speed-to-competence theme design by role */
+.bs-name{background:var(--orange-50);border:1px solid var(--orange-100);border-radius:var(--radius-md);padding:14px 18px;margin-bottom:16px}
+.bs-name label{display:block;font-size:12px;font-weight:700;color:var(--navy-500);margin-bottom:5px}
+.bs-name input{width:100%;max-width:520px;border:1px solid var(--orange-200);border-radius:var(--radius-sm);padding:9px 12px;font:inherit;font-size:13.5px;font-weight:700;color:var(--navy-500)}
+.bs-name .bs-hint{font-size:11.5px;color:var(--grey-500);margin-top:7px;line-height:1.55;max-width:720px}
+.track{border:1px solid var(--grey-100);border-radius:var(--radius-md);padding:16px 18px;margin-bottom:12px}
+.track .thead{display:flex;align-items:center;gap:8px;margin-bottom:7px}
+.track .thead h4{font-size:13.5px}
+.track .tdone{font-size:10.5px;font-weight:700;color:var(--success);margin-left:auto}
+.track .tprompt{font-size:12.5px;color:var(--grey-500);line-height:1.6;margin-bottom:9px}
+.track .tprompt b{color:var(--navy-500)}
+.track textarea{width:100%;border:1px solid var(--grey-200);border-radius:var(--radius-sm);padding:9px 11px;font:inherit;font-size:12.5px;resize:vertical;min-height:64px}
+.gate-grid{display:grid;grid-template-columns:1fr 1fr;gap:10px;margin-top:10px}
+@media (max-width:640px){.gate-grid{grid-template-columns:1fr}}
+.gate-grid label{display:block;font-size:10.5px;font-weight:700;color:var(--navy-400);text-transform:uppercase;letter-spacing:.04em;margin-bottom:4px}
+.gate-grid textarea{min-height:48px}
+.opt-chip{font-size:9.5px;font-weight:700;background:var(--grey-100);color:var(--grey-500);border-radius:var(--radius-pill);padding:2px 8px;text-transform:uppercase;letter-spacing:.04em;margin-left:7px;vertical-align:middle}
+.tgt-chip{font-size:9.5px;font-weight:700;background:var(--blue-50);color:var(--blue-900);border:1px solid var(--blue-100);border-radius:var(--radius-pill);padding:2px 8px;text-transform:uppercase;letter-spacing:.04em;margin-left:7px;vertical-align:middle}
+
 /* export */
 .export-actions{display:flex;gap:10px;flex-wrap:wrap;margin-top:8px}
 .export-actions button{background:var(--navy-500);color:#fff;border:none;border-radius:var(--radius-sm);padding:11px 20px;font-size:12.5px;font-weight:700}
@@ -193,11 +212,42 @@ footer{background:var(--navy-700);color:var(--navy-100);text-align:center;paddin
   #appHeader .savebox{display:none}
   .hub-head .progress-wrap{width:100%}
 }
+/* ---- Pick-5 goal module ---- */
+.gw-counter{display:flex;gap:10px;flex-wrap:wrap;margin-bottom:14px}
+.gw-pill{font-size:11.5px;font-weight:700;border-radius:var(--radius-pill);padding:4px 12px;background:var(--grey-100);color:var(--grey-500)}
+.gw-pill.ok{background:#E3EEDF;color:#3E6636}
+.g-card{border:1px solid var(--grey-100);border-radius:var(--radius-md);padding:14px 16px;margin-bottom:10px;background:#fff}
+.g-card.picked{border-color:var(--orange-200);background:var(--orange-50)}
+.g-card .ghead{display:flex;justify-content:space-between;align-items:flex-start;gap:12px}
+.g-card .gname{font-size:13.5px;font-weight:700;color:var(--navy-500);line-height:1.4}
+.g-card .gmeta{font-size:10.5px;color:var(--grey-400);margin-top:3px;display:flex;gap:10px;flex-wrap:wrap;align-items:center}
+.g-card .gmeta a{font-weight:700}
+.shared-chip{font-size:9.5px;font-weight:700;background:var(--blue-50);color:var(--blue-700);border:1px solid var(--blue-100);border-radius:var(--radius-pill);padding:1px 8px;white-space:nowrap}
+.gbtns{display:flex;gap:6px;align-items:center;flex-shrink:0}
+.gpick{border:1.5px solid var(--grey-200);background:#fff;color:var(--grey-500);border-radius:var(--radius-pill);padding:6px 14px;font-size:11.5px;font-weight:700;white-space:nowrap}
+.gpick.sel{border-color:var(--orange-500);background:var(--orange-500);color:#fff}
+.gcrit{border:1.5px solid var(--grey-200);background:#fff;color:var(--grey-400);border-radius:var(--radius-pill);padding:6px 10px;font-size:11.5px;font-weight:700;white-space:nowrap}
+.gcrit.sel{border-color:var(--navy-500);background:var(--navy-500);color:#fff}
+.gbars{display:grid;grid-template-columns:1fr 1fr 1fr;gap:10px;margin-top:12px}
+.gbars label{font-size:10.5px;font-weight:700;color:var(--grey-500);display:block;margin-bottom:3px;text-transform:uppercase;letter-spacing:.03em}
+.gbars textarea{width:100%;min-height:74px;border:1px solid var(--grey-100);border-radius:var(--radius-sm);padding:8px 10px;font:inherit;font-size:12px;resize:vertical}
+.gbars textarea:focus{outline:2px solid var(--blue-100)}
+@media (max-width:720px){.gbars{grid-template-columns:1fr}}
+.groute{display:flex;align-items:center;gap:8px;margin-top:10px;font-size:11.5px;color:var(--grey-400)}
+.groute select{font:inherit;font-size:11.5px;border:1px solid var(--grey-100);border-radius:var(--radius-sm);padding:5px 8px;color:var(--grey-700);background:#fff;max-width:280px}
+.g-add{border:1.5px dashed var(--blue-100);border-radius:var(--radius-md);padding:14px 16px;margin-bottom:10px;background:var(--blue-50)}
+.g-add .flag{font-size:9.5px;font-weight:700;background:#fff;color:var(--blue-700);border:1px solid var(--blue-100);border-radius:var(--radius-pill);padding:1px 8px;text-transform:uppercase;letter-spacing:.04em}
+.g-add input[type=text]{width:100%;border:1px solid var(--blue-100);border-radius:var(--radius-sm);padding:8px 10px;font:inherit;font-size:13px;font-weight:700;margin:8px 0}
+.g-add textarea{width:100%;min-height:56px;border:1px solid var(--blue-100);border-radius:var(--radius-sm);padding:8px 10px;font:inherit;font-size:12px;resize:vertical}
+.g-add .gdel{background:none;border:none;color:var(--error);font-size:11px;font-weight:700;float:right}
+#btnAddGoal{border:1.5px dashed var(--grey-200);background:none;color:var(--blue-500);border-radius:var(--radius-md);padding:10px 16px;font-size:12px;font-weight:700;width:100%;margin-top:4px}
+#btnAddGoal:hover{border-color:var(--blue-100);background:var(--blue-50)}
+.arch-note{font-size:10px;color:var(--grey-400);font-style:italic}
 </style>
 </head>
 <body>
 <header id="appHeader">
-  <div class="brand"><span class="bebas">EINSTEIN QGR WORKSHOP</span><span class="tag">Leader Hub · Q3 2026 QGR · July 29–30 · V1.5</span></div>
+  <div class="brand"><span class="bebas">EINSTEIN QGR WORKSHOP</span><span class="tag">Leader Hub · Q3 2026 QGR · July 29–30 · V1.7</span></div>
   <div class="savebox" id="saveBox">Local only — nothing leaves this computer until you export<br><b id="saveStamp">—</b></div>
 </header>
 <main>
@@ -268,6 +318,36 @@ const DEBATES = [
     debate: "Do managers need a sales-comp component at all — or is some mix of the alternatives enough: flex days conditioned on sales attainment, ongoing coaching and management, tying sales to other initiatives, or sales competitions every other quarter or so? If we DO add pay, is \"branch attainment, gated on other KPIs\" the right structure — or does it distort behavior?"
   },
   {
+    id: "sales-competition",
+    title: "A sales competition this quarter",
+    context: "Different animal from question 4 &mdash; that one is about <b>pay</b>, this one is about a <b>contest</b>. They're linked: if we run real competitions, that may be the thing that pulls managers toward sales without touching comp at all. Right now there is no sales competition on the Q3 calendar.",
+    lean: null,
+    leanNote: "Leadership hasn't written a lean here yet &mdash; <b>deliberately</b>. Bring the version you'd actually want to run, not a vote on the idea in the abstract.",
+    options: [
+      {v:"yes-q3",    label:"Yes — run one this quarter",      cls:"good", title:"Design it in the room, launch in Q3"},
+      {v:"yes-later", label:"Yes — but not until after peak",  cls:"mid",  title:"Right idea, wrong timing — say when in your reasoning"},
+      {v:"no",        label:"No — not this quarter",           cls:"bad",  title:"Make the case for what we do instead"},
+      {v:"undecided", label:"Undecided — debate it live",      cls:"und",  title:"Write down what would swing you"}
+    ],
+    debate: "Should we run a sales competition this quarter? If yes, answer the four things that decide whether it works: <b>(a) who's eligible</b> &mdash; BMs only, whole branches, individual reps, CX too? <b>(b) what are the guardrails and conditions</b> &mdash; what has to be true to win, and what stops someone gaming it? <b>(c) monthly winners or quarterly only?</b> <b>(d) what's the prize</b> &mdash; and is it big enough that behavior actually changes?"
+  },
+  {
+    id: "sales-training",
+    title: "Sales training — our biggest opportunities",
+    forLeaders: ["amanda"],
+    openEnded: true,
+    context: "This one is aimed at <b>you and Nhel</b> &mdash; talk it through with her and answer for both of you. It feeds the Q3 theme directly: if speed to competence covers CX the same way it covers the field, sales training is where it shows up first. Two Q2 facts that matter: estimate accuracy landed at <b>46.3%</b> on the 20%-variance measure (red against a 50% green bar), and Nhel's own #1 named roadblock was having no real-time view to coach against.",
+    debate: "Two questions. <b>(a)</b> What are our biggest opportunities to improve sales training? <b>(b)</b> If you could re-certify people on anything &mdash; one skill, one script, one part of the system &mdash; what would it be, and why that one first?"
+  },
+  {
+    id: "carly-magic-moments",
+    title: "Carly's capacity — more Magic Moments?",
+    forLeaders: ["amanda"],
+    openEnded: true,
+    context: "Magic Moments has been parked since roughly March while Carly was out. The rollout vision is still on the shelf and ready to go &mdash; truck kit, EMMA hooks, scripts, the app piece. The question is purely capacity, not appetite.",
+    debate: "Will Carly have more time to roll out more Magic Moments this quarter? Give the honest read on her capacity &mdash; and if the answer is yes, what would she realistically get to, and what comes off her plate to make room?"
+  },
+  {
     id: "conversion-standard",
     title: "Our new standard for conversion rate by dollar",
     context: "The company bar has been <b>Conversion Rate $ = 40%</b>. A quarter of aggressive summer pricing, the Q2 numbers, and the constraint work (Houston conversion showed up as a binding constraint) all raise the question of whether 40% is still the right standard — and whether one company number is even the right shape, vs. per-branch or per-season bars.",
@@ -294,6 +374,61 @@ const DEBATES = [
       {v:"undecided", label:"Undecided — debate it live", cls:"und", title:"Write down what would swing you"}
     ],
     debate: "Do we push the COS system to certain branch managers — and if yes: who first, what do they get (a full COS vs. shared tools), and what's the support model so it sticks?"
+  }
+];
+
+/* ------------------------------------------------------------
+   CORE vs OPTIONAL. Core questions are the ones everyone has to
+   answer — they're the only ones the progress meter counts. The
+   rest still render, still export, just marked "optional" so a
+   long ballot doesn't produce eight rushed answers.
+   ⚠ Cameron: add/remove ids here to change what counts as core.
+   ------------------------------------------------------------ */
+const CORE_QIDS = new Set([
+  "flex-days", "damages-metric", "q3-theme", "mgr-sales-comp", "sales-competition",
+  "sales-training", "carly-magic-moments"   // Amanda-targeted — core for her, invisible to everyone else
+]);
+function isCore(d){ return CORE_QIDS.has(d.id); }
+
+/* A question with `forLeaders` renders ONLY for those leaders. Not hidden
+   behind anything — simply not built, not counted, not exported for anyone
+   else, so no one votes on a question about somebody else's department. */
+function debatesFor(leaderId){
+  return DEBATES.filter(d=>!d.forLeaders || (leaderId && d.forLeaders.indexOf(leaderId) !== -1));
+}
+
+/* ============================================================
+   SPEED-TO-COMPETENCE BUILD SHEET — the Q3 theme, designed by role.
+   Ballot question 3 asks IS this the theme. This asks HOW we run it.
+   ⚠ REDLINE ZONE: these are Cameron's questions — edit freely.
+   `gate:true` = this role gets Green / Super Green inputs.
+   ============================================================ */
+const THEME_WORKING_NAME = "Back to School";
+const TRACKS = [
+  {
+    id:"movers", label:"Movers", icon:"📦", gate:true,
+    prompt:"Is this just completing the mover training app &mdash; which only pertains to <b>leads in training</b> &mdash; or does it reach movers already on the truck? Should existing movers take additional recertifications? Is there a <b>back-to-basics recertification</b> so everyone gets retrained on the fundamentals the new app rolls out? Should training days get an enhanced focus, and if so, what actually changes about them?",
+    ph:"What the mover track really is in Q3 — who it touches, and what they do differently."
+  },
+  {
+    id:"leads", label:"Leads", icon:"🎓", gate:false,
+    prompt:"If we did want leads to go through some sort of retraining, <b>how would we go about handling it?</b> They're the ones running crews, so pulling them costs the most &mdash; what's the mechanism that doesn't wreck the schedule?",
+    ph:"How lead retraining works in practice — or the case for why it shouldn't happen this quarter."
+  },
+  {
+    id:"managers", label:"Managers (BMs / OMs)", icon:"🧭", gate:true,
+    prompt:"Is overseeing the mover-app rollout a big enough change on its own, while they stay on top of sales and hiring and everything else? Or do managers take additional recertifications too? One idea on the table: <b>a menu they pick from</b> &mdash; the Scrum HQ, the CHOICES module, reading something like <i>Ideal Team Player</i> &mdash; and if they complete a certain number <b>and we evaluate their comprehension</b> of the material, they achieve a status.",
+    ph:"Rollout-only, or rollout plus a certification menu? If a menu — what's on it, how many, and how do we test comprehension?"
+  },
+  {
+    id:"cx", label:"CX Reps (CERs)", icon:"🎧", gate:true,
+    prompt:"How does this apply to Customer Experience Reps? Do they need to review a certain amount of <b>automated grades</b>? Achieve competency by taking recertifications? Do they need to read anything? What's the equivalent of a training day for someone on the phones?",
+    ph:"The CX version of the theme — what a rep actually does differently this quarter."
+  },
+  {
+    id:"support", label:"Employee Experience + IT", icon:"🛠", gate:false,
+    prompt:"How do <b>Employee Experience</b> and <b>IT</b> contribute to this theme? Every leader owns something, and these two aren't running crews or phones &mdash; so what's their piece? (Hiring-funnel speed, onboarding, the systems that make training measurable, something else entirely?)",
+    ph:"What EX and IT own in a speed-to-competence quarter."
   }
 ];
 
@@ -333,6 +468,109 @@ const ACTION_ITEMS = {
   matisen: ["Dream Team roster", "Games scores reconciled (data day 7/27–28)", "Forecaster row-6 target validation (w/ Paul)", "Conversion-YoY view (ships separately, preliminary OK)"],
   anne:    ["Rippling org-chart reconcile (3 manager-name rulings + 6 vacant seats)", "Final hiring-targets staffing % confirm"]
 };
+
+/* ============================================================
+   Q3 SHORTLIST — each leader's slice of the walked shortlist.
+   Source: Cameron's 196-card triage walk (7/24) + the Master
+   Backlog true-up (7/24) + his 7/25 rulings (A1 fresh pulse,
+   A2 reuse). Every card links to its LIVE reference pulse —
+   Cameron's model: after the room, you duplicate the reference
+   pulse onto your own board for tracking.
+   ⚠ DELIBERATE OMISSIONS (Cameron's rulings — do not "fix"):
+   · NO draft Green/Super Green bars are shown, even where
+     drafts exist — every leader writes their own from blank.
+   · NO critical flags from the triage walk are shown — leaders
+     nominate their OWN 2 criticals below.
+   `shared` = the same target is on another leader's list too
+   (deliberate, Cameron 7/24 — label it, never collapse it).
+   7/25 late: every card now has a LIVE pulse — the 2 archived
+   ones replaced with fresh reference pulses (12626630060,
+   12626624482), A4 got its pulse (12626620998), and M1 merged
+   into 11728355420 (Cameron: same thing as the handbook card —
+   M1 predated the every-tile-needs-a-pulse rule). Mike = 7 cards.
+   ============================================================ */
+const MB_BOARD_URL = "https://einsteinmoving.monday.com/boards/18408300070/pulses/";
+const SHORTLIST = {
+  cameron: [
+    {"k": "12556457451", "name": "Q3 Theme Stewardship — \"Back to School\" Launch + Scoreboard", "pulse": "12556457451"},
+    {"k": "11741160101", "name": "Cameron/KP — Oversee Website Redesign (Smart Move System Rollout Part 2)", "pulse": "11741160101", "shared": ["kickpoint"]},
+    {"k": "11728346747", "name": "Evaluate Flex Fridays or Compressed Schedule for Slow Season", "pulse": "11728346747"},
+    {"k": "11728360355", "name": "Build out ECP Certification and Training Course for Managers — ECP Coaching Tool", "pulse": "11728360355"},
+    {"k": "11728346695", "name": "Implement One-Page Personal Plans for Leadership Team Trial", "pulse": "11728346695"},
+    {"k": "12442555987", "name": "COS/World Model Part 2 — Tier 3 pilot as Q3 rock + beta test COS with power-user BMs (Claude Tags)", "pulse": "12442555987"},
+    {"k": "12556198241", "name": "AI/Tool Governance — Central Data Bus + EMMA Toolkit + Monthly Big Rocks Review", "pulse": "12556198241", "shared": ["matisen"]},
+    {"k": "12626630060", "name": "Ongoing Education — Books, Seminars, Conferences, Courses", "pulse": "12626630060"}
+  ],
+  paul: [
+    {"k": "11728336219", "name": "Acquisition Case Study — New Branch vs. Acquisition Model", "pulse": "11728336219"},
+    {"k": "11728362120", "name": "Improve Invoicing + AR Collections Tracking", "pulse": "11728362120"},
+    {"k": "11728394236", "name": "Improve BM Financial Accountability Meetings — Proactive Approach", "pulse": "11728394236"},
+    {"k": "11752733644", "name": "Annual Mover Comp Review — Pay Structure + Promotion Paths", "pulse": "11752733644"}
+  ],
+  amanda: [
+    {"k": "11733923810", "name": "Call Grading at Volume — Distribution + Coaching Loop", "pulse": "11733923810"},
+    {"k": "12556457452", "name": "Demand Pursuit Muscle — Speed-to-Lead SLA + Follow-Up Cadence", "pulse": "12556457452"},
+    {"k": "11728336248", "name": "Chatbot Launch + Leadferno Sunset (carry, finish line)", "pulse": "11728336248", "shared": ["matisen"]},
+    {"k": "12596528246", "name": "Extend New Email Design System to Full Email Suite — Shorter, Video-First, Fewer Words", "pulse": "12596528246"},
+    {"k": "11864128674", "name": "Lead Treatment Framework — Triage Cohort A vs Cohort B vs directBook", "pulse": "11864128674"}
+  ],
+  brian: [
+    {"k": "11733927754", "name": "Training Day Overhaul (Stations + Quizzes + Games Integration)", "pulse": "11733927754"},
+    {"k": "12579679101", "name": "Connection Cadence — quarterly regional outing + mover-manager roundtables (bundles the 5 eNPS asks)", "pulse": "12579679101"},
+    {"k": "11728362071", "name": "ATX Flex Manager + SA Ops Manager Development", "pulse": "11728362071"},
+    {"k": "11728362090", "name": "CTXH Quarterly Theme Mgmt — Ensure All Managers Hit QGs", "pulse": "11728362090"},
+    {"k": "11728355560", "name": "CTXH Branch Audits — 3 of 5 Branches per Quarter", "pulse": "11728355560"},
+    {"k": "11728336199", "name": "Scrum Accountability Part 3 — Huddle Grading + Value Tracking", "pulse": "11728336199"}
+  ],
+  mike: [
+    {"k": "11728355420", "name": "Mover Training App — Company-Wide Rollout + Driver-Training Port + Digital Training Handbook", "pulse": "11728355420"},
+    {"k": "11741153314", "name": "DFWT Staffing + New-Manager Development", "pulse": "11741153314"},
+    {"k": "12625952608", "name": "Fleet Safety Pt 3 — Carry the Red, Restructured", "pulse": "12625952608"},
+    {"k": "11728346683", "name": "Standardize Inventory + Reduce Inventory Loss Costs (automate)", "pulse": "11728346683"},
+    {"k": "11733914538", "name": "Fleet Damage Tracking App (Replit Beta)", "pulse": "11733914538"},
+    {"k": "12556464031", "name": "Dept-Head/Regional Split — FDE Boots-on-Ground Weeks + Dept-Head QGs as Critical Number", "pulse": "12556464031"},
+    {"k": "11728336223", "name": "Sell Remaining Trucks + Fund 2026 Fleet Purchases", "pulse": "11728336223"}
+  ],
+  matisen: [
+    {"k": "12556198241", "name": "Central Data Bus + Tool Registry (AI/Tool Governance build)", "pulse": "12556198241", "shared": ["cameron"]},
+    {"k": "11728336246", "name": "Transition Performance Log Tracking to Monday Board (pending mover app / Rippling)", "pulse": "11728336246"},
+    {"k": "11728336248", "name": "Replace Leadferno with AI Chatbot on Website", "pulse": "11728336248", "shared": ["amanda"]},
+    {"k": "11864233705", "name": "QG and COS Support Blocks (16 Half Lab Days)", "pulse": "11864233705"},
+    {"k": "11733926383", "name": "EMMA API External Access (Unblocks AI COS + KPIs)", "pulse": "11733926383"},
+    {"k": "12626624482", "name": "Improve Damage Score Assignment — Individual Mover Attribution", "pulse": "12626624482"}
+  ],
+  anne: [
+    {"k": "12626354209", "name": "Trial-Day Elimination → HPE Go-Live Aug 1", "pulse": "12626354209"},
+    {"k": "11728362147", "name": "Mover Promotion Framework — First Cohort Live", "pulse": "11728362147"},
+    {"k": "11728362110", "name": "Onboarding Experience — Close It Out (carry, finish line)", "pulse": "11728362110"},
+    {"k": "12626620998", "name": "eNPS Voluntary Transition + Engagement Follow-Through", "pulse": "12626620998"},
+    {"k": "11752777323", "name": "100-Point Behavioral System — Q2 Rock 2 Companion", "pulse": "11752777323"},
+    {"k": "11728350964", "name": "Implement Weekly Start/Stop/Keep Conversations — Scaling Up Practice", "pulse": "11728350964"}
+  ]
+};
+const PICK_MAX = 5;
+/* Route-a-card targets — each leader's directs, for the "didn't make my five" dropdown. */
+const DIRECTS = {
+  cameron: ["Amanda", "Brian", "Mike", "Matisen", "Anne", "Paul"],
+  paul:    ["Ben (Prosper)"],
+  amanda:  ["Nhel", "Carly"],
+  // Brian + Mike get their FULL manager seats (BM + OM + FM), mirroring the mgr-AAR tool's
+  // named roster — Cameron's 7/25 correction: BMs alone was missing people.
+  brian:   ["Calvin Hughes (N. Austin)", "Nick Dagel (N. Austin)", "Rance Pope (N. Austin)",
+            "Chris Anderson (S. Austin)", "Daniel Behseresht (S. Austin)", "Hector Zavala (S. Austin)", "Jespah Lara (S. Austin Flex)",
+            "Frank Williams (Leander)", "Garrison Cobe (Leander)",
+            "Dustin Street (San Antonio)", "Lukas Konrad (San Antonio)", "Cameron Klepac (San Antonio)",
+            "Sergio Buenrostro (Houston)", "Joel Villatoro (Houston)", "Alex Tran (Houston)"],
+  mike:    ["Chris Beattie (Dallas)", "Landon Vaughan (Dallas)", "Tabi Enoh (Dallas)",
+            "Grant Hardison (Fort Worth)", "Erik Orama (Fort Worth)",
+            "Khevan Dueck (McKinney)", "Zachary Krodel (McKinney)",
+            "Jack Davis (Garland)",
+            "Steven Anderson (Tampa)", "Shane Heaberlin (Tampa)"],
+  matisen: ["Fabian"],
+  anne:    ["Jalissa"]
+};
+function shortlistFor(leaderId){ return SHORTLIST[leaderId] || []; }
+function pickTargetFor(leaderId){ return Math.min(PICK_MAX, shortlistFor(leaderId).length); }
 
 const POSITIONS = [
   { v:"agree",     label:"Agree with the lean",    cls:"good", title:"The lean as written is the right call" },
@@ -376,7 +614,9 @@ function emptyBallot(leader){
     choices: { items:{}, itemNotes:{} },   // core value -> score 1-5, note
     celebrations: { celebration:"", prizes:"" },
     actions: {},                            // action-item text -> true when done
-    prework: { own:"", goals:[{},{},{}] },  // theme ownership + up to 3 draft goal slots {idea, green, superGreen}
+    prework: { own:"", goals:[{},{},{}] },  // LEGACY (pre-v1.8) — kept so old saves round-trip; no longer rendered
+    goalwork: { picks:[], crits:[], bars:{}, routes:{}, additions:[] }, // pick-5 module: bars[k]={green,superGreen,measure}, routes[k]=string, additions=[{name,why,green,superGreen,measure}]
+    buildsheet: { themeName:"", tracks:{} },// Q3 theme by role — track id -> {take, green, superGreen}
     startedAt: null,
     leader: { id: leader.id, name: leader.name, role: leader.role }
   };
@@ -392,6 +632,14 @@ function getBallot(leader){
   if(!b.actions) b.actions = {};
   if(!b.prework) b.prework = {own:"",goals:[{},{},{}]};
   while(b.prework.goals.length < 3) b.prework.goals.push({});
+  if(!b.goalwork) b.goalwork = {picks:[],crits:[],bars:{},routes:{},additions:[]};
+  if(!b.goalwork.picks) b.goalwork.picks = [];
+  if(!b.goalwork.crits) b.goalwork.crits = [];
+  if(!b.goalwork.bars) b.goalwork.bars = {};
+  if(!b.goalwork.routes) b.goalwork.routes = {};
+  if(!b.goalwork.additions) b.goalwork.additions = [];
+  if(!b.buildsheet) b.buildsheet = {themeName:"",tracks:{}};
+  if(!b.buildsheet.tracks) b.buildsheet.tracks = {};
   return b;
 }
 function actionsFor(leaderId){ return (ACTION_ITEMS._all||[]).concat(ACTION_ITEMS[leaderId]||[]); }
@@ -406,35 +654,81 @@ function toast(msg){
 }
 
 /* ============ Progress ============ */
+function trackVal(ballot, tid, k){
+  const tracks = (ballot && ballot.buildsheet && ballot.buildsheet.tracks) || {};
+  return (tracks[tid]||{})[k] || "";
+}
+/* Build sheet is worth 3 progress points, not one per track — nobody is
+   expected to have a real view on all five roles. The three: name the theme,
+   write up at least two tracks, set at least one Green/Super Green pair. */
+function buildsheetPoints(ballot){
+  const bs = ballot && ballot.buildsheet;
+  if(!bs) return 0;
+  let pts = 0;
+  if((bs.themeName||"").trim()) pts++;
+  if(TRACKS.filter(t=>trackVal(ballot,t.id,"take").trim()).length >= 2) pts++;
+  if(TRACKS.some(t=>t.gate && trackVal(ballot,t.id,"green").trim() && trackVal(ballot,t.id,"superGreen").trim())) pts++;
+  return pts;
+}
+const BUILDSHEET_POINTS = 3;
+
+/* Pick-5 goal module — 3 progress points: picks made · 2 criticals named ·
+   every picked goal fully barred (Green + Super Green + How measured). */
+function barsComplete(gw, k){
+  const b = (gw.bars||{})[k] || {};
+  return !!((b.green||"").trim() && (b.superGreen||"").trim() && (b.measure||"").trim());
+}
+function goalworkPoints(ballot){
+  const lid = (ballot && ballot.leader && ballot.leader.id) || null;
+  const gw = (ballot && ballot.goalwork) || {};
+  const picks = gw.picks || [];
+  let pts = 0;
+  if(lid && picks.length >= pickTargetFor(lid)) pts++;
+  if((gw.crits||[]).length === 2) pts++;
+  if(picks.length && picks.every(k=>barsComplete(gw, k))) pts++;
+  return pts;
+}
+const GOALWORK_POINTS = 3;
+
 function ballotProgress(ballot){
-  // ballot (position + reasoning per question) + CHOICES (a score with its note per value)
+  // CORE ballot questions (position + reasoning; open-ended ones are reasoning only)
+  // + CHOICES (a score with its note per value) + the build sheet's 3 points.
   // NOTE: callers may pass a RAW stored ballot (e.g. renderLanding), so guard every
   // field here — a legacy save missing `choices`/`votes` must never throw and blank the page.
-  let done = 0, total = DEBATES.length * 2 + CORE_VALUES.length;
+  const lid = (ballot && ballot.leader && ballot.leader.id) || null;
+  const core = debatesFor(lid).filter(isCore);
   const votes = (ballot && ballot.votes) || {};
   const items = (ballot && ballot.choices && ballot.choices.items) || {};
   const notes = (ballot && ballot.choices && ballot.choices.itemNotes) || {};
-  DEBATES.forEach(d=>{
+  let done = 0;
+  let total = core.reduce((n,d)=>n + (d.openEnded?1:2), 0) + CORE_VALUES.length + BUILDSHEET_POINTS + GOALWORK_POINTS;
+  core.forEach(d=>{
     const v = votes[d.id]||{};
-    if(v.position) done++;
+    if(!d.openEnded && v.position) done++;
     if((v.reasoning||"").trim()) done++;
   });
   CORE_VALUES.forEach(cv=>{ if(items[cv] && (notes[cv]||"").trim()) done++; });
+  done += buildsheetPoints(ballot);
+  done += goalworkPoints(ballot);
   return total ? Math.round(done/total*100) : 0;
 }
 function choicesDone(ballot){ return CORE_VALUES.every(cv=>ballot.choices.items[cv]); }
-function votedCount(ballot){
-  return DEBATES.filter(d=>{
-    const v = ballot.votes[d.id]||{};
-    return v.position && (v.reasoning||"").trim();
-  }).length;
+function questionAnswered(ballot, d){
+  const v = ballot.votes[d.id]||{};
+  return (d.openEnded || !!v.position) && !!(v.reasoning||"").trim();
+}
+function votedCount(ballot, leaderId){
+  return debatesFor(leaderId).filter(d=>questionAnswered(ballot, d)).length;
+}
+function coreOpenCount(ballot, leaderId){
+  return debatesFor(leaderId).filter(d=>isCore(d) && !questionAnswered(ballot, d)).length;
 }
 
 /* ============ Landing ============ */
 function renderLanding(){
   const wrap = document.getElementById("view-landing");
   let html = '<div class="landing-intro"><h2>Walk into the QGR already prepared</h2>'+
-    '<p>This is your prep hub for the Q3 QGR (July 29&ndash;30). The heart of it is the <b>debate ballot</b>: the four biggest open decisions on the table, with the context and where leadership is currently leaning &mdash; you register your position and reasoning <i>before</i> the room, ideally after talking it through with your AI chief of staff. Plan on 20&ndash;30 focused minutes. Everything saves automatically on this computer; nothing is shared until you export your ballot and send it to Cameron.</p></div>';
+    '<p>This is your prep hub for the Q3 QGR (July 29&ndash;30). The heart of it is the <b>debate ballot</b> &mdash; the biggest open decisions on the table, with the context and where leadership is currently leaning &mdash; plus the <b>build sheet</b> for the Q3 theme, and — new — <b>your Q3 goals</b>: the walked shortlist is loaded, you pick your five, name your two criticals, and draft your own Green / Super Green bars. You register your positions <i>before</i> the room, ideally after talking it through with your AI chief of staff. Plan on <b>45&ndash;60 focused minutes</b>; a handful of ballot questions are marked optional, so the must-answer core is shorter than the full list looks. Everything saves automatically on this computer; nothing is shared until you export and send it to Cameron.</p></div>';
   html += privacyBandHtml();
   html += '<div class="leader-grid">';
   LEADERS.forEach(l=>{
@@ -458,7 +752,7 @@ function openLeader(id){
   const leader = leaderById(id);
   const ballot = getBallot(leader);
   if(!ballot.startedAt){ ballot.startedAt = new Date().toISOString(); queueSave(); }
-  const firstOpen = DEBATES.find(d=>!(ballot.votes[d.id]||{}).position);
+  const firstOpen = debatesFor(id).find(d=>!questionAnswered(ballot, d));
   EXPANDED = new Set(firstOpen ? [firstOpen.id] : []);
   document.getElementById("view-landing").classList.remove("active");
   document.getElementById("view-hub").classList.add("active");
@@ -487,9 +781,10 @@ function renderHub(){
   html += tilesHtml();
   html += actionsSectionHtml(leader, ballot);
   html += debateSectionHtml(leader, ballot);
+  html += buildsheetSectionHtml(leader, ballot);
   html += choicesSectionHtml(leader, ballot);
   html += celebrationsSectionHtml(leader, ballot);
-  html += preworkSectionHtml(leader, ballot);
+  html += goalworkSectionHtml(leader, ballot);
   html += exportSectionHtml(leader, ballot);
   wrap.innerHTML = html;
   wireHub(leader, ballot);
@@ -499,7 +794,8 @@ function renderHub(){
 /* ---- Hub shell tiles (V1 = links to what exists, not rebuilds) ---- */
 function tilesHtml(){
   return '<div class="tile-grid">'+
-    '<div class="tile live"><h4>🗳 Debate Ballot <span class="now">Start here</span></h4><p>The four open decisions of this QGR. Read, think, talk it through with your COS, register your take, export. This is the piece that has to land before the room.</p><a class="tlink" href="#sec-debates" data-scrollto="sec-debates">Jump to the ballot ↓</a></div>'+
+    '<div class="tile live"><h4>🗳 Debate Ballot <span class="now">Start here</span></h4><p>The open decisions of this QGR. Read, think, talk it through with your COS, register your take, export. This is the piece that has to land before the room &mdash; the must-answer core is marked, the rest are optional.</p><a class="tlink" href="#sec-debates" data-scrollto="sec-debates">Jump to the ballot ↓</a></div>'+
+    '<div class="tile live"><h4>🏗 Theme Build Sheet <span class="now">New</span></h4><p>Q3 = speed to competence. The ballot asks <i>whether</i>; this asks <b>how</b> &mdash; what it means for movers, leads, managers and CX reps, and the Green / Super Green gates we\'d grade against. Answer the tracks you have a real view on.</p><a class="tlink" href="#sec-buildsheet" data-scrollto="sec-buildsheet">Open the build sheet ↓</a></div>'+
     '<div class="tile"><h4>📅 Agenda</h4><p>Two full days, July 29&ndash;30, execution-focused. Day 1 = review the quarter (AARs, packet, grade sync). Day 2 = decide Q3 (theme, rocks, the ballot debates). The detailed agenda lands here before the QGR.</p></div>'+
     '<div class="tile"><h4>✅ My Action Items</h4><p>The data collection and follow-ups the packet needs from <b>you</b> before 7/29 — check them off right here. (Your board still holds your day-to-day items.)</p><a class="tlink" href="#sec-actions" data-scrollto="sec-actions">See your list ↓</a> &nbsp; <a class="tlink" href="https://einsteinmoving.monday.com/boards/1146915251" target="_blank" rel="noopener">Sky Board →</a></div>'+
     '<div class="tile"><h4>📊 My QG Success Rates</h4><p>The QG Success Tracker — every leader\'s quarterly SG/G/R record back to 2024, Q2 2026 now loaded (PROJ until the Day-1 grade sync). Know your own line cold before you walk in.</p><a class="tlink" href="'+QG_TRACKER_URL+'" target="_blank" rel="noopener">Open the QG Success Tracker →</a> &nbsp; <a class="tlink" href="https://einsteinadmin.github.io/goals-dashboard/" target="_blank" rel="noopener">Goals Dashboard →</a></div>'+
@@ -509,40 +805,89 @@ function tilesHtml(){
     '<div class="tile live"><h4>🪞 Self-Eval (CHOICES) <span class="now">Do it here</span></h4><p>Score yourself 1–5 on the seven values — same scale, same anchors as the exercise your managers run. It\'s built into this page and rides along in your export.</p><a class="tlink" href="#sec-choices" data-scrollto="sec-choices">Jump to your self-eval ↓</a> &nbsp; <a class="tlink" href="https://einsteinadmin.github.io/einstein-mgr-aar-476141c7097f/" target="_blank" rel="noopener">Your team\'s version →</a></div>'+
     '<div class="tile live"><h4>🧭 Frontline Packet <span class="now">DRAFT — preview</span></h4><p>The plain-English company story your teams will get after the QGR — What / So What / Now What, three lenses without letter grades, present mode for branch huddles. <b>Preview it; the room decides the Q3-theme card.</b></p><a class="tlink" href="https://einsteinadmin.github.io/einstein-qgr-command-7b1cbc850326/q2-materials/q2-frontline-packet.html" target="_blank" rel="noopener">Open the Frontline Packet →</a></div>'+
     '<div class="tile live"><h4>🧮 People Analyzer — Your Directs <span class="now">Live</span></h4><p>Run the analyzer on <b>your own directs</b> — CHOICES 1–5, GWC, rehire call. Private until you export; Cameron aggregates everyone\'s reads into one gut-check view for the room. Your roster is pre-seeded.</p><a class="tlink" href="https://einsteinadmin.github.io/einstein-pa-directs-da2d210013ca/" target="_blank" rel="noopener">Open the Directs Analyzer →</a></div>'+
-    '<div class="tile soft"><h4>🌱 Goal Pre-work <span class="soon">Optional</span></h4><p>A light scaffold is built in below — the theme direction plus up to three draft Q3 goals with working Green / Super Green definitions. <b>We may just do this together in the room — don\'t over-invest.</b></p><a class="tlink" href="#sec-prework" data-scrollto="sec-prework">Open the scaffold ↓</a></div>'+
+    '<div class="tile live"><h4>🎯 Your Q3 Goals — Pick Your 5 <span class="now">Must-do</span></h4><p>Your slice of the walked shortlist — the backlog work is done, so this is a <b>selection</b>, not an invention: pick your five, route the rest, name your two criticals, and draft the Green / Super Green / how-measured bars in your own words.</p><a class="tlink" href="#sec-goals" data-scrollto="sec-goals">Pick your five ↓</a></div>'+
     '</div>';
 }
 
 /* ---- Debate section ---- */
 function debateSectionHtml(leader, ballot){
-  const voted = votedCount(ballot);
-  let html = '<div class="section" id="sec-debates"><div class="shead"><h3>🗳 The ballot — four open decisions</h3>'+
-    (voted===DEBATES.length?'<span class="done-chip">✓ all '+DEBATES.length+' answered</span>':'<span class="tiny muted">'+voted+' of '+DEBATES.length+' answered</span>')+'</div>'+
-    '<div class="shelp">For each question: the context, then <b>how leadership is currently leaning &mdash; a lean, not a mandate.</b> The lean is a starting point for the debate, and disagreeing with it is exactly what this ballot is for. Register your position, write your reasoning in your own words, and use the <b>COS prompt</b> button to pressure-test your take with your AI chief of staff before you lock it in.</div>';
-  DEBATES.forEach((d,i)=>{
+  const qs = debatesFor(leader.id);
+  const coreQs = qs.filter(isCore);
+  const coreDone = coreQs.filter(d=>questionAnswered(ballot, d)).length;
+  let html = '<div class="section" id="sec-debates"><div class="shead"><h3>🗳 The ballot — '+qs.length+' open decisions</h3>'+
+    (coreDone===coreQs.length?'<span class="done-chip">✓ all '+coreQs.length+' must-answer questions done</span>':'<span class="tiny muted">'+coreDone+' of '+coreQs.length+' must-answer questions done</span>')+'</div>'+
+    '<div class="shelp">For each question: the context, then <b>how leadership is currently leaning &mdash; a lean, not a mandate.</b> The lean is a starting point for the debate, and disagreeing with it is exactly what this ballot is for. Register your position, write your reasoning in your own words, and use the <b>COS prompt</b> button to pressure-test your take with your AI chief of staff before you lock it in. '+
+    '<b>'+coreQs.length+' of these are must-answer</b> and they\'re the only ones the progress bar counts &mdash; the ones marked <span class="opt-chip">optional</span> are there if you have a real view, and skipping one is a fine answer.</div>';
+  qs.forEach((d,i)=>{
     const v = ballot.votes[d.id]||{};
     const open = EXPANDED.has(d.id);
-    const complete = v.position && (v.reasoning||"").trim();
+    const complete = questionAnswered(ballot, d);
     const posLabel = v.position ? posLabelFor(d, v.position) : null;
+    const targeted = !!d.forLeaders;
+    let statusText;
+    if(d.openEnded) statusText = complete ? "answered" : "not answered";
+    else if(complete) statusText = posLabel;
+    else statusText = v.position ? posLabel+" · reasoning owed" : "not answered";
     html += '<div class="q-card'+(open?'':' collapsed')+'">'+
-      '<div class="qhead" data-qtoggle="'+esc(d.id)+'"><div class="qtitle"><span class="qnum">'+(i+1)+' ·</span> '+esc(d.title)+'</div>'+
-      '<div><span class="qsum '+(complete?'voted':'open')+'">'+(complete?esc(posLabel):(v.position?esc(posLabel)+' · reasoning owed':'not answered'))+'</span> <span class="caret">'+(open?'▾ close':'▸ open')+'</span></div></div>'+
+      '<div class="qhead" data-qtoggle="'+esc(d.id)+'"><div class="qtitle"><span class="qnum">'+(i+1)+' ·</span> '+esc(d.title)+
+      (isCore(d)?'':'<span class="opt-chip">optional</span>')+
+      (targeted?'<span class="tgt-chip">for you</span>':'')+'</div>'+
+      '<div><span class="qsum '+(complete?'voted':'open')+'">'+esc(statusText)+'</span> <span class="caret">'+(open?'▾ close':'▸ open')+'</span></div></div>'+
       '<div class="qbody">'+
       '<div class="ctx-block">'+d.context+'</div>'+
       (d.lean
         ? '<details class="lean-reveal"><summary>🔒 Show how leadership is currently leaning <span class="lr-hint">— think about your own take first, then peek</span></summary>'+
           '<div class="lean-block"><div class="lean-label">How leadership is currently leaning — a current lean, not a decision</div><div class="lean-body">'+d.lean+'</div></div></details>'
-        : '<div class="lean-none">'+(d.leanNote||"Leadership hasn\'t written a lean here yet.")+'</div>')+
-      '<div class="debate-line"><span class="dl-tag">The debate</span>'+d.debate+'</div>'+
+        : (d.openEnded ? '' : '<div class="lean-none">'+(d.leanNote||"Leadership hasn\'t written a lean here yet.")+'</div>'))+
+      '<div class="debate-line"><span class="dl-tag">'+(d.openEnded?'The ask':'The debate')+'</span>'+d.debate+'</div>'+
       '<div class="your-take"><div class="yt-label">Your take</div>'+
-      '<div class="chiprow">'+(d.options||POSITIONS).map(p=>
-        '<button class="chip'+(v.position===p.v?' sel '+p.cls:'')+'" data-pos="'+esc(d.id)+'" data-val="'+esc(p.v)+'" title="'+esc(p.title)+'">'+esc(p.label)+'</button>'
-      ).join("")+'</div>'+
-      '<div class="q-block"><label>Your reasoning <span class="qhint">— the why, in your words. If you picked "with changes," name the changes. If undecided, what would swing you?</span></label>'+
-      '<textarea data-reason="'+esc(d.id)+'" class="'+(v.position && !(v.reasoning||"").trim()?'note-missing':'')+'" placeholder="Specific beats polished — your seat sees things the room can\'t.">'+esc(v.reasoning||"")+'</textarea></div>'+
+      (d.openEnded ? '' :
+        '<div class="chiprow">'+(d.options||POSITIONS).map(p=>
+          '<button class="chip'+(v.position===p.v?' sel '+p.cls:'')+'" data-pos="'+esc(d.id)+'" data-val="'+esc(p.v)+'" title="'+esc(p.title)+'">'+esc(p.label)+'</button>'
+        ).join("")+'</div>')+
+      '<div class="q-block"><label>'+(d.openEnded?'Your answer':'Your reasoning')+' <span class="qhint">'+
+      (d.openEnded
+        ? '&mdash; in your words. Specifics and examples beat a tidy summary.'
+        : '&mdash; the why, in your words. If you picked "with changes," name the changes. If undecided, what would swing you?')+
+      '</span></label>'+
+      '<textarea data-reason="'+esc(d.id)+'" class="'+(!d.openEnded && v.position && !(v.reasoning||"").trim()?'note-missing':'')+'" placeholder="Specific beats polished — your seat sees things the room can\'t.">'+esc(v.reasoning||"")+'</textarea></div>'+
       '<div class="cos-row"><button data-cos="'+esc(d.id)+'">🎙 Copy COS discussion prompt</button><span class="cos-hint">Paste it to your AI chief of staff — it will argue both sides against your reality, then hand back a sharpened position.</span></div>'+
       '</div></div></div>';
   });
+  html += '</div>';
+  return html;
+}
+
+/* ---- Speed-to-competence build sheet (the Q3 theme, by role) ---- */
+function buildsheetSectionHtml(leader, ballot){
+  const bs = ballot.buildsheet;
+  const pts = buildsheetPoints(ballot);
+  let html = '<div class="section" id="sec-buildsheet"><div class="shead"><h3>🏗 Speed to competence — the build sheet</h3>'+
+    (pts>=BUILDSHEET_POINTS?'<span class="done-chip">✓ complete</span>':'<span class="tiny muted">'+pts+' of '+BUILDSHEET_POINTS+' done</span>')+'</div>'+
+    '<div class="shelp">Ballot question 3 asks whether speed to competence is the right theme. <b>This asks how we actually run it.</b> A theme that just means "finish the training app" reaches leads in training and nobody else &mdash; so the real question is what it means for every role. '+
+    'Answer the tracks you have a genuine view on; <b>nobody is expected to fill all five.</b> Green / Super Green are the gates we\'d grade the quarter against &mdash; a rough number beats no number.</div>'+
+    '<div class="bs-name"><label>What should we call this theme?</label>'+
+    '<input type="text" data-bsname value="'+esc(bs.themeName||"")+'" placeholder="'+esc(THEME_WORKING_NAME)+' — beat it">'+
+    '<div class="bs-hint">The working name is <b>&ldquo;'+esc(THEME_WORKING_NAME)+'&rdquo;</b> and it is very much beatable. This is the phrase people repeat in a branch huddle for three months &mdash; if you have a better one, put it here.</div></div>';
+  TRACKS.forEach(t=>{
+    const take = trackVal(ballot,t.id,"take");
+    const green = trackVal(ballot,t.id,"green");
+    const sg = trackVal(ballot,t.id,"superGreen");
+    const done = !!take.trim();
+    html += '<div class="track"><div class="thead"><h4>'+t.icon+' '+esc(t.label)+'</h4>'+
+      (done?'<span class="tdone">✓ answered</span>':'')+'</div>'+
+      '<div class="tprompt">'+t.prompt+'</div>'+
+      '<textarea data-track="'+esc(t.id)+':take" placeholder="'+esc(t.ph)+'">'+esc(take)+'</textarea>'+
+      (t.gate
+        ? '<div class="gate-grid">'+
+          '<div><label>Green gate</label><textarea data-track="'+esc(t.id)+':green" placeholder="What does hitting the theme look like for '+esc(t.label)+'?">'+esc(green)+'</textarea></div>'+
+          '<div><label>Super Green gate</label><textarea data-track="'+esc(t.id)+':superGreen" placeholder="What does beating it look like?">'+esc(sg)+'</textarea></div>'+
+          '</div>'
+        : '')+
+      '</div>';
+  });
+  html += '<div class="cos-row"><button id="btnBsCos">🎙 Copy COS prompt for the build sheet</button>'+
+    '<span class="cos-hint">Hands the whole theme-design question to your AI chief of staff — role by role, with the gates.</span></div>';
   html += '</div>';
   return html;
 }
@@ -562,24 +907,74 @@ function actionsSectionHtml(leader, ballot){
   return html;
 }
 
-/* ---- Goal pre-work section (scaffold — deliberately light) ---- */
-function preworkSectionHtml(leader, ballot){
-  const pw = ballot.prework;
-  const started = (pw.own||"").trim() || pw.goals.some(g=>(g.idea||"").trim());
-  let html = '<div class="section" id="sec-prework"><div class="shead"><h3>🌱 Goal pre-work</h3>'+
-    (started?'<span class="done-chip">✓ drafting</span>':'<span class="tiny muted">optional</span>')+'</div>'+
-    '<div class="pw-theme"><b>Where the theme is heading</b> — so your goal drafts aim at the right target: leadership is converging on <b>Q3 = speed to competence, for everyone</b> (movers, managers, CX reps) — ongoing training, improved training days, additional certifications, and <b>every leader owning a piece</b> of it. Working name "Back to School." It locks (or gets beaten) in the room — see ballot question 3.</div>'+
-    '<div class="shelp">If you want a head start with your COS: sketch what you\'d own for the theme, and up to three draft Q3 goals with working Green / Super Green definitions. <b>Easy does it — we may just do this together in the room. Don\'t over-invest.</b> Rough and directional beats polished.</div>'+
-    '<div class="q-block"><label>What would you own for the theme? <span class="qhint">— the ongoing-training / certification piece you\'d carry (also asked on ballot Q3 — same answer is fine)</span></label>'+
-    '<textarea data-pw="own" placeholder="e.g., a certification track for my team, a monthly training-day format, a piece of the app curriculum…">'+esc(pw.own||"")+'</textarea></div>';
-  pw.goals.forEach((g,i)=>{
-    html += '<div class="pw-goal"><div class="pw-num">Draft goal '+(i+1)+'</div>'+
-      '<input type="text" data-pwgoal="'+i+':idea" value="'+esc(g.idea||"")+'" placeholder="Goal idea — one line">'+
-      '<div class="pw-grid">'+
-      '<textarea data-pwgoal="'+i+':green" placeholder="Draft GREEN definition — what does achieved look like?">'+esc(g.green||"")+'</textarea>'+
-      '<textarea data-pwgoal="'+i+':superGreen" placeholder="Draft SUPER GREEN — what does exceeded look like?">'+esc(g.superGreen||"")+'</textarea>'+
+/* ---- Pick-5 goal module (Phase 2 — replaces the pre-work scaffold) ---- */
+function leaderLabel(id){ const l = leaderById(id); return l ? l.name.split(" ")[0] : (id === "kickpoint" ? "Kickpoint" : id); }
+function goalworkSectionHtml(leader, ballot){
+  const gw = ballot.goalwork;
+  const cards = shortlistFor(leader.id);
+  const target = pickTargetFor(leader.id);
+  const picked = gw.picks.filter(k=>cards.some(c=>c.k===k));
+  const pts = goalworkPoints(ballot);
+  const barsDone = picked.filter(k=>barsComplete(gw, k)).length;
+  let html = '<div class="section" id="sec-goals"><div class="shead"><h3>🎯 Your Q3 goals — pick your '+target+'</h3>'+
+    (pts>=GOALWORK_POINTS?'<span class="done-chip">✓ complete</span>':'<span class="tiny muted">'+pts+' of '+GOALWORK_POINTS+' done</span>')+'</div>'+
+    '<div class="shelp">This is the shortlist that survived the full backlog walk — <b>your</b> slice of it, '+cards.length+' cards. The selection work is done; what\'s left is the commitment: <b>pick the '+target+' you\'ll actually carry, and every card you don\'t pick gets routed</b> — the room decides it, a direct takes it, or it parks. Then, on your five only: write the <b>Green</b> bar, the <b>Super Green</b> bar, and <b>how it\'s measured</b> — in your own words, from your seat. Nothing is pre-drafted on purpose. Nominate <b>your two criticals</b> — the two of your five that, if they slip, the quarter slipped. Each card links to its reference pulse on the Master Backlog; after the room locks your goals, you\'ll duplicate those pulses onto your own board for tracking. Use the COS prompt at the bottom to pressure-test your bars before you export.</div>'+
+    '<div class="gw-counter">'+
+    '<span class="gw-pill'+(picked.length>=target?' ok':'')+'">'+picked.length+' of '+target+' picked</span>'+
+    '<span class="gw-pill'+(gw.crits.length===2?' ok':'')+'">'+gw.crits.length+' of 2 criticals</span>'+
+    '<span class="gw-pill'+(picked.length&&barsDone===picked.length?' ok':'')+'">'+barsDone+' of '+picked.length+' goals barred</span>'+
+    '</div>';
+  cards.forEach(c=>{
+    const isPicked = gw.picks.indexOf(c.k) !== -1;
+    const isCrit = gw.crits.indexOf(c.k) !== -1;
+    const bars = gw.bars[c.k] || {};
+    const meta = [];
+    if(c.pulse) meta.push('<a href="'+MB_BOARD_URL+esc(c.pulse)+'" target="_blank" rel="noopener">Reference pulse →</a>');
+    if(c.archived) meta.push('<span class="arch-note">pulse link goes live Monday (restoring from archive)</span>');
+    if(!c.pulse && !c.archived) meta.push('<span class="arch-note">reference pulse pending</span>');
+    if(c.shared) meta.push('<span class="shared-chip">🤝 shared target — also on '+esc(c.shared.map(leaderLabel).join(" + "))+'’s list</span>');
+    html += '<div class="g-card'+(isPicked?' picked':'')+'">'+
+      '<div class="ghead"><div><div class="gname">'+esc(c.name)+'</div>'+
+      (meta.length?'<div class="gmeta">'+meta.join("")+'</div>':'')+'</div>'+
+      '<div class="gbtns">'+
+      (isPicked?'<button class="gcrit'+(isCrit?' sel':'')+'" data-gcrit="'+esc(c.k)+'" title="One of the two goals that, if it slips, the quarter slipped">'+(isCrit?'⭐ Critical':'☆ Critical?')+'</button>':'')+
+      '<button class="gpick'+(isPicked?' sel':'')+'" data-gpick="'+esc(c.k)+'">'+(isPicked?'✓ Picked':'Pick')+'</button>'+
+      '</div></div>';
+    if(isPicked){
+      html += '<div class="gbars">'+
+        '<div><label>Green</label><textarea data-gbar="'+esc(c.k)+':green" placeholder="What does achieved look like — specific enough to grade?">'+esc(bars.green||"")+'</textarea></div>'+
+        '<div><label>Super Green</label><textarea data-gbar="'+esc(c.k)+':superGreen" placeholder="What does exceeded look like?">'+esc(bars.superGreen||"")+'</textarea></div>'+
+        '<div><label>How measured</label><textarea data-gbar="'+esc(c.k)+':measure" placeholder="The data source and the number — where would we LOOK on Oct 1?">'+esc(bars.measure||"")+'</textarea></div>'+
+        '</div>';
+    } else {
+      const route = gw.routes[c.k] || "";
+      html += '<div class="groute"><span>Didn\'t make your five &mdash; where does it go?</span>'+
+        '<select data-groute="'+esc(c.k)+'">'+
+        '<option value=""'+(route===""?' selected':'')+'>Room decides</option>'+
+        (DIRECTS[leader.id]||[]).map(d=>'<option value="direct:'+esc(d)+'"'+(route==="direct:"+d?' selected':'')+'>Assign to '+esc(d)+'</option>').join("")+
+        '<option value="park"'+(route==="park"?' selected':'')+'>Park — not this quarter</option>'+
+        '</select></div>';
+    }
+    html += '</div>';
+  });
+  gw.additions.forEach((g,i)=>{
+    const critKey = "add:"+i;
+    const isCrit = gw.crits.indexOf(critKey) !== -1;
+    html += '<div class="g-add">'+
+      '<button class="gdel" data-gdel="'+i+'">✕ remove</button>'+
+      '<span class="flag">Addition — flagged for the room</span> '+
+      '<button class="gcrit'+(isCrit?' sel':'')+'" data-gcrit="'+esc(critKey)+'">'+(isCrit?'⭐ Critical':'☆ Critical?')+'</button>'+
+      '<input type="text" data-gadd="'+i+':name" value="'+esc(g.name||"")+'" placeholder="Goal name — one line">'+
+      '<textarea data-gadd="'+i+':why" placeholder="Why this belongs on the slate even though the shortlist walk didn\'t surface it — the room will ask.">'+esc(g.why||"")+'</textarea>'+
+      '<div class="gbars">'+
+      '<div><label>Green</label><textarea data-gadd="'+i+':green" placeholder="What does achieved look like?">'+esc(g.green||"")+'</textarea></div>'+
+      '<div><label>Super Green</label><textarea data-gadd="'+i+':superGreen" placeholder="What does exceeded look like?">'+esc(g.superGreen||"")+'</textarea></div>'+
+      '<div><label>How measured</label><textarea data-gadd="'+i+':measure" placeholder="Data source + number">'+esc(g.measure||"")+'</textarea></div>'+
       '</div></div>';
   });
+  html += '<button id="btnAddGoal">＋ Add a goal that isn\'t on the shortlist <span class="tiny muted">&mdash; it gets flagged for the room; it doesn\'t cost you one of your five</span></button>';
+  html += '<div class="cos-row" style="margin-top:14px"><button id="btnGwCos">🎙 Copy COS prompt for your goals</button>'+
+    '<span class="cos-hint">Hands your five picks and draft bars to your AI chief of staff to sharpen — measurable beats ambitious-sounding.</span></div>';
   html += '</div>';
   return html;
 }
@@ -618,7 +1013,7 @@ function celebrationsSectionHtml(leader, ballot){
 /* ---- Export section ---- */
 function exportSectionHtml(leader, ballot){
   return '<div class="section" id="sec-export"><div class="shead"><h3>📤 Submit your ballot</h3></div>'+
-    '<div class="shelp">When the ballot, your CHOICES self-eval, and your celebration ideas are in: <b>download the JSON and send the file to Cameron</b> (Slack DM or email) — he aggregates everyone\'s before the room. One export carries all three. The markdown copy is the readable version for your own notes or your COS.</div>'+
+    '<div class="shelp">When the ballot, the build sheet, your CHOICES self-eval, and your celebration ideas are in: <b>download the JSON and send the file to Cameron</b> (Slack DM or email) — he aggregates everyone\'s before the room. One export carries all of it. The markdown copy is the readable version for your own notes or your COS.</div>'+
     '<div class="export-actions">'+
       '<button id="btnJson">Download JSON ballot → send to Cameron</button>'+
       '<button id="btnMd" class="secondary">Copy markdown version</button>'+
@@ -669,17 +1064,80 @@ function wireHub(leader, ballot){
       queueSave(); renderHub();
     });
   });
-  wrap.querySelectorAll("[data-pw]").forEach(ta=>{
-    ta.addEventListener("input", ()=>{ ballot.prework[ta.dataset.pw] = ta.value; queueSave(); });
+  /* ---- Pick-5 goal module ---- */
+  const gw = ballot.goalwork;
+  wrap.querySelectorAll("[data-gpick]").forEach(btn=>{
+    btn.addEventListener("click", ()=>{
+      const k = btn.dataset.gpick;
+      const i = gw.picks.indexOf(k);
+      if(i !== -1){
+        gw.picks.splice(i,1);
+        const ci = gw.crits.indexOf(k); if(ci !== -1) gw.crits.splice(ci,1);
+      } else {
+        if(gw.picks.length >= pickTargetFor(leader.id)){
+          toast("That's "+pickTargetFor(leader.id)+" already — unpick one first. Cut, don't collect.");
+          return;
+        }
+        gw.picks.push(k);
+        delete gw.routes[k];
+      }
+      queueSave(); renderHub();
+    });
   });
-  wrap.querySelectorAll("[data-pwgoal]").forEach(el=>{
-    el.addEventListener("input", ()=>{
-      const idx = el.dataset.pwgoal.indexOf(":");
-      const i = Number(el.dataset.pwgoal.slice(0,idx)), k = el.dataset.pwgoal.slice(idx+1);
-      if(!ballot.prework.goals[i]) ballot.prework.goals[i] = {};
-      ballot.prework.goals[i][k] = el.value;
+  wrap.querySelectorAll("[data-gcrit]").forEach(btn=>{
+    btn.addEventListener("click", ()=>{
+      const k = btn.dataset.gcrit;
+      const i = gw.crits.indexOf(k);
+      if(i !== -1) gw.crits.splice(i,1);
+      else {
+        if(gw.crits.length >= 2){ toast("Two criticals max — that's the point. Swap one out."); return; }
+        gw.crits.push(k);
+      }
+      queueSave(); renderHub();
+    });
+  });
+  wrap.querySelectorAll("[data-gbar]").forEach(ta=>{
+    ta.addEventListener("input", ()=>{
+      const idx = ta.dataset.gbar.lastIndexOf(":");
+      const k = ta.dataset.gbar.slice(0,idx), f = ta.dataset.gbar.slice(idx+1);
+      if(!gw.bars[k]) gw.bars[k] = {};
+      gw.bars[k][f] = ta.value;
       queueSave();
     });
+  });
+  wrap.querySelectorAll("[data-groute]").forEach(sel=>{
+    sel.addEventListener("change", ()=>{
+      if(sel.value) gw.routes[sel.dataset.groute] = sel.value;
+      else delete gw.routes[sel.dataset.groute];
+      queueSave();
+    });
+  });
+  wrap.querySelectorAll("[data-gadd]").forEach(el=>{
+    el.addEventListener("input", ()=>{
+      const idx = el.dataset.gadd.indexOf(":");
+      const i = Number(el.dataset.gadd.slice(0,idx)), f = el.dataset.gadd.slice(idx+1);
+      if(!gw.additions[i]) gw.additions[i] = {};
+      gw.additions[i][f] = el.value;
+      queueSave();
+    });
+  });
+  const addBtn = document.getElementById("btnAddGoal");
+  if(addBtn) addBtn.addEventListener("click", ()=>{ gw.additions.push({}); queueSave(); renderHub(); });
+  wrap.querySelectorAll("[data-gdel]").forEach(btn=>{
+    btn.addEventListener("click", ()=>{
+      const i = Number(btn.dataset.gdel);
+      gw.additions.splice(i,1);
+      // crit keys for additions are positional — drop the removed one, shift the rest
+      gw.crits = gw.crits.filter(k=>k!=="add:"+i).map(k=>{
+        if(k.indexOf("add:")===0){ const n = Number(k.slice(4)); if(n>i) return "add:"+(n-1); }
+        return k;
+      });
+      queueSave(); renderHub();
+    });
+  });
+  const gwCos = document.getElementById("btnGwCos");
+  if(gwCos) gwCos.addEventListener("click", ()=>{
+    copyText(buildGoalworkCosPrompt(leader, ballot), "Goals COS prompt copied — paste it to your AI chief of staff");
   });
   wrap.querySelectorAll("[data-cv]").forEach(btn=>{
     btn.addEventListener("click", ()=>{
@@ -701,6 +1159,21 @@ function wireHub(leader, ballot){
       queueSave();
     });
   });
+  const bsName = wrap.querySelector("[data-bsname]");
+  if(bsName) bsName.addEventListener("input", ()=>{ ballot.buildsheet.themeName = bsName.value; queueSave(); });
+  wrap.querySelectorAll("[data-track]").forEach(el=>{
+    el.addEventListener("input", ()=>{
+      const idx = el.dataset.track.indexOf(":");
+      const tid = el.dataset.track.slice(0,idx), k = el.dataset.track.slice(idx+1);
+      if(!ballot.buildsheet.tracks[tid]) ballot.buildsheet.tracks[tid] = {};
+      ballot.buildsheet.tracks[tid][k] = el.value;
+      queueSave();
+    });
+  });
+  const bsCos = document.getElementById("btnBsCos");
+  if(bsCos) bsCos.addEventListener("click", ()=>{
+    copyText(buildBuildsheetCosPrompt(leader, ballot), "Build-sheet COS prompt copied — paste it to your AI chief of staff");
+  });
   wrap.querySelectorAll("[data-cos]").forEach(btn=>{
     btn.addEventListener("click", ()=>{
       const d = DEBATES.find(x=>x.id===btn.dataset.cos);
@@ -709,9 +1182,9 @@ function wireHub(leader, ballot){
     });
   });
   document.getElementById("btnJson").addEventListener("click", ()=>{
-    const missing = DEBATES.filter(d=>{ const v=ballot.votes[d.id]||{}; return !v.position || !(v.reasoning||"").trim(); });
+    const openCore = coreOpenCount(ballot, leader.id);
     downloadFile("qgr-ballot-"+leader.id+"-q3-2026.json", JSON.stringify(buildJsonBallot(leader, ballot), null, 2), "application/json");
-    toast(missing.length ? "Ballot downloaded — heads up, "+missing.length+" question"+(missing.length>1?"s":"")+" still incomplete" : "Ballot downloaded — send the file to Cameron");
+    toast(openCore ? "Ballot downloaded — heads up, "+openCore+" must-answer question"+(openCore>1?"s":"")+" still incomplete" : "Ballot downloaded — send the file to Cameron");
   });
   document.getElementById("btnMd").addEventListener("click", ()=>{
     const md = buildMarkdown(leader, ballot);
@@ -737,22 +1210,62 @@ function copyText(text, okMsg){
 /* ============ Export builders ============ */
 function buildJsonBallot(leader, ballot){
   return {
-    schema: "einstein-qgr-ballot/v3",
+    schema: "einstein-qgr-ballot/v5",
     exportedAt: new Date().toISOString(),
     quarter: QUARTER,
     leader: { id: leader.id, name: leader.name, role: leader.role },
     choices: CORE_VALUES.map(cv=>({ value: cv, score: ballot.choices.items[cv]?Number(ballot.choices.items[cv]):null, note: (ballot.choices.itemNotes[cv]||"").trim() })),
     celebrations: { celebration: (ballot.celebrations.celebration||"").trim(), prizes: (ballot.celebrations.prizes||"").trim() },
     actionItems: actionsFor(leader.id).map(t=>({ item: t, done: !!ballot.actions[t] })),
-    prework: {
-      themeOwnership: (ballot.prework.own||"").trim(),
-      draftGoals: ballot.prework.goals.filter(g=>(g.idea||"").trim()||(g.green||"").trim()||(g.superGreen||"").trim())
-        .map(g=>({ idea:(g.idea||"").trim(), green:(g.green||"").trim(), superGreen:(g.superGreen||"").trim() }))
+    goals: (function(){
+      const gw = ballot.goalwork;
+      const cards = shortlistFor(leader.id);
+      const cardOf = k => cards.find(c=>c.k===k);
+      return {
+        pickTarget: pickTargetFor(leader.id),
+        picked: gw.picks.map(k=>{
+          const c = cardOf(k) || {name:k};
+          const b = gw.bars[k]||{};
+          return { key:k, name:c.name, pulse:c.pulse||null, shared:c.shared||null,
+                   critical: gw.crits.indexOf(k)!==-1,
+                   green:(b.green||"").trim(), superGreen:(b.superGreen||"").trim(), howMeasured:(b.measure||"").trim() };
+        }),
+        routed: cards.filter(c=>gw.picks.indexOf(c.k)===-1).map(c=>({
+          key:c.k, name:c.name, pulse:c.pulse||null,
+          route: gw.routes[c.k]||"room-decides"
+        })),
+        additions: gw.additions.map((g,i)=>({
+          name:(g.name||"").trim(), why:(g.why||"").trim(),
+          critical: gw.crits.indexOf("add:"+i)!==-1, flaggedForRoom: true,
+          green:(g.green||"").trim(), superGreen:(g.superGreen||"").trim(), howMeasured:(g.measure||"").trim()
+        })).filter(g=>g.name)
+      };
+    })(),
+    // legacy pre-v1.8 scaffold — carried only if an old save actually wrote something there
+    legacyPrework: (function(){
+      const pw = ballot.prework||{};
+      const goals = (pw.goals||[]).filter(g=>(g.idea||"").trim()||(g.green||"").trim()||(g.superGreen||"").trim());
+      if(!(pw.own||"").trim() && !goals.length) return null;
+      return { themeOwnership:(pw.own||"").trim(),
+               draftGoals: goals.map(g=>({ idea:(g.idea||"").trim(), green:(g.green||"").trim(), superGreen:(g.superGreen||"").trim() })) };
+    })(),
+    buildsheet: {
+      themeName: (ballot.buildsheet.themeName||"").trim(),
+      workingName: THEME_WORKING_NAME,
+      tracks: TRACKS.map(t=>({
+        id: t.id, label: t.label,
+        take: trackVal(ballot,t.id,"take").trim(),
+        green: t.gate ? trackVal(ballot,t.id,"green").trim() : null,
+        superGreen: t.gate ? trackVal(ballot,t.id,"superGreen").trim() : null
+      })).filter(t=>t.take || t.green || t.superGreen)
     },
-    ballot: DEBATES.map(d=>{
+    ballot: debatesFor(leader.id).map(d=>{
       const v = ballot.votes[d.id]||{};
       return {
         id: d.id, title: d.title,
+        core: isCore(d),
+        openEnded: !!d.openEnded,
+        targeted: !!d.forLeaders,
         question: stripHtml(d.debate),
         leanShown: d.lean ? stripHtml(d.lean) : null,   // snapshot of the lean the leader saw (null = no lean written, by design)
         position: v.position||null,
@@ -766,14 +1279,25 @@ function buildJsonBallot(leader, ballot){
 function buildMarkdown(leader, ballot){
   const d = new Date().toISOString().slice(0,10);
   let md = "# QGR Ballot — "+leader.name+" — "+d+"\n*"+leader.role+" · Q3 2026 QGR (7/29–30)*\n\n";
-  DEBATES.forEach((q,i)=>{
+  debatesFor(leader.id).forEach((q,i)=>{
     const v = ballot.votes[q.id]||{};
-    const posLabel = v.position ? posLabelFor(q, v.position) : "—";
-    md += "## "+(i+1)+" · "+q.title+"\n";
-    md += "- The debate: "+stripHtml(q.debate)+"\n";
-    md += "- **My position: "+posLabel+"**\n";
-    md += "- My reasoning: "+((v.reasoning||"").trim()||"—")+"\n\n";
+    md += "## "+(i+1)+" · "+q.title+(isCore(q)?"":" _(optional)_")+"\n";
+    md += "- The "+(q.openEnded?"ask":"debate")+": "+stripHtml(q.debate)+"\n";
+    if(!q.openEnded) md += "- **My position: "+(v.position ? posLabelFor(q, v.position) : "—")+"**\n";
+    md += "- My "+(q.openEnded?"answer":"reasoning")+": "+((v.reasoning||"").trim()||"—")+"\n\n";
   });
+  const bs = ballot.buildsheet;
+  md += "## Speed to competence — build sheet\n";
+  md += "- Theme name: "+((bs.themeName||"").trim()||"— (working name: "+THEME_WORKING_NAME+")")+"\n";
+  TRACKS.forEach(t=>{
+    const take = trackVal(ballot,t.id,"take").trim();
+    const green = trackVal(ballot,t.id,"green").trim();
+    const sg = trackVal(ballot,t.id,"superGreen").trim();
+    if(!take && !green && !sg) return;
+    md += "- **"+t.label+":** "+(take||"—")+"\n";
+    if(t.gate && (green||sg)) md += "  - Green: "+(green||"—")+" · Super Green: "+(sg||"—")+"\n";
+  });
+  md += "\n";
   md += "## CHOICES self-eval (1–5)\n";
   CORE_VALUES.forEach(cv=>{
     const s = ballot.choices.items[cv], note = (ballot.choices.itemNotes[cv]||"").trim();
@@ -784,19 +1308,54 @@ function buildMarkdown(leader, ballot){
   md += "- Prize ideas: "+((ballot.celebrations.prizes||"").trim()||"—")+"\n";
   md += "\n## Action items ("+actionsFor(leader.id).filter(t=>ballot.actions[t]).length+"/"+actionsFor(leader.id).length+" done)\n";
   actionsFor(leader.id).forEach(t=>{ md += "- ["+(ballot.actions[t]?"x":" ")+"] "+t+"\n"; });
-  const pw = ballot.prework;
-  md += "\n## Goal pre-work (optional drafts)\n";
-  md += "- Theme ownership: "+((pw.own||"").trim()||"—")+"\n";
-  pw.goals.forEach((g,i)=>{
-    if((g.idea||"").trim()||(g.green||"").trim()||(g.superGreen||"").trim())
-      md += "- Draft goal "+(i+1)+": "+((g.idea||"").trim()||"—")+" · Green: "+((g.green||"").trim()||"—")+" · Super Green: "+((g.superGreen||"").trim()||"—")+"\n";
+  const gw = ballot.goalwork;
+  const cards = shortlistFor(leader.id);
+  const cardOf = k => cards.find(c=>c.k===k);
+  md += "\n## My Q3 goals — my "+pickTargetFor(leader.id)+" ("+gw.picks.length+" picked)\n";
+  gw.picks.forEach(k=>{
+    const c = cardOf(k) || {name:k};
+    const b = gw.bars[k]||{};
+    md += "- "+(gw.crits.indexOf(k)!==-1?"⭐ CRITICAL — ":"")+c.name+(c.shared?" _(shared target)_":"")+"\n";
+    md += "  - Green: "+((b.green||"").trim()||"—")+"\n  - Super Green: "+((b.superGreen||"").trim()||"—")+"\n  - How measured: "+((b.measure||"").trim()||"—")+"\n";
   });
+  const routed = cards.filter(c=>gw.picks.indexOf(c.k)===-1);
+  if(routed.length){
+    md += "\n## Didn't make my five — routing\n";
+    routed.forEach(c=>{
+      const r = gw.routes[c.k]||"";
+      const label = r.indexOf("direct:")===0 ? "assign to "+r.slice(7) : (r==="park" ? "park — not this quarter" : "room decides");
+      md += "- "+c.name+" → "+label+"\n";
+    });
+  }
+  const adds = gw.additions.map((g,i)=>({g,i})).filter(x=>(x.g.name||"").trim());
+  if(adds.length){
+    md += "\n## Additions (not on the shortlist — flagged for the room)\n";
+    adds.forEach(x=>{
+      md += "- "+(gw.crits.indexOf("add:"+x.i)!==-1?"⭐ CRITICAL — ":"")+x.g.name.trim()+"\n";
+      md += "  - Why: "+((x.g.why||"").trim()||"—")+"\n  - Green: "+((x.g.green||"").trim()||"—")+" · Super Green: "+((x.g.superGreen||"").trim()||"—")+" · How measured: "+((x.g.measure||"").trim()||"—")+"\n";
+    });
+  }
   return md;
 }
 function buildCosPrompt(leader, ballot, d){
   const v = ballot.votes[d.id]||{};
+  const head = "You are my thinking partner for the leadership prep at Einstein Moving Company's quarterly QGR (July 29–30). I'm "+leader.name+", "+leader.role+". Nobody sees my ballot before the room, so be honest, not diplomatic.\n\n";
+  if(d.openEnded){
+    return head+
+      "## The question I've been asked\n"+d.title+"\n\n"+
+      "## Context\n"+stripHtml(d.context)+"\n\n"+
+      "## The ask\n"+stripHtml(d.debate)+"\n\n"+
+      "## My draft answer\n"+((v.reasoning||"").trim()||"(blank — help me build one)")+"\n\n"+
+      "## What I need from you\n"+
+      "1. Ask me the 3–4 questions that would surface what I actually know here but haven't written down.\n"+
+      "2. Push back where my draft is generic — make me name specific people, specific moments, specific numbers.\n"+
+      "3. Tell me what I'm likely leaving out because I'm too close to it.\n"+
+      "4. Then help me land a tight answer in MY voice — specific, from my seat, no corporate speak.\n\n"+
+      "I'll paste the final answer back into my ballot and export it to Cameron before the QGR.";
+  }
   const posLabel = v.position ? posLabelFor(d, v.position) : "no position yet";
-  return "You are my thinking partner for a leadership debate at Einstein Moving Company's quarterly QGR (July 29–30). I'm "+leader.name+", "+leader.role+". Nobody sees my ballot before the room, so be honest, not diplomatic.\n\n"+
+  const optLabels = (d.options||POSITIONS).map(p=>p.label).join(" / ");
+  return head+
     "## The question\n"+d.title+"\n\n"+
     "## Context\n"+stripHtml(d.context)+"\n\n"+
     (d.lean
@@ -805,11 +1364,59 @@ function buildCosPrompt(leader, ballot, d){
     "## The debate\n"+stripHtml(d.debate)+"\n\n"+
     "## My draft take\nPosition: "+posLabel+"\nReasoning so far: "+((v.reasoning||"").trim()||"(blank — help me form one)")+"\n\n"+
     "## What I need from you\n"+
-    "1. Steelman BOTH sides — the strongest honest case for the lean and the strongest case against it.\n"+
+    "1. Steelman BOTH sides — the strongest honest case for "+(d.lean?"the lean":"each option")+" and the strongest case against it.\n"+
     "2. Pressure-test my draft against what you know about my department and my seat: where does this decision hit MY world, and what would I see go wrong first?\n"+
     "3. Ask me the 2–3 questions that would most change my answer.\n"+
-    "4. Then help me land a final position (Agree with the lean / Agree, with changes / Disagree / Undecided) and 3–6 sentences of reasoning in MY voice — specific, from my seat, no corporate speak.\n\n"+
+    "4. Then help me land a final position ("+optLabels+") and 3–6 sentences of reasoning in MY voice — specific, from my seat, no corporate speak.\n\n"+
     "I'll paste the final reasoning back into my ballot and export it to Cameron before the QGR.";
+}
+function buildBuildsheetCosPrompt(leader, ballot){
+  const bs = ballot.buildsheet;
+  let p = "You are my thinking partner for the Q3 planning at Einstein Moving Company's quarterly QGR (July 29–30). I'm "+leader.name+", "+leader.role+".\n\n"+
+    "## The theme\nLeadership is converging on Q3 = SPEED TO COMPETENCE, for everyone — movers, leads, managers, and CX reps, not just the field. The working name is \""+THEME_WORKING_NAME+"\" and it's beatable.\n\n"+
+    "The trap we're trying to avoid: a theme that just means \"finish the mover training app\" only reaches leads who are currently in training, and nobody else. So the real design question is what this theme means for EVERY role, and what gates we'd grade the quarter against.\n\n"+
+    "## The tracks I've been asked to think through\n";
+  TRACKS.forEach(t=>{
+    p += "\n### "+t.label+(t.gate?" (needs a Green and Super Green gate)":"")+"\n"+stripHtml(t.prompt)+"\n";
+    const take = trackVal(ballot,t.id,"take").trim();
+    const green = trackVal(ballot,t.id,"green").trim();
+    const sg = trackVal(ballot,t.id,"superGreen").trim();
+    p += "My draft: "+(take||"(blank)")+"\n";
+    if(t.gate) p += "My draft gates — Green: "+(green||"(blank)")+" · Super Green: "+(sg||"(blank)")+"\n";
+  });
+  p += "\n## My theme name idea\n"+((bs.themeName||"").trim()||"(blank — working name is \""+THEME_WORKING_NAME+"\")")+"\n\n"+
+    "## What I need from you\n"+
+    "1. Work the tracks where I have real standing — you know my seat. Don't make me fake expertise on roles I don't touch; tell me which ones I should leave to someone else.\n"+
+    "2. For every track we do work: make it CONCRETE. Who does what, how often, and how we'd know it happened. \"More training\" is not an answer.\n"+
+    "3. On the gates: push me toward numbers we could actually measure by the end of Q3 with the data we already have. If a gate needs data we don't collect yet, say so — that's a finding worth bringing to the room.\n"+
+    "4. Stress-test the manager track specifically: is overseeing the app rollout enough on its own, given they're also carrying sales and hiring? Argue both ways.\n"+
+    "5. Give me 3 candidate theme names better than \""+THEME_WORKING_NAME+"\" — something a mover would actually repeat in a branch huddle.\n\n"+
+    "I'll paste the results back into my build sheet and export it to Cameron before the QGR.";
+  return p;
+}
+function buildGoalworkCosPrompt(leader, ballot){
+  const gw = ballot.goalwork;
+  const cards = shortlistFor(leader.id);
+  const cardOf = k => cards.find(c=>c.k===k);
+  let p = "You are my thinking partner for my Q3 quarterly goals at Einstein Moving Company, going into the QGR (July 29–30). I'm "+leader.name+", "+leader.role+".\n\n"+
+    "## How this works\nThe company already walked the full goal backlog and shortlisted "+cards.length+" candidates for me. My job is to PICK "+pickTargetFor(leader.id)+" I'll actually carry, route the rest, mark my TWO criticals (the ones that, if they slip, my quarter slipped), and write three things for each pick: a GREEN bar (achieved), a SUPER GREEN bar (exceeded), and HOW IT'S MEASURED (the data source and number we'd look at on Oct 1).\n\n";
+  p += "## My shortlist\n";
+  cards.forEach(c=>{
+    p += "- "+(gw.picks.indexOf(c.k)!==-1?"[PICKED"+(gw.crits.indexOf(c.k)!==-1?" · CRITICAL":"")+"] ":"[not picked] ")+c.name+"\n";
+  });
+  const pickedWithBars = gw.picks.map(k=>{
+    const c = cardOf(k)||{name:k}; const b = gw.bars[k]||{};
+    return "### "+c.name+"\nGreen: "+((b.green||"").trim()||"(blank)")+"\nSuper Green: "+((b.superGreen||"").trim()||"(blank)")+"\nHow measured: "+((b.measure||"").trim()||"(blank)")+"\n";
+  }).join("\n");
+  p += "\n## My draft bars\n"+(pickedWithBars||"(no picks yet — help me choose)")+"\n";
+  p += "\n## What I need from you\n"+
+    "1. Pressure-test my PICKS first: given my seat and what you know about my quarter, are these the five with the most leverage? If you'd swap one, say which and why.\n"+
+    "2. For every bar: make it MEASURABLE. \"Improve X\" is not a bar. Push me to a number, a date, or a binary that a skeptic could grade without asking me.\n"+
+    "3. On \"how measured\": name the actual data source. If the data doesn't exist yet, that's a finding — the goal may need a data-collection milestone inside it.\n"+
+    "4. Challenge my criticals: are these truly the two that sink the quarter, or just the two I like most?\n"+
+    "5. Then hand back tightened bars in MY voice — specific, from my seat, no corporate speak.\n\n"+
+    "I'll paste the results back into my hub and export everything to Cameron before the QGR.";
+  return p;
 }
 function downloadFile(filename, text, mime){
   const blob = new Blob([text], {type: mime||"text/plain"});
