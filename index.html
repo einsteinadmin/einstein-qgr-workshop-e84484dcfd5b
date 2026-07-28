@@ -5,7 +5,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <meta name="robots" content="noindex,nofollow">
 <title>Einstein Leadership QGR Prep — Leader Hub</title>
-<!-- qgr-workshop-hub v1.10.1 2026-07-27 — BLIND-FIRST BALLOT FIX (Mike's catch at the 3pm: "I have to give Gerald Cameron's opinion, which sways Gerald"): the per-question COS prompt is now LEAN-BLIND until the leader opens the lean reveal — hidden state tells the COS a lean exists but withholds it ("help me form my OWN position first"); opening the reveal flips votes[qid].leanRevealed (persisted, additive), after which the prompt includes the lean as before. Reveal summary + cos-hint copy updated to teach the flow; export gains per-question leanRevealed flag. No schema break, no progress-meter change, safe mid-flight (Cameron's existing ballot unaffected). Prior: v1.10.0 2026-07-27 — QUARTER IN REVIEW tile added (Cameron: hub = the standing workshop template, updates over time): new "Quarter in Review — Your Tiles" tile after PA-Directs, links q2-quarter-in-review.html (v0.4 draft, hosted in THIS repo w/ assets/qir/ screenshots) — leaders review their presenter-chipped tiles w/ their COS pre-room, bring corrections + the ⚠-noted fetch item to the Day-2 15-min redline Thu 7/30. Prior: v1.9.2 — TITLE disambiguation (Cameron): "Einstein Leadership QGR Prep" vs the FLM tool's "Einstein FLM QGR Prep" — no functional change. Prior: v1.9.1 2026-07-27 — TILE ORDER now mirrors the page (Cameron): sections in on-page order (Action Items · Ballot · Build Sheet · Self-Eval · Pick-5 · Directs’ Slate) then external/reference tiles (PA-Directs · Agenda · QG Tracker · grayed Financial + Frontline). Prior: v1.9.0 2026-07-27 — YOUR DIRECTS' Q3 SLATE module added for amanda/anne/matisen/mike/brian only: each drafts candidate Q3 goals for their OWN directs (Amanda → Nhel/Tet/Carly, Anne → Jalissa, Matisen → Fabian, Mike/Brian → their full FLM rosters, collapsed + banner-noted since FLM slates draft best after Wednesday's theme lock). Seeded from the triage-room WALK_SEED_2026_07_24 — every card owned by jalissa/tet/carly/nhel/fabian with band:"shortlist" and decision !== "kill" (Jalissa 2 · Tet 4 · Carly 5 incl. O-CAR1 · Nhel 4 · Fabian 7 — no consolidated card in the seed belongs to these five owners). Cards routed to a direct via the pick-5 module's "assign to a direct" dropdown surface live in that direct's card, badged "routed from your shortlist," deduped against seeds by pulse id. Per-candidate keep/remove (removed = struck through, stays visible) + critical star + why/theme-hook note, plus uncapped add-your-own rows. Own COS prompt. NOT added to ballotProgress() — ships mid-flight, badged "New" on the tile instead so no leader's % shifts. Export schema bumped to v6 (+directSlates, five leaders only; everything else identical) + matching markdown section. Cameron's mid-build ruling 7/27: NO cap anywhere in this module — every shortlisted+owned card must show, seeded/routed/own all uncapped (superseded an earlier 6-per-direct design). Cameron's 2nd 7/27 ruling — completeness applies to the SHORTLIST const too: the 4 consolidated cards from WALK_SEED_2026_07_24's `consolidations` array were missing from the leaders' own pick-5 shortlists (they were merged during the triage walk, so they never got a `MB-` key) — added anne (6→8: Workers Comp Process Improvements, WHO/Culture Interviews) + amanda (5→7: Incentivize Manager Sales, Magic Moments Toolkit); pickTargetFor()=min(5,length) unaffected (both leaders already picked from 5+ cards) and additive keys don't disturb any legacy saved picks/routes. Prior: v1.8.3 2026-07-27 — SEND-READY TRIM (Cameron's 4 rulings): Goals Dashboard link REMOVED from QG tile (Cameron's tool, not theirs) · My Action Items tile+section → ALL PENDING (grayed, checkboxes disabled, Sky Board link removed — Cameron confirms/activates later) · Financial Packet + Frontline Packet tiles → grayed non-clickable placeholders (not ready to distribute; Cameron shows live in room or lights them up via a later push) · goal pre-work confirmed REQUIRED (already counted in the progress meter + Must-do highlighted; no optional labeling existed). Leader focus = ballot · PA-directs · CHOICES self-eval · pick-5 goals. Prior: v1.8.2 2026-07-26 — LEAN REDLINES (Cameron's ballot-prep session): flex-days lean rewritten from KPI-earned to default-on-with-a-floor (two tiers: untracked daily norm w/ launch-through-lunch presence + assigned midweek flex day, BM/OM alternating, Rippling zero-impact type; 2-of-3 KPI floor pauses flex automatically; multi-day = PTO) · mgr-sales-comp lean updated to match (no pay component this year; direct pull = sales competition Q5; sales attainment sits in the flex floor; named Q4-QGR revisit; pace board built in Q3 regardless) · both debate lines re-pointed · header tag version unstuck (was V1.7). Prior: v1.8.1 2026-07-25 — Cameron's eyeball fixes + DEPLOY: Brian/Mike routing dropdowns now carry the FULL manager seats (BM+OM+FM, 15 and 10, mirroring the mgr-AAR roster — BMs alone was missing people) · M1 merged into 11728355420 (same thing per Cameron; Mike 8→7 cards) · 3 fresh reference pulses created in lieu of un-archiving (Ongoing Education 12626630060 · Damage Score 12626624482 · A4 eNPS 12626620998) — every card now links to a live pulse. Prior: v1.8 2026-07-25 — PHASE 2: the pick-5 goal module (replaces the goal pre-work scaffold). Each leader gets THEIR slice of the walked Q3 shortlist (43 cards, trued-up Master Backlog 7/24 — every card links to its live reference pulse) · CUT, NOT CONFIRM: pick 5, every unpicked card gets routed (room decides / assign to a direct via dropdown / park) · Green + Super Green + How-measured bars unlock ONLY on picked cards, ALL BLANK by Cameron's ruling (no pre-drafted bars, the 12 existing drafts deliberately withheld) · leaders nominate their OWN 2 criticals · additions flagged for the room, no forced trade · shared targets labeled both sides · own COS prompt · export schema v5 (+goals block; prework dropped, legacy drafts carried as legacyPrework). Prior: v1.7 2026-07-24 — Cameron's ballot fold: +3 questions (sales COMPETITION for everyone; sales-training + Carly/Magic-Moments targeted to Amanda via the new `forLeaders` field) · new SPEED-TO-COMPETENCE BUILD SHEET (5 role tracks + theme name + Green/Super-Green gates, own COS prompt) · core-vs-optional questions (CORE_QIDS — progress meter counts core only) · open-ended question type (no position chips) · export schema v4 (+buildsheet, +core/openEnded/targeted flags; ballot[] now leader-filtered) · fixed stale "four open decisions" copy. Prior: v1.6 — Frontline Packet tile added (DRAFT preview, q2-materials). Prior: v1.5.1 — FIX: ballotProgress() now guards missing choices/votes so a legacy/partial saved ballot can't throw and blank the landing (Cameron empty-hub repro). v1.5: PA-Directs tile wired LIVE (einstein-pa-directs-da2d210013ca, eval-session handoff closed); v1.4: hidden leans · +2 no-lean ballot Qs · goal pre-work scaffold · per-leader action items (DRAFT) · export schema v3 -->
+<!-- qgr-workshop-hub v1.11.0 2026-07-28 — TWO NEW SECTIONS (Cameron's ask): ① 🏆 "Your 3 best things from Q2" — personal + professional both count, each row gets a Personal/Professional chip, a story box, and up to 3 PHOTOS (browser-compressed to ≤1280px JPEG data-URLs, stored in the same localStorage ballot; iPhone HEIC in Chrome fails gracefully w/ a try-JPG toast — Safari handles HEIC). ② 🌟 "Legend of the Quarter" — pick ONE Roundtable teammate (self excluded), write the story to share aloud; own COS prompt. Photos ride INSIDE the JSON export as embedded images (schema v7 — +bestThings, +legend; everything else identical), so the ballots leaders already send Cameron carry the pictures — no separate photo files. Companion room page `qgr-celebration-wall.html` (new, ships EMPTY like ballot-results): drag the same ballot JSONs in → Best-of-Q2 photo wall + Legends board + full-screen Present mode (arrow keys) = the presentation. NOT added to ballotProgress (mid-flight rule, v1.9.0 precedent) — tile badged New instead; sections render between Celebrations and Pick-5. Markdown export notes photo counts (photos live in the JSON only). Prior: v1.10.1 2026-07-27 — BLIND-FIRST BALLOT FIX (Mike's catch at the 3pm: "I have to give Gerald Cameron's opinion, which sways Gerald"): the per-question COS prompt is now LEAN-BLIND until the leader opens the lean reveal — hidden state tells the COS a lean exists but withholds it ("help me form my OWN position first"); opening the reveal flips votes[qid].leanRevealed (persisted, additive), after which the prompt includes the lean as before. Reveal summary + cos-hint copy updated to teach the flow; export gains per-question leanRevealed flag. No schema break, no progress-meter change, safe mid-flight (Cameron's existing ballot unaffected). Prior: v1.10.0 2026-07-27 — QUARTER IN REVIEW tile added (Cameron: hub = the standing workshop template, updates over time): new "Quarter in Review — Your Tiles" tile after PA-Directs, links q2-quarter-in-review.html (v0.4 draft, hosted in THIS repo w/ assets/qir/ screenshots) — leaders review their presenter-chipped tiles w/ their COS pre-room, bring corrections + the ⚠-noted fetch item to the Day-2 15-min redline Thu 7/30. Prior: v1.9.2 — TITLE disambiguation (Cameron): "Einstein Leadership QGR Prep" vs the FLM tool's "Einstein FLM QGR Prep" — no functional change. Prior: v1.9.1 2026-07-27 — TILE ORDER now mirrors the page (Cameron): sections in on-page order (Action Items · Ballot · Build Sheet · Self-Eval · Pick-5 · Directs’ Slate) then external/reference tiles (PA-Directs · Agenda · QG Tracker · grayed Financial + Frontline). Prior: v1.9.0 2026-07-27 — YOUR DIRECTS' Q3 SLATE module added for amanda/anne/matisen/mike/brian only: each drafts candidate Q3 goals for their OWN directs (Amanda → Nhel/Tet/Carly, Anne → Jalissa, Matisen → Fabian, Mike/Brian → their full FLM rosters, collapsed + banner-noted since FLM slates draft best after Wednesday's theme lock). Seeded from the triage-room WALK_SEED_2026_07_24 — every card owned by jalissa/tet/carly/nhel/fabian with band:"shortlist" and decision !== "kill" (Jalissa 2 · Tet 4 · Carly 5 incl. O-CAR1 · Nhel 4 · Fabian 7 — no consolidated card in the seed belongs to these five owners). Cards routed to a direct via the pick-5 module's "assign to a direct" dropdown surface live in that direct's card, badged "routed from your shortlist," deduped against seeds by pulse id. Per-candidate keep/remove (removed = struck through, stays visible) + critical star + why/theme-hook note, plus uncapped add-your-own rows. Own COS prompt. NOT added to ballotProgress() — ships mid-flight, badged "New" on the tile instead so no leader's % shifts. Export schema bumped to v6 (+directSlates, five leaders only; everything else identical) + matching markdown section. Cameron's mid-build ruling 7/27: NO cap anywhere in this module — every shortlisted+owned card must show, seeded/routed/own all uncapped (superseded an earlier 6-per-direct design). Cameron's 2nd 7/27 ruling — completeness applies to the SHORTLIST const too: the 4 consolidated cards from WALK_SEED_2026_07_24's `consolidations` array were missing from the leaders' own pick-5 shortlists (they were merged during the triage walk, so they never got a `MB-` key) — added anne (6→8: Workers Comp Process Improvements, WHO/Culture Interviews) + amanda (5→7: Incentivize Manager Sales, Magic Moments Toolkit); pickTargetFor()=min(5,length) unaffected (both leaders already picked from 5+ cards) and additive keys don't disturb any legacy saved picks/routes. Prior: v1.8.3 2026-07-27 — SEND-READY TRIM (Cameron's 4 rulings): Goals Dashboard link REMOVED from QG tile (Cameron's tool, not theirs) · My Action Items tile+section → ALL PENDING (grayed, checkboxes disabled, Sky Board link removed — Cameron confirms/activates later) · Financial Packet + Frontline Packet tiles → grayed non-clickable placeholders (not ready to distribute; Cameron shows live in room or lights them up via a later push) · goal pre-work confirmed REQUIRED (already counted in the progress meter + Must-do highlighted; no optional labeling existed). Leader focus = ballot · PA-directs · CHOICES self-eval · pick-5 goals. Prior: v1.8.2 2026-07-26 — LEAN REDLINES (Cameron's ballot-prep session): flex-days lean rewritten from KPI-earned to default-on-with-a-floor (two tiers: untracked daily norm w/ launch-through-lunch presence + assigned midweek flex day, BM/OM alternating, Rippling zero-impact type; 2-of-3 KPI floor pauses flex automatically; multi-day = PTO) · mgr-sales-comp lean updated to match (no pay component this year; direct pull = sales competition Q5; sales attainment sits in the flex floor; named Q4-QGR revisit; pace board built in Q3 regardless) · both debate lines re-pointed · header tag version unstuck (was V1.7). Prior: v1.8.1 2026-07-25 — Cameron's eyeball fixes + DEPLOY: Brian/Mike routing dropdowns now carry the FULL manager seats (BM+OM+FM, 15 and 10, mirroring the mgr-AAR roster — BMs alone was missing people) · M1 merged into 11728355420 (same thing per Cameron; Mike 8→7 cards) · 3 fresh reference pulses created in lieu of un-archiving (Ongoing Education 12626630060 · Damage Score 12626624482 · A4 eNPS 12626620998) — every card now links to a live pulse. Prior: v1.8 2026-07-25 — PHASE 2: the pick-5 goal module (replaces the goal pre-work scaffold). Each leader gets THEIR slice of the walked Q3 shortlist (43 cards, trued-up Master Backlog 7/24 — every card links to its live reference pulse) · CUT, NOT CONFIRM: pick 5, every unpicked card gets routed (room decides / assign to a direct via dropdown / park) · Green + Super Green + How-measured bars unlock ONLY on picked cards, ALL BLANK by Cameron's ruling (no pre-drafted bars, the 12 existing drafts deliberately withheld) · leaders nominate their OWN 2 criticals · additions flagged for the room, no forced trade · shared targets labeled both sides · own COS prompt · export schema v5 (+goals block; prework dropped, legacy drafts carried as legacyPrework). Prior: v1.7 2026-07-24 — Cameron's ballot fold: +3 questions (sales COMPETITION for everyone; sales-training + Carly/Magic-Moments targeted to Amanda via the new `forLeaders` field) · new SPEED-TO-COMPETENCE BUILD SHEET (5 role tracks + theme name + Green/Super-Green gates, own COS prompt) · core-vs-optional questions (CORE_QIDS — progress meter counts core only) · open-ended question type (no position chips) · export schema v4 (+buildsheet, +core/openEnded/targeted flags; ballot[] now leader-filtered) · fixed stale "four open decisions" copy. Prior: v1.6 — Frontline Packet tile added (DRAFT preview, q2-materials). Prior: v1.5.1 — FIX: ballotProgress() now guards missing choices/votes so a legacy/partial saved ballot can't throw and blank the landing (Cameron empty-hub repro). v1.5: PA-Directs tile wired LIVE (einstein-pa-directs-da2d210013ca, eval-session handoff closed); v1.4: hidden leans · +2 no-lean ballot Qs · goal pre-work scaffold · per-leader action items (DRAFT) · export schema v3 -->
 
 <!--
   QGR WORKSHOP HUB — V1 (leader-facing mirror of the QGR Command HQ)
@@ -247,6 +247,17 @@ footer{background:var(--navy-700);color:var(--navy-100);text-align:center;paddin
 #btnAddGoal{border:1.5px dashed var(--grey-200);background:none;color:var(--blue-500);border-radius:var(--radius-md);padding:10px 16px;font-size:12px;font-weight:700;width:100%;margin-top:4px}
 #btnAddGoal:hover{border-color:var(--blue-100);background:var(--blue-50)}
 .arch-note{font-size:10px;color:var(--grey-400);font-style:italic}
+/* ---- Best things photos + legend picker ---- */
+.bt-card{border:1px solid var(--grey-100);border-radius:var(--radius-md);padding:14px 16px;margin-bottom:12px}
+.bt-card .bt-num{font-size:10.5px;font-weight:700;color:var(--grey-400);text-transform:uppercase;letter-spacing:.04em;margin-bottom:8px}
+.bt-photos{display:flex;gap:10px;flex-wrap:wrap;margin-top:10px}
+.bt-ph{position:relative;width:96px;height:96px;border-radius:var(--radius-sm);overflow:hidden;border:1px solid var(--grey-100);background:var(--grey-50)}
+.bt-ph img{width:100%;height:100%;object-fit:cover;display:block}
+.bt-ph button{position:absolute;top:3px;right:3px;background:rgba(11,16,20,.72);color:#fff;border:none;border-radius:50%;width:20px;height:20px;font-size:11px;line-height:1;padding:0}
+.bt-ph button:hover{background:var(--error)}
+.bt-addph{width:96px;height:96px;border:1.5px dashed var(--grey-200);border-radius:var(--radius-sm);background:none;color:var(--blue-500);font-size:11px;font-weight:700;line-height:1.35}
+.bt-addph:hover{border-color:var(--blue-100);background:var(--blue-50)}
+.bt-phhint{font-size:10.5px;color:var(--grey-400);margin-top:6px}
 /* ---- Directs' Q3 slate module ---- */
 .ds-direct{margin-bottom:14px}
 .ds-card{margin-bottom:8px}
@@ -258,7 +269,7 @@ footer{background:var(--navy-700);color:var(--navy-100);text-align:center;paddin
 </head>
 <body>
 <header id="appHeader">
-  <div class="brand"><span class="bebas">EINSTEIN LEADERSHIP QGR PREP</span><span class="tag">Leader Hub · Q3 2026 QGR · July 29–30 · V1.9.1</span></div>
+  <div class="brand"><span class="bebas">EINSTEIN LEADERSHIP QGR PREP</span><span class="tag">Leader Hub · Q3 2026 QGR · July 29–30 · V1.11</span></div>
   <div class="savebox" id="saveBox">Local only — nothing leaves this computer until you export<br><b id="saveStamp">—</b></div>
 </header>
 <main>
@@ -736,6 +747,8 @@ function emptyBallot(leader){
     votes: {},   // debate id -> { position, reasoning }
     choices: { items:{}, itemNotes:{} },   // core value -> score 1-5, note
     celebrations: { celebration:"", prizes:"" },
+    bestThings: { items:[{kind:"",story:"",photos:[]},{kind:"",story:"",photos:[]},{kind:"",story:"",photos:[]}] }, // v1.11 — photos = [{name,dataUrl}], compressed in-browser
+    legend: { who:"", story:"" },           // v1.11 — Legend of the Quarter: who = leader id (never self)
     actions: {},                            // action-item text -> true when done
     prework: { own:"", goals:[{},{},{}] },  // LEGACY (pre-v1.8) — kept so old saves round-trip; no longer rendered
     goalwork: { picks:[], crits:[], bars:{}, routes:{}, additions:[] }, // pick-5 module: bars[k]={green,superGreen,measure}, routes[k]=string, additions=[{name,why,green,superGreen,measure}]
@@ -753,6 +766,11 @@ function getBallot(leader){
   if(!b.choices) b.choices = {items:{},itemNotes:{}};
   if(!b.choices.itemNotes) b.choices.itemNotes = {};
   if(!b.celebrations) b.celebrations = {celebration:"",prizes:""};
+  if(!b.bestThings) b.bestThings = {items:[]};
+  if(!b.bestThings.items) b.bestThings.items = [];
+  while(b.bestThings.items.length < 3) b.bestThings.items.push({kind:"",story:"",photos:[]});
+  b.bestThings.items.forEach(it=>{ if(!it.photos) it.photos = []; });
+  if(!b.legend) b.legend = {who:"",story:""};
   if(!b.actions) b.actions = {};
   if(!b.prework) b.prework = {own:"",goals:[{},{},{}]};
   while(b.prework.goals.length < 3) b.prework.goals.push({});
@@ -909,6 +927,8 @@ function renderHub(){
   html += buildsheetSectionHtml(leader, ballot);
   html += choicesSectionHtml(leader, ballot);
   html += celebrationsSectionHtml(leader, ballot);
+  html += bestThingsSectionHtml(leader, ballot);
+  html += legendSectionHtml(leader, ballot);
   html += goalworkSectionHtml(leader, ballot);
   html += directSlatesSectionHtml(leader, ballot);
   html += exportSectionHtml(leader, ballot);
@@ -928,6 +948,7 @@ function tilesHtml(leader){
     '<div class="tile live"><h4>🗳 Debate Ballot <span class="now">Start here</span></h4><p>The open decisions of this QGR. Read, think, talk it through with your COS, register your take, export. This is the piece that has to land before the room &mdash; the must-answer core is marked, the rest are optional.</p><a class="tlink" href="#sec-debates" data-scrollto="sec-debates">Jump to the ballot ↓</a></div>'+
     '<div class="tile live"><h4>🏗 Theme Build Sheet <span class="now">New</span></h4><p>Q3 = speed to competence. The ballot asks <i>whether</i>; this asks <b>how</b> &mdash; what it means for movers, leads, managers and CX reps, and the Green / Super Green gates we\'d grade against. Answer the tracks you have a real view on.</p><a class="tlink" href="#sec-buildsheet" data-scrollto="sec-buildsheet">Open the build sheet ↓</a></div>'+
     '<div class="tile live"><h4>🪞 Self-Eval (CHOICES) <span class="now">Do it here</span></h4><p>Score yourself 1–5 on the seven values — same scale, same anchors as the exercise your managers run. It\'s built into this page and rides along in your export.</p><a class="tlink" href="#sec-choices" data-scrollto="sec-choices">Jump to your self-eval ↓</a> &nbsp; <a class="tlink" href="https://einsteinadmin.github.io/einstein-mgr-aar-476141c7097f/" target="_blank" rel="noopener">Your team\'s version →</a></div>'+
+    '<div class="tile live"><h4>🏆 Best of Q2 + Legend of the Quarter <span class="now">New</span></h4><p>Two room-openers: your <b>3 best things</b> from last quarter — personal and professional both count, photos welcome — and your <b>Legend of the Quarter</b>: one Roundtable teammate and the story you\'d tell about them. Photos ride inside your normal export and land on the room wall.</p><a class="tlink" href="#sec-bestthings" data-scrollto="sec-bestthings">Add your best things ↓</a> &nbsp; <a class="tlink" href="#sec-legend" data-scrollto="sec-legend">Name your legend ↓</a></div>'+
     '<div class="tile live"><h4>🎯 Your Q3 Goals — Pick Your 5 <span class="now">Must-do</span></h4><p>Your slice of the walked shortlist — the backlog work is done, so this is a <b>selection</b>, not an invention: pick your five, route the rest, name your two criticals, and draft the Green / Super Green / how-measured bars in your own words.</p><a class="tlink" href="#sec-goals" data-scrollto="sec-goals">Pick your five ↓</a></div>'+
     dsTile+
     '<div class="tile live"><h4>🧮 People Analyzer — Your Directs <span class="now">Live</span></h4><p>Run the analyzer on <b>your own directs</b> — CHOICES 1–5, GWC, rehire call. Private until you export; Cameron aggregates everyone\'s reads into one gut-check view for the room. Your roster is pre-seeded.</p><a class="tlink" href="https://einsteinadmin.github.io/einstein-pa-directs-da2d210013ca/" target="_blank" rel="noopener">Open the Directs Analyzer →</a></div>'+
@@ -1227,6 +1248,91 @@ function celebrationsSectionHtml(leader, ballot){
     '<div class="q-block"><label>Prize ideas <span class="qhint">— what winning actually gets you</span></label><textarea data-celeb="prizes" placeholder="e.g., prize budget per branch competition, gear, experiences, bragging rights that stick…">'+esc(c.prizes||"")+'</textarea></div></div>';
 }
 
+/* ---- 3 best things from Q2 (v1.11) ---- */
+const BT_KINDS = [
+  {v:"professional", label:"Professional", cls:"good"},
+  {v:"personal",     label:"Personal",     cls:"mid"}
+];
+const BT_MAX_PHOTOS = 3;
+function bestThingsInCount(ballot){ return ballot.bestThings.items.filter(it=>(it.story||"").trim()).length; }
+function bestThingsSectionHtml(leader, ballot){
+  const items = ballot.bestThings.items;
+  const inCount = bestThingsInCount(ballot);
+  let html = '<div class="section" id="sec-bestthings"><div class="shead"><h3>🏆 Your 3 best things from Q2</h3>'+
+    (inCount>=3?'<span class="done-chip">✓ all 3 in</span>':(inCount?'<span class="tiny muted">'+inCount+' of 3 in</span>':''))+'</div>'+
+    '<div class="shelp">Before the room debates anything, it celebrates. Bring your <b>three best things from last quarter — personal and professional both count</b>, and the mix is yours: a kid\'s graduation sits next to a branch record just fine. Write each one the way you\'d actually tell it, and <b>add photos if you have them</b> — they save on this computer, ride inside your normal export, and go up on the Best-of-Q2 wall in the room. Phone photos are perfect; they get shrunk automatically.</div>';
+  items.forEach((it,i)=>{
+    const photos = it.photos||[];
+    html += '<div class="bt-card"><div class="bt-num">Best thing '+(i+1)+'</div>'+
+      '<div class="chiprow">'+BT_KINDS.map(k=>
+        '<button class="chip'+(it.kind===k.v?' sel '+k.cls:'')+'" data-btkind="'+i+':'+k.v+'">'+k.label+'</button>'
+      ).join("")+'</div>'+
+      '<div class="q-block"><label>The story <span class="qhint">&mdash; the way you\'d tell it out loud, not a caption</span></label>'+
+      '<textarea data-btstory="'+i+'" placeholder="What happened, who was there, and why it made the top three.">'+esc(it.story||"")+'</textarea></div>'+
+      '<div class="bt-photos">'+
+      photos.map((p,pi)=>'<div class="bt-ph"><img src="'+esc(p.dataUrl)+'" alt=""><button data-btdel="'+i+':'+pi+'" title="Remove photo">✕</button></div>').join("")+
+      (photos.length<BT_MAX_PHOTOS?'<button class="bt-addph" data-btadd="'+i+'">＋<br>Add photo</button><input type="file" accept="image/*" multiple style="display:none" data-btfile="'+i+'">':'')+
+      '</div>'+
+      (photos.length?'<div class="bt-phhint">'+photos.length+' photo'+(photos.length===1?'':'s')+' attached — they ride along inside your export.</div>':'')+
+      '</div>';
+  });
+  html += '</div>';
+  return html;
+}
+/* ---- Legend of the Quarter (v1.11) ---- */
+function legendDone(ballot){ return !!(ballot.legend.who && (ballot.legend.story||"").trim()); }
+function legendSectionHtml(leader, ballot){
+  const lg = ballot.legend;
+  const picked = lg.who ? leaderById(lg.who) : null;
+  let html = '<div class="section" id="sec-legend"><div class="shead"><h3>🌟 Your Legend of the Quarter</h3>'+
+    (legendDone(ballot)?'<span class="done-chip">✓ legend named</span>':'')+'</div>'+
+    '<div class="shelp">Pick <b>one person on the Roundtable</b> who was your legend of the quarter &mdash; the teammate whose Q2 you\'d want the whole room to hear about. Then <b>write up the story to share</b>: what they did, what it took, and what it made possible. You\'ll tell it in the room, so write it in your telling voice. There\'s no wrong pick and no vote &mdash; if three people name the same legend, that\'s three great stories.</div>'+
+    '<div class="q-block"><label>My legend</label>'+
+    '<div class="chiprow">'+LEADERS.filter(l=>l.id!==leader.id).map(l=>
+      '<button class="chip'+(lg.who===l.id?' sel good':'')+'" data-lgwho="'+esc(l.id)+'" title="'+esc(l.role)+'">'+esc(l.name.split(" ")[0])+'</button>'
+    ).join("")+'</div></div>'+
+    '<div class="q-block"><label>The story '+(picked?'<span class="qhint">&mdash; why '+esc(picked.name.split(" ")[0])+' is your legend</span>':'<span class="qhint">&mdash; pick your legend above first if you want, but the story can come first too</span>')+'</label>'+
+    '<textarea data-lgstory placeholder="The specific moment or run of work that earned it — what they did, what it took, what it changed.">'+esc(lg.story||"")+'</textarea></div>'+
+    '<div class="cos-row"><button id="btnLgCos">🎙 Copy COS prompt for your legend story</button>'+
+    '<span class="cos-hint">Hands your pick and rough notes to your AI chief of staff to help shape into a story worth telling aloud.</span></div>'+
+    '</div>';
+  return html;
+}
+function buildLegendCosPrompt(leader, ballot){
+  const lg = ballot.legend;
+  const picked = lg.who ? leaderById(lg.who) : null;
+  return "You are my thinking partner for a short recognition story I'll tell aloud at Einstein Moving Company's quarterly QGR (July 29–30). I'm "+leader.name+", "+leader.role+".\n\n"+
+    "## The exercise\nEvery leader names one \"Legend of the Quarter\" — one Roundtable teammate — and tells the story of why. Not a toast, a story: what they did, what it took, what it made possible.\n\n"+
+    "## My pick\n"+(picked?picked.name+" ("+picked.role+")":"(not picked yet — help me think through who earned it this quarter)")+"\n\n"+
+    "## My rough notes\n"+((lg.story||"").trim()||"(blank — interview me for the raw material)")+"\n\n"+
+    "## What I need from you\n"+
+    "1. Interview me for specifics: the moment, the stakes, what would have happened without them. Vague praise dies in a room; a specific scene lands.\n"+
+    "2. Keep it 60–90 seconds spoken — one story, not a highlight reel.\n"+
+    "3. Write it in MY voice, the way I actually talk — no corporate speak, no award-show language.\n\n"+
+    "I'll paste the final story back into my prep hub and it exports to Cameron with my ballot.";
+}
+/* Browser-side photo shrink: max 1280px long edge, JPEG — keeps three photos
+   per item comfortably inside localStorage. HEIC in Chrome fails to decode →
+   graceful toast (Safari decodes HEIC natively). */
+function compressImageFile(file, cb){
+  const reader = new FileReader();
+  reader.onload = ()=>{
+    const img = new Image();
+    img.onload = ()=>{
+      const MAX = 1280;
+      let w = img.width, h = img.height;
+      if(Math.max(w,h) > MAX){ const s = MAX/Math.max(w,h); w = Math.round(w*s); h = Math.round(h*s); }
+      const cv = document.createElement("canvas"); cv.width = w; cv.height = h;
+      cv.getContext("2d").drawImage(img, 0, 0, w, h);
+      cb(cv.toDataURL("image/jpeg", 0.82));
+    };
+    img.onerror = ()=>toast("Couldn't read that image — try a JPG or PNG (iPhone HEIC needs Safari)");
+    img.src = reader.result;
+  };
+  reader.onerror = ()=>toast("Couldn't read that file");
+  reader.readAsDataURL(file);
+}
+
 /* ---- Export section ---- */
 function exportSectionHtml(leader, ballot){
   return '<div class="section" id="sec-export"><div class="shead"><h3>📤 Submit your ballot</h3></div>'+
@@ -1446,6 +1552,63 @@ function wireHub(leader, ballot){
       queueSave();
     });
   });
+  /* ---- Best things (v1.11) ---- */
+  const btItems = ballot.bestThings.items;
+  wrap.querySelectorAll("[data-btstory]").forEach(ta=>{
+    ta.addEventListener("input", ()=>{
+      btItems[Number(ta.dataset.btstory)].story = ta.value;
+      queueSave();
+    });
+  });
+  wrap.querySelectorAll("[data-btkind]").forEach(btn=>{
+    btn.addEventListener("click", ()=>{
+      const idx = btn.dataset.btkind.indexOf(":");
+      const i = Number(btn.dataset.btkind.slice(0,idx)), v = btn.dataset.btkind.slice(idx+1);
+      btItems[i].kind = btItems[i].kind===v ? "" : v;
+      queueSave(); renderHub();
+    });
+  });
+  wrap.querySelectorAll("[data-btadd]").forEach(btn=>{
+    btn.addEventListener("click", ()=>{
+      const inp = wrap.querySelector('[data-btfile="'+btn.dataset.btadd+'"]');
+      if(inp) inp.click();
+    });
+  });
+  wrap.querySelectorAll("[data-btfile]").forEach(inp=>{
+    inp.addEventListener("change", ()=>{
+      const i = Number(inp.dataset.btfile);
+      const room = BT_MAX_PHOTOS - (btItems[i].photos||[]).length;
+      const files = Array.from(inp.files||[]).slice(0, room);
+      if((inp.files||[]).length > room) toast(BT_MAX_PHOTOS+" photos max per best thing — kept the first "+room);
+      files.forEach(f=>{
+        compressImageFile(f, dataUrl=>{
+          btItems[i].photos.push({name: f.name||null, dataUrl: dataUrl});
+          queueSave(); renderHub();
+        });
+      });
+    });
+  });
+  wrap.querySelectorAll("[data-btdel]").forEach(btn=>{
+    btn.addEventListener("click", ()=>{
+      const idx = btn.dataset.btdel.indexOf(":");
+      const i = Number(btn.dataset.btdel.slice(0,idx)), pi = Number(btn.dataset.btdel.slice(idx+1));
+      btItems[i].photos.splice(pi,1);
+      queueSave(); renderHub();
+    });
+  });
+  /* ---- Legend of the Quarter (v1.11) ---- */
+  wrap.querySelectorAll("[data-lgwho]").forEach(btn=>{
+    btn.addEventListener("click", ()=>{
+      ballot.legend.who = ballot.legend.who===btn.dataset.lgwho ? "" : btn.dataset.lgwho;
+      queueSave(); renderHub();
+    });
+  });
+  const lgStory = wrap.querySelector("[data-lgstory]");
+  if(lgStory) lgStory.addEventListener("input", ()=>{ ballot.legend.story = lgStory.value; queueSave(); });
+  const lgCos = document.getElementById("btnLgCos");
+  if(lgCos) lgCos.addEventListener("click", ()=>{
+    copyText(buildLegendCosPrompt(leader, ballot), "Legend COS prompt copied — paste it to your AI chief of staff");
+  });
   const bsName = wrap.querySelector("[data-bsname]");
   if(bsName) bsName.addEventListener("input", ()=>{ ballot.buildsheet.themeName = bsName.value; queueSave(); });
   wrap.querySelectorAll("[data-track]").forEach(el=>{
@@ -1508,12 +1671,26 @@ function copyText(text, okMsg){
 /* ============ Export builders ============ */
 function buildJsonBallot(leader, ballot){
   return {
-    schema: "einstein-qgr-ballot/v6",
+    schema: "einstein-qgr-ballot/v7",
     exportedAt: new Date().toISOString(),
     quarter: QUARTER,
     leader: { id: leader.id, name: leader.name, role: leader.role },
     choices: CORE_VALUES.map(cv=>({ value: cv, score: ballot.choices.items[cv]?Number(ballot.choices.items[cv]):null, note: (ballot.choices.itemNotes[cv]||"").trim() })),
     celebrations: { celebration: (ballot.celebrations.celebration||"").trim(), prizes: (ballot.celebrations.prizes||"").trim() },
+    // v1.11 — photos ride INSIDE this file as embedded data-URLs; the room
+    // wall page (qgr-celebration-wall.html) renders them straight from the drop.
+    bestThings: ballot.bestThings.items.map((it,i)=>({
+      n: i+1,
+      kind: it.kind||null,
+      story: (it.story||"").trim(),
+      photos: (it.photos||[]).map(p=>({ name: p.name||null, dataUrl: p.dataUrl }))
+    })).filter(it=>it.story||it.photos.length),
+    legend: (function(){
+      const lg = ballot.legend||{};
+      if(!lg.who && !(lg.story||"").trim()) return null;
+      const who = lg.who ? leaderById(lg.who) : null;
+      return { whoId: lg.who||null, whoName: who?who.name:null, story: (lg.story||"").trim() };
+    })(),
     actionItems: actionsFor(leader.id).map(t=>({ item: t, done: !!ballot.actions[t] })),
     goals: (function(){
       const gw = ballot.goalwork;
@@ -1612,6 +1789,17 @@ function buildMarkdown(leader, ballot){
   md += "\n## Celebrations & prizes (Q3 theme)\n";
   md += "- Celebration ideas: "+((ballot.celebrations.celebration||"").trim()||"—")+"\n";
   md += "- Prize ideas: "+((ballot.celebrations.prizes||"").trim()||"—")+"\n";
+  md += "\n## My 3 best things from Q2\n";
+  ballot.bestThings.items.forEach((it,i)=>{
+    const story = (it.story||"").trim();
+    const nPh = (it.photos||[]).length;
+    md += "- "+(it.kind?"["+it.kind.charAt(0).toUpperCase()+it.kind.slice(1)+"] ":"")+(story||"—")+
+      (nPh?" _("+nPh+" photo"+(nPh===1?"":"s")+" — in the JSON export)_":"")+"\n";
+  });
+  md += "\n## Legend of the Quarter\n";
+  const lgWho = ballot.legend.who ? leaderById(ballot.legend.who) : null;
+  md += "- My legend: "+(lgWho?lgWho.name:"—")+"\n";
+  md += "- The story: "+((ballot.legend.story||"").trim()||"—")+"\n";
   md += "\n## Action items ("+actionsFor(leader.id).filter(t=>ballot.actions[t]).length+"/"+actionsFor(leader.id).length+" done)\n";
   actionsFor(leader.id).forEach(t=>{ md += "- ["+(ballot.actions[t]?"x":" ")+"] "+t+"\n"; });
   const gw = ballot.goalwork;
