@@ -79,14 +79,16 @@ main{padding:34px 0 60px;}
 .shotimg{border:1px solid var(--grey-100);border-radius:10px;overflow:hidden;margin-bottom:10px;}
 .shotimg img{display:block;width:100%;height:auto;}
 .shotimg .cap{font-size:12px;color:var(--grey-500);padding:6px 10px;background:var(--grey-50);}
+#lightbox{display:none;position:fixed;inset:0;z-index:1000;background:rgba(10,20,35,.88);cursor:zoom-out;align-items:center;justify-content:center;padding:32px;}
+#lightbox.open{display:flex;}
+#lightbox img{max-width:100%;max-height:100%;border-radius:10px;box-shadow:0 12px 48px rgba(0,0,0,.5);}
 
 footer{background:var(--navy-700);color:var(--navy-100);padding:26px 0;font-size:14px;text-align:center;}
 </style>
 </head>
 <body>
 
-<div class="draft-banner">DRAFT v0.7 — Roundtable + COS review copy · redline lands in the room Thu 7/30 · leadership only, not for distribution below Roundtable yet · 7/30: +tile 09 moving-day video (everyone) · +tile 10 Scrum recert (FLM-only, Brian's Scrum HQ linked) · call-grading dashboard link + screenshot in (tile 05) · Botpress visual in (tile 06) · Amanda's draft notes cleared (confirmed in the room)</div>
-
+<!-- v0.8 2026-07-30 (Day-2 room fold): DRAFT banner removed per Cameron · tile 03 = Training Camp dashboard screenshot + einsteinmoving.replit.app link (Mike's draft note cleared) · tile 06 = Botpress chat-widget screenshot · click-to-expand lightbox on all screenshots · prior v0.7: tile 05 call-grading link+shot, Amanda notes cleared -->
 <header>
   <div class="wrap">
     <div class="kicker">Q2 2026 · Quarter in Review</div>
@@ -97,7 +99,7 @@ footer{background:var(--navy-700);color:var(--navy-100);padding:26px 0;font-size
 
 <div class="wrap">
   <div class="redline">
-    <b>Roundtable — how to redline your tiles (15 min, Day 2, Thu 7/30):</b> Each of you owns 1–2 tiles below (presenter chip on each). Before Thursday, run your tile(s) past your chief of staff — it has the context. Check three things: ① is the plain-English description right, ② is the "What's in it for you" honest, ③ is "What's coming" something you're actually committing to. The ⚠ draft notes name the specific item to bring (a link, a screenshot, a sign-off). Speak your corrections in the room — Albert folds same-day. <b>This box, the banner, and the ⚠ notes get stripped before anyone below Roundtable sees the page.</b>
+    <b>Roundtable — how to redline your tiles (15 min, Day 2, Thu 7/30):</b> Each of you owns 1–2 tiles below (presenter chip on each). Before Thursday, run your tile(s) past your chief of staff — it has the context. Check three things: ① is the plain-English description right, ② is the "What's in it for you" honest, ③ is "What's coming" something you're actually committing to. The ⚠ draft notes name the specific item to bring (a link, a screenshot, a sign-off). Speak your corrections in the room — Albert folds same-day. <b>This box and the ⚠ notes get stripped before anyone below Roundtable sees the page.</b>
   </div>
 </div>
 
@@ -196,9 +198,8 @@ footer{background:var(--navy-700);color:var(--navy-100);padding:26px 0;font-size
       </div>
     </div>
     <div>
-      <div class="shotimg"><img src="assets/qir/qir-training-app.png" alt="Mover training app walkthrough"><div class="cap">205 curriculum items, 4 gated training stages — a real app, not a prototype.</div></div>
-      <div class="links"><a href="https://einsteinadmin.github.io/einstein-mover-training-hq-8fe42f5c/" target="_blank">Training App HQ</a><a href="https://replit.com/t/einstein-moving-company/repls/Mike-Mover-Training" target="_blank">The app on Replit</a></div>
-      <div class="flag">⚠ DRAFT NOTE (strip): the Replit link is the team workspace — confirm the live deployed app URL with Mike (couldn't find a *.replit.app deployment link anywhere) and swap it in before this leaves the room.</div>
+      <div class="shotimg"><img src="assets/qir/qir-training-app.png" alt="Training Camp dashboard — leads in training + fast-track leads by branch"><div class="cap">The Training Camp dashboard — every mover's route to competence, live by branch. This is the Q3 theme scoreboard.</div></div>
+      <div class="links"><a href="https://einsteinadmin.github.io/einstein-mover-training-hq-8fe42f5c/" target="_blank">Training App HQ</a><a href="https://einsteinmoving.replit.app" target="_blank">The training app</a></div>
     </div>
   </div>
 </section>
@@ -297,7 +298,7 @@ footer{background:var(--navy-700);color:var(--navy-100);padding:26px 0;font-size
       </div>
     </div>
     <div>
-      <div class="shotimg"><img src="assets/qir/qir-botpress.png" alt="Botpress — AI-native customer support platform"><div class="cap">Botpress — the platform behind the new bot. Real AI handling routine questions, with a hand-off to a human when it matters.</div></div>
+      <div class="shotimg"><img src="assets/qir/qir-botpress.png" alt="Botpress chat widget — Ask me anything"><div class="cap">The Botpress chat widget — the platform behind the new bot. Real AI handling routine questions, with a hand-off to a human when it matters.</div></div>
     </div>
   </div>
 </section>
@@ -433,6 +434,26 @@ document.querySelectorAll('.fbtn').forEach(function(btn){
     });
   });
 });
+
+/* Click any screenshot to expand it full-screen; click anywhere or press Esc to close */
+(function(){
+  var lb = document.createElement('div');
+  lb.id = 'lightbox';
+  lb.innerHTML = '<img alt="">';
+  document.body.appendChild(lb);
+  var lbImg = lb.querySelector('img');
+  document.querySelectorAll('.shotimg img').forEach(function(img){
+    img.style.cursor = 'zoom-in';
+    img.addEventListener('click', function(){
+      lbImg.src = img.src;
+      lbImg.alt = img.alt;
+      lb.classList.add('open');
+    });
+  });
+  function closeLb(){ lb.classList.remove('open'); }
+  lb.addEventListener('click', closeLb);
+  document.addEventListener('keydown', function(e){ if(e.key === 'Escape') closeLb(); });
+})();
 </script>
 </body>
 </html>
