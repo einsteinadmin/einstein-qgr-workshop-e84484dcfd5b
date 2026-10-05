@@ -5,13 +5,13 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <meta name="robots" content="noindex,nofollow">
 <title>Einstein Leadership QGR Prep — Leader Hub</title>
-<!-- qgr-workshop-hub v1.11.1 2026-07-28 — CAMERON'S SAME-MORNING RULING: both new sections marked OPTIONAL THIS QUARTER (too last-minute to ask of leaders pre-Tue-noon — the room does best things + legends LIVE instead; anything a leader does enter still rides the export and shows on the room's Celebrate tab). Copy softened in both shelps + the tile; nothing structural changed — this becomes a standard prep step next quarter. Prior: v1.11.0 2026-07-28 — TWO NEW SECTIONS (Cameron's ask): ① 🏆 "Your 3 best things from Q2" — personal + professional both count, each row gets a Personal/Professional chip, a story box, and up to 3 PHOTOS (browser-compressed to ≤1280px JPEG data-URLs, stored in the same localStorage ballot; iPhone HEIC in Chrome fails gracefully w/ a try-JPG toast — Safari handles HEIC). ② 🌟 "Legend of the Quarter" — pick ONE Roundtable teammate (self excluded), write the story to share aloud; own COS prompt. Photos ride INSIDE the JSON export as embedded images (schema v7 — +bestThings, +legend; everything else identical), so the ballots leaders already send Cameron carry the pictures — no separate photo files. Companion room page `qgr-celebration-wall.html` (new, ships EMPTY like ballot-results): drag the same ballot JSONs in → Best-of-Q2 photo wall + Legends board + full-screen Present mode (arrow keys) = the presentation. NOT added to ballotProgress (mid-flight rule, v1.9.0 precedent) — tile badged New instead; sections render between Celebrations and Pick-5. Markdown export notes photo counts (photos live in the JSON only). Prior: v1.10.1 2026-07-27 — BLIND-FIRST BALLOT FIX (Mike's catch at the 3pm: "I have to give Gerald Cameron's opinion, which sways Gerald"): the per-question COS prompt is now LEAN-BLIND until the leader opens the lean reveal — hidden state tells the COS a lean exists but withholds it ("help me form my OWN position first"); opening the reveal flips votes[qid].leanRevealed (persisted, additive), after which the prompt includes the lean as before. Reveal summary + cos-hint copy updated to teach the flow; export gains per-question leanRevealed flag. No schema break, no progress-meter change, safe mid-flight (Cameron's existing ballot unaffected). Prior: v1.10.0 2026-07-27 — QUARTER IN REVIEW tile added (Cameron: hub = the standing workshop template, updates over time): new "Quarter in Review — Your Tiles" tile after PA-Directs, links q2-quarter-in-review.html (v0.4 draft, hosted in THIS repo w/ assets/qir/ screenshots) — leaders review their presenter-chipped tiles w/ their COS pre-room, bring corrections + the ⚠-noted fetch item to the Day-2 15-min redline Thu 7/30. Prior: v1.9.2 — TITLE disambiguation (Cameron): "Einstein Leadership QGR Prep" vs the FLM tool's "Einstein FLM QGR Prep" — no functional change. Prior: v1.9.1 2026-07-27 — TILE ORDER now mirrors the page (Cameron): sections in on-page order (Action Items · Ballot · Build Sheet · Self-Eval · Pick-5 · Directs’ Slate) then external/reference tiles (PA-Directs · Agenda · QG Tracker · grayed Financial + Frontline). Prior: v1.9.0 2026-07-27 — YOUR DIRECTS' Q3 SLATE module added for amanda/anne/matisen/mike/brian only: each drafts candidate Q3 goals for their OWN directs (Amanda → Nhel/Tet/Carly, Anne → Jalissa, Matisen → Fabian, Mike/Brian → their full FLM rosters, collapsed + banner-noted since FLM slates draft best after Wednesday's theme lock). Seeded from the triage-room WALK_SEED_2026_07_24 — every card owned by jalissa/tet/carly/nhel/fabian with band:"shortlist" and decision !== "kill" (Jalissa 2 · Tet 4 · Carly 5 incl. O-CAR1 · Nhel 4 · Fabian 7 — no consolidated card in the seed belongs to these five owners). Cards routed to a direct via the pick-5 module's "assign to a direct" dropdown surface live in that direct's card, badged "routed from your shortlist," deduped against seeds by pulse id. Per-candidate keep/remove (removed = struck through, stays visible) + critical star + why/theme-hook note, plus uncapped add-your-own rows. Own COS prompt. NOT added to ballotProgress() — ships mid-flight, badged "New" on the tile instead so no leader's % shifts. Export schema bumped to v6 (+directSlates, five leaders only; everything else identical) + matching markdown section. Cameron's mid-build ruling 7/27: NO cap anywhere in this module — every shortlisted+owned card must show, seeded/routed/own all uncapped (superseded an earlier 6-per-direct design). Cameron's 2nd 7/27 ruling — completeness applies to the SHORTLIST const too: the 4 consolidated cards from WALK_SEED_2026_07_24's `consolidations` array were missing from the leaders' own pick-5 shortlists (they were merged during the triage walk, so they never got a `MB-` key) — added anne (6→8: Workers Comp Process Improvements, WHO/Culture Interviews) + amanda (5→7: Incentivize Manager Sales, Magic Moments Toolkit); pickTargetFor()=min(5,length) unaffected (both leaders already picked from 5+ cards) and additive keys don't disturb any legacy saved picks/routes. Prior: v1.8.3 2026-07-27 — SEND-READY TRIM (Cameron's 4 rulings): Goals Dashboard link REMOVED from QG tile (Cameron's tool, not theirs) · My Action Items tile+section → ALL PENDING (grayed, checkboxes disabled, Sky Board link removed — Cameron confirms/activates later) · Financial Packet + Frontline Packet tiles → grayed non-clickable placeholders (not ready to distribute; Cameron shows live in room or lights them up via a later push) · goal pre-work confirmed REQUIRED (already counted in the progress meter + Must-do highlighted; no optional labeling existed). Leader focus = ballot · PA-directs · CHOICES self-eval · pick-5 goals. Prior: v1.8.2 2026-07-26 — LEAN REDLINES (Cameron's ballot-prep session): flex-days lean rewritten from KPI-earned to default-on-with-a-floor (two tiers: untracked daily norm w/ launch-through-lunch presence + assigned midweek flex day, BM/OM alternating, Rippling zero-impact type; 2-of-3 KPI floor pauses flex automatically; multi-day = PTO) · mgr-sales-comp lean updated to match (no pay component this year; direct pull = sales competition Q5; sales attainment sits in the flex floor; named Q4-QGR revisit; pace board built in Q3 regardless) · both debate lines re-pointed · header tag version unstuck (was V1.7). Prior: v1.8.1 2026-07-25 — Cameron's eyeball fixes + DEPLOY: Brian/Mike routing dropdowns now carry the FULL manager seats (BM+OM+FM, 15 and 10, mirroring the mgr-AAR roster — BMs alone was missing people) · M1 merged into 11728355420 (same thing per Cameron; Mike 8→7 cards) · 3 fresh reference pulses created in lieu of un-archiving (Ongoing Education 12626630060 · Damage Score 12626624482 · A4 eNPS 12626620998) — every card now links to a live pulse. Prior: v1.8 2026-07-25 — PHASE 2: the pick-5 goal module (replaces the goal pre-work scaffold). Each leader gets THEIR slice of the walked Q3 shortlist (43 cards, trued-up Master Backlog 7/24 — every card links to its live reference pulse) · CUT, NOT CONFIRM: pick 5, every unpicked card gets routed (room decides / assign to a direct via dropdown / park) · Green + Super Green + How-measured bars unlock ONLY on picked cards, ALL BLANK by Cameron's ruling (no pre-drafted bars, the 12 existing drafts deliberately withheld) · leaders nominate their OWN 2 criticals · additions flagged for the room, no forced trade · shared targets labeled both sides · own COS prompt · export schema v5 (+goals block; prework dropped, legacy drafts carried as legacyPrework). Prior: v1.7 2026-07-24 — Cameron's ballot fold: +3 questions (sales COMPETITION for everyone; sales-training + Carly/Magic-Moments targeted to Amanda via the new `forLeaders` field) · new SPEED-TO-COMPETENCE BUILD SHEET (5 role tracks + theme name + Green/Super-Green gates, own COS prompt) · core-vs-optional questions (CORE_QIDS — progress meter counts core only) · open-ended question type (no position chips) · export schema v4 (+buildsheet, +core/openEnded/targeted flags; ballot[] now leader-filtered) · fixed stale "four open decisions" copy. Prior: v1.6 — Frontline Packet tile added (DRAFT preview, q2-materials). Prior: v1.5.1 — FIX: ballotProgress() now guards missing choices/votes so a legacy/partial saved ballot can't throw and blank the landing (Cameron empty-hub repro). v1.5: PA-Directs tile wired LIVE (einstein-pa-directs-da2d210013ca, eval-session handoff closed); v1.4: hidden leans · +2 no-lean ballot Qs · goal pre-work scaffold · per-leader action items (DRAFT) · export schema v3 -->
+<!-- qgr-workshop-hub v2.0.0 2026-10-05 — OCTOBER 2026 QGR RESET (Q3 review · Q4 planning; room Tue–Wed Oct 27–28). Same hub, new cycle: new storage key (qgr-workshop-2026-10, so July saves never collide), export filename qgr-ballot-<id>-2026-10.json + schema einstein-qgr-ballot/v8 (v8 = v7 shape unchanged + cycle + locked flags; readers that accept the einstein-qgr-ballot/ prefix still work). OPEN NOW: CHOICES self-eval, directs' Q4 slates (July's seeded candidate cards cleared; rosters refreshed to the current org: Calvin Hughes out, Daniel Behseresht = N. Austin BM, Tampa under Mike), Best Things + Legend of the Quarter (now STANDARD, counted in the progress meter). GRAYED until Cameron and Paul's 10/19 walk (~Wed 10/21): debate ballot + pick-5 goals — DEBATES and SHORTLIST are emptied but the code paths are intact; flip BALLOT_UNLOCKED = true after refilling them. Build sheet grayed (theme ideas go in the Meeting OS checklist this cycle; flip BUILDSHEET_OPEN to revive, refill TRACKS). Progress is computed over what is open. Tiles: Quarter-in-Review, Financial, Frontline, Action Items, People Analyzer grayed placeholders (no stale links); agenda = Oct 27–28. Intro rewritten; turn-in = ONE exported file on the Workshop Hub item of the Meeting OS checklist (due Mon 10/26), not a DM to Cameron. All July dates/Q2/Q3-goal/Back-to-School/speed-to-competence copy removed, including inside COS prompt strings. July copy archived at archive/2026-q3-cycle-july-tools/. Prior: v1.11.1 2026-07-28 — CAMERON'S SAME-MORNING RULING: both new sections marked OPTIONAL THIS QUARTER (too last-minute to ask of leaders pre-Tue-noon — the room does best things + legends LIVE instead; anything a leader does enter still rides the export and shows on the room's Celebrate tab). Copy softened in both shelps + the tile; nothing structural changed — this becomes a standard prep step next quarter. Prior: v1.11.0 2026-07-28 — TWO NEW SECTIONS (Cameron's ask): ① 🏆 "Your 3 best things from Q2" — personal + professional both count, each row gets a Personal/Professional chip, a story box, and up to 3 PHOTOS (browser-compressed to ≤1280px JPEG data-URLs, stored in the same localStorage ballot; iPhone HEIC in Chrome fails gracefully w/ a try-JPG toast — Safari handles HEIC). ② 🌟 "Legend of the Quarter" — pick ONE Roundtable teammate (self excluded), write the story to share aloud; own COS prompt. Photos ride INSIDE the JSON export as embedded images (schema v7 — +bestThings, +legend; everything else identical), so the ballots leaders already send Cameron carry the pictures — no separate photo files. Companion room page `qgr-celebration-wall.html` (new, ships EMPTY like ballot-results): drag the same ballot JSONs in → Best-of-Q2 photo wall + Legends board + full-screen Present mode (arrow keys) = the presentation. NOT added to ballotProgress (mid-flight rule, v1.9.0 precedent) — tile badged New instead; sections render between Celebrations and Pick-5. Markdown export notes photo counts (photos live in the JSON only). Prior: v1.10.1 2026-07-27 — BLIND-FIRST BALLOT FIX (Mike's catch at the 3pm: "I have to give Gerald Cameron's opinion, which sways Gerald"): the per-question COS prompt is now LEAN-BLIND until the leader opens the lean reveal — hidden state tells the COS a lean exists but withholds it ("help me form my OWN position first"); opening the reveal flips votes[qid].leanRevealed (persisted, additive), after which the prompt includes the lean as before. Reveal summary + cos-hint copy updated to teach the flow; export gains per-question leanRevealed flag. No schema break, no progress-meter change, safe mid-flight (Cameron's existing ballot unaffected). Prior: v1.10.0 2026-07-27 — QUARTER IN REVIEW tile added (Cameron: hub = the standing workshop template, updates over time): new "Quarter in Review — Your Tiles" tile after PA-Directs, links q2-quarter-in-review.html (v0.4 draft, hosted in THIS repo w/ assets/qir/ screenshots) — leaders review their presenter-chipped tiles w/ their COS pre-room, bring corrections + the ⚠-noted fetch item to the Day-2 15-min redline Thu 7/30. Prior: v1.9.2 — TITLE disambiguation (Cameron): "Einstein Leadership QGR Prep" vs the FLM tool's "Einstein FLM QGR Prep" — no functional change. Prior: v1.9.1 2026-07-27 — TILE ORDER now mirrors the page (Cameron): sections in on-page order (Action Items · Ballot · Build Sheet · Self-Eval · Pick-5 · Directs’ Slate) then external/reference tiles (PA-Directs · Agenda · QG Tracker · grayed Financial + Frontline). Prior: v1.9.0 2026-07-27 — YOUR DIRECTS' Q3 SLATE module added for amanda/anne/matisen/mike/brian only: each drafts candidate Q3 goals for their OWN directs (Amanda → Nhel/Tet/Carly, Anne → Jalissa, Matisen → Fabian, Mike/Brian → their full FLM rosters, collapsed + banner-noted since FLM slates draft best after Wednesday's theme lock). Seeded from the triage-room WALK_SEED_2026_07_24 — every card owned by jalissa/tet/carly/nhel/fabian with band:"shortlist" and decision !== "kill" (Jalissa 2 · Tet 4 · Carly 5 incl. O-CAR1 · Nhel 4 · Fabian 7 — no consolidated card in the seed belongs to these five owners). Cards routed to a direct via the pick-5 module's "assign to a direct" dropdown surface live in that direct's card, badged "routed from your shortlist," deduped against seeds by pulse id. Per-candidate keep/remove (removed = struck through, stays visible) + critical star + why/theme-hook note, plus uncapped add-your-own rows. Own COS prompt. NOT added to ballotProgress() — ships mid-flight, badged "New" on the tile instead so no leader's % shifts. Export schema bumped to v6 (+directSlates, five leaders only; everything else identical) + matching markdown section. Cameron's mid-build ruling 7/27: NO cap anywhere in this module — every shortlisted+owned card must show, seeded/routed/own all uncapped (superseded an earlier 6-per-direct design). Cameron's 2nd 7/27 ruling — completeness applies to the SHORTLIST const too: the 4 consolidated cards from WALK_SEED_2026_07_24's `consolidations` array were missing from the leaders' own pick-5 shortlists (they were merged during the triage walk, so they never got a `MB-` key) — added anne (6→8: Workers Comp Process Improvements, WHO/Culture Interviews) + amanda (5→7: Incentivize Manager Sales, Magic Moments Toolkit); pickTargetFor()=min(5,length) unaffected (both leaders already picked from 5+ cards) and additive keys don't disturb any legacy saved picks/routes. Prior: v1.8.3 2026-07-27 — SEND-READY TRIM (Cameron's 4 rulings): Goals Dashboard link REMOVED from QG tile (Cameron's tool, not theirs) · My Action Items tile+section → ALL PENDING (grayed, checkboxes disabled, Sky Board link removed — Cameron confirms/activates later) · Financial Packet + Frontline Packet tiles → grayed non-clickable placeholders (not ready to distribute; Cameron shows live in room or lights them up via a later push) · goal pre-work confirmed REQUIRED (already counted in the progress meter + Must-do highlighted; no optional labeling existed). Leader focus = ballot · PA-directs · CHOICES self-eval · pick-5 goals. Prior: v1.8.2 2026-07-26 — LEAN REDLINES (Cameron's ballot-prep session): flex-days lean rewritten from KPI-earned to default-on-with-a-floor (two tiers: untracked daily norm w/ launch-through-lunch presence + assigned midweek flex day, BM/OM alternating, Rippling zero-impact type; 2-of-3 KPI floor pauses flex automatically; multi-day = PTO) · mgr-sales-comp lean updated to match (no pay component this year; direct pull = sales competition Q5; sales attainment sits in the flex floor; named Q4-QGR revisit; pace board built in Q3 regardless) · both debate lines re-pointed · header tag version unstuck (was V1.7). Prior: v1.8.1 2026-07-25 — Cameron's eyeball fixes + DEPLOY: Brian/Mike routing dropdowns now carry the FULL manager seats (BM+OM+FM, 15 and 10, mirroring the mgr-AAR roster — BMs alone was missing people) · M1 merged into 11728355420 (same thing per Cameron; Mike 8→7 cards) · 3 fresh reference pulses created in lieu of un-archiving (Ongoing Education 12626630060 · Damage Score 12626624482 · A4 eNPS 12626620998) — every card now links to a live pulse. Prior: v1.8 2026-07-25 — PHASE 2: the pick-5 goal module (replaces the goal pre-work scaffold). Each leader gets THEIR slice of the walked Q3 shortlist (43 cards, trued-up Master Backlog 7/24 — every card links to its live reference pulse) · CUT, NOT CONFIRM: pick 5, every unpicked card gets routed (room decides / assign to a direct via dropdown / park) · Green + Super Green + How-measured bars unlock ONLY on picked cards, ALL BLANK by Cameron's ruling (no pre-drafted bars, the 12 existing drafts deliberately withheld) · leaders nominate their OWN 2 criticals · additions flagged for the room, no forced trade · shared targets labeled both sides · own COS prompt · export schema v5 (+goals block; prework dropped, legacy drafts carried as legacyPrework). Prior: v1.7 2026-07-24 — Cameron's ballot fold: +3 questions (sales COMPETITION for everyone; sales-training + Carly/Magic-Moments targeted to Amanda via the new `forLeaders` field) · new SPEED-TO-COMPETENCE BUILD SHEET (5 role tracks + theme name + Green/Super-Green gates, own COS prompt) · core-vs-optional questions (CORE_QIDS — progress meter counts core only) · open-ended question type (no position chips) · export schema v4 (+buildsheet, +core/openEnded/targeted flags; ballot[] now leader-filtered) · fixed stale "four open decisions" copy. Prior: v1.6 — Frontline Packet tile added (DRAFT preview, q2-materials). Prior: v1.5.1 — FIX: ballotProgress() now guards missing choices/votes so a legacy/partial saved ballot can't throw and blank the landing (Cameron empty-hub repro). v1.5: PA-Directs tile wired LIVE (einstein-pa-directs-da2d210013ca, eval-session handoff closed); v1.4: hidden leans · +2 no-lean ballot Qs · goal pre-work scaffold · per-leader action items (DRAFT) · export schema v3 -->
 
 <!--
   QGR WORKSHOP HUB — V1 (leader-facing mirror of the QGR Command HQ)
   ==================================================================
   · Sibling surface of index.html (Cameron's HQ) — same brand tokens, same
-    qgrhq-q3-2026-v2- localStorage prefix convention, NOT a fork.
+    brand tokens + localStorage prefix family (July used qgrhq-q3-2026-v2-; October uses qgr-workshop-2026-10), NOT a fork.
   · V1 = the Debate/Ballot module built for real; the rest of the hub is
     link tiles to what already exists.
   · Vote capture is EXPORT-AND-RETURN (the Mover Promotion workshop idiom):
@@ -98,6 +98,10 @@ main{max-width:1080px;margin:0 auto;padding:24px 20px 90px}
 .tile .now.pend{background:var(--grey-100);color:var(--grey-400)}
 .tile.soft h4,.tile.soft p{color:var(--grey-400)}
 .section.pending{opacity:.55}
+.section.pending.locked{opacity:.85}
+.section.locked .shead h3{color:var(--grey-400)}
+.lock-banner{background:var(--navy-50);border:1px dashed var(--navy-200);border-radius:var(--radius-md);padding:12px 16px;font-size:12.5px;font-weight:700;color:var(--navy-500);margin-bottom:12px}
+.lock-list{margin:6px 0 0 18px;font-size:12.5px;color:var(--grey-400)}
 .section.pending .ai-line{cursor:default}
 .tile .soon{font-size:9.5px;font-weight:700;background:var(--grey-100);color:var(--grey-500);border-radius:var(--radius-pill);padding:1px 8px;text-transform:uppercase;letter-spacing:.04em}
 .tile.soft{border-style:dashed;background:var(--grey-50)}
@@ -181,7 +185,7 @@ details.lean-reveal .lr-hint{font-weight:400;color:var(--navy-400)}
 .chip .csub{display:block;font-size:8.5px;font-weight:700;letter-spacing:.02em;text-transform:uppercase;color:var(--grey-400);margin-top:1px;line-height:1.1}
 .chip.sel .csub{color:rgba(255,255,255,.85)}
 
-/* build sheet — speed-to-competence theme design by role */
+/* build sheet — theme design by role (grayed in the Oct 2026 cycle) */
 .bs-name{background:var(--orange-50);border:1px solid var(--orange-100);border-radius:var(--radius-md);padding:14px 18px;margin-bottom:16px}
 .bs-name label{display:block;font-size:12px;font-weight:700;color:var(--navy-500);margin-bottom:5px}
 .bs-name input{width:100%;max-width:520px;border:1px solid var(--orange-200);border-radius:var(--radius-sm);padding:9px 12px;font:inherit;font-size:13.5px;font-weight:700;color:var(--navy-500)}
@@ -258,7 +262,7 @@ footer{background:var(--navy-700);color:var(--navy-100);text-align:center;paddin
 .bt-addph{width:96px;height:96px;border:1.5px dashed var(--grey-200);border-radius:var(--radius-sm);background:none;color:var(--blue-500);font-size:11px;font-weight:700;line-height:1.35}
 .bt-addph:hover{border-color:var(--blue-100);background:var(--blue-50)}
 .bt-phhint{font-size:10.5px;color:var(--grey-400);margin-top:6px}
-/* ---- Directs' Q3 slate module ---- */
+/* ---- Directs' Q4 slate module ---- */
 .ds-direct{margin-bottom:14px}
 .ds-card{margin-bottom:8px}
 .ds-card.removed{opacity:.62}
@@ -269,7 +273,7 @@ footer{background:var(--navy-700);color:var(--navy-100);text-align:center;paddin
 </head>
 <body>
 <header id="appHeader">
-  <div class="brand"><span class="bebas">EINSTEIN LEADERSHIP QGR PREP</span><span class="tag">Leader Hub · Q3 2026 QGR · July 29–30 · V1.11.1</span></div>
+  <div class="brand"><span class="bebas">EINSTEIN LEADERSHIP QGR PREP</span><span class="tag">Leader Hub · October 2026 QGR · Oct 27–28 · V2.0.0</span></div>
   <div class="savebox" id="saveBox">Local only — nothing leaves this computer until you export<br><b id="saveStamp">—</b></div>
 </header>
 <main>
@@ -277,14 +281,24 @@ footer{background:var(--navy-700);color:var(--navy-100);text-align:center;paddin
   <section class="view active" id="view-landing"></section>
   <section class="view" id="view-hub"></section>
 </main>
-<footer>Internal tool · your ballot stays on this computer until YOU export and send it to Cameron · Einstein Moving Company</footer>
+<footer>Internal tool · your ballot stays on this computer until YOU export it and turn it in on your Meeting OS checklist · Einstein Moving Company</footer>
 <div class="toast" id="toast"></div>
 
 <script>
 /* ============ Constants ============ */
 // Same storage-prefix family as the QGR Command HQ (index.html) — sibling surface, not a fork.
-const LS_KEY = "qgrhq-q3-2026-v2-workshop";
-const QUARTER = "Q3 2026 QGR (deciding Q3, reviewing Q2)";
+// October 2026 cycle: NEW key so July saves ("qgrhq-q3-2026-v2-workshop") are never read, overwritten or mixed in.
+const LS_KEY = "qgr-workshop-2026-10";
+const CYCLE = "2026-10";
+const QUARTER = "October 2026 QGR (Q3 review · Q4 planning)";
+/* ---- UNLOCK SWITCHES (Albert flips these; nothing else needs touching) ----
+   BALLOT_UNLOCKED: debate ballot + pick-5 goals. Set true AFTER Cameron and Paul's 10/19
+   walk (around Wed 10/21) and after DEBATES, CORE_QIDS and SHORTLIST below are refilled.
+   BUILDSHEET_OPEN: theme build sheet. Off this cycle (theme ideas go in the Meeting OS
+   checklist); refill TRACKS + THEME_WORKING_NAME before turning on. */
+const BALLOT_UNLOCKED = false;
+const BUILDSHEET_OPEN = false;
+const UNLOCK_BANNER = "Unlocks after Cameron and Paul\u2019s 10/19 walk (around Wed 10/21)";
 
 const LEADERS = [
   { id:"cameron", name:"Cameron Brown",  role:"CEO" },
@@ -297,108 +311,17 @@ const LEADERS = [
 ];
 
 /* ============================================================
-   DEBATE SEED — Q3 2026 slate (4 questions, locked 7/22).
-   Source: qgr-debate-questions-seed-2026-Q3.md
-   ⚠ REDLINE ZONE: Cameron edits the `lean` HTML below before this
-   goes to leaders. The lean is displayed as a CURRENT LEAN, never
-   a decision — the label is baked into the UI, keep the text
-   consistent with that framing.
+   DEBATE SEED — EMPTY for the October 2026 cycle. October's debate
+   questions do not exist yet (they come out of Cameron and Paul's 10/19
+   walk). Refill this array, add the core ids to CORE_QIDS, then set
+   BALLOT_UNLOCKED = true. Shape of one entry:
+     { id, title, context(html), lean(html|null), leanNote?(html), options?[{v,label,cls,title}],
+       debate(html), forLeaders?:[leaderId], openEnded?:true }
+   The lean is displayed as a CURRENT LEAN, never a decision — the label
+   is baked into the UI. July's 9 questions are preserved in
+   archive/2026-q3-cycle-july-tools/.
    ============================================================ */
-const DEBATES = [
-  {
-    id: "flex-days",
-    title: "Flex days for frontline managers",
-    context: "Our claims/CX reps already have flex days — effectively one extra day off every other week (a 4-day week every other week), and it's worked well. The question is whether we extend flex days to <b>frontline managers (BMs/OMs)</b>, now that we have more sales-side CX coverage than ever, a wave of people coming out of training, and the dashboards/KPIs to actually measure manager output.",
-    lean: "Yes — a strong morale/retention lever that makes tenure sticky, likely a <b>Q3+ rollout, not a peak-summer launch.</b> The design has evolved since the first draft of this lean: <b>default-on with a floor, not KPI-earned.</b> These are salaried leaders — flex is a professional norm with a published floor, not a carrot earned sprint by sprint (especially after Q2 taught us what mis-set yardsticks cost). Two tiers:<ul>" +
-      "<li><b>Daily flexibility (a norm, untracked)</b> — present for launch through lunch; on slow afternoons your schedule is yours: leave early, half day, work from home. Managed by exception, not by logging hours.</li>" +
-      "<li><b>Assigned flex day (a real day off)</b> — when season and coverage allow, assigned by the regional, BM/OM alternating so launch is always covered. Midweek by default — Fridays and month-end belong to the moving business. Lives in Rippling as a zero-impact time-off type. Multi-day = PTO; flex days never stack into vacations.</li>" +
-      "<li><b>The floor</b> — stay on-pace on 2 of 3 baseline KPIs (sales attainment is one of them) and the flexibility is yours; drop below and it pauses automatically until you're back. A keep-the-benefit threshold, not a bonus formula — same shape as our damages philosophy.</li>" +
-      "<li><b>Coverage-protected</b> — unchanged and absolute: no flex day that leaves the branch short.</li>" +
-      "<li><b>No OT or premium pay</b> for working a flex day — unchanged.</li></ul>",
-    debate: "Is default-on-with-a-floor the right design — or should flex days be earned by KPI attainment, as originally proposed? Which 2–3 KPIs make the floor, is mornings-through-lunch the right presence rule, and when do we launch?"
-  },
-  {
-    id: "damages-metric",
-    title: "How damages are used as a company-wide metric",
-    context: "Damages have been treated inconsistently — sometimes as individual accountability, sometimes branch-level — and the Einstein Games scoring exposed how messy the data is. We've been converging on branch-level framing, but this one is <b>genuinely split inside leadership</b>, which is exactly why it's on the ballot.",
-    lean: "Two views are on the table:<ul>" +
-      "<li><b>Remove damages as an individual metric</b> (Anne's position) — damages come out of mover promotions and the individual performance bonus entirely. Branch/region-level only: baseline per branch, drive the average down through monthly training themes + branch competition. No pay-docking. (Games kept damages branch-level this quarter on a damages-per-Rippling-hour basis.)</li>" +
-      "<li><b>Keep an individual read at the quarterly level</b> (Cameron + Paul's concern) — eliminating damages from promotions and bonuses may throw away a real signal. Individual and crew damages aren't fair game for weekly or biweekly coaching, but at a <b>quarterly</b> level they show clear trends and patterns that arguably should matter to both promotions and bonuses.</li></ul>",
-    debate: "Should damages be part of the individual performance bonus? Should damages be tracked down to the individual / crew level at all? And is the way we manage damages today the right form — or should it take a different shape entirely?"
-  },
-  {
-    id: "q3-theme",
-    title: "Q3 theme lock",
-    context: "The 7/15 Rob Lynch pre-work showed strong cross-leader convergence toward <b>\"speed to competence / build field-ready crews fast\"</b> — the placeholder is a <b>\"Back to School\" training theme</b>. Estimate Accuracy is the other candidate but likely slots to Q4 (gated on mover-app timestamps).",
-    lean: "Lock <b>Q3 = speed to competence — for everyone</b>: movers, managers, and CX reps, not just the field. \"Back to School\" is the working name (a stronger frame is welcome). The focus: <b>ongoing training, improved training days, and additional certifications</b> — and <b>every leader owns something</b> that keeps investing in the team's ongoing training and speed to competence. The training app is one piece; so are Brian's Scrum certification work and the call-grading program — a number of existing efforts already feed this. Estimate Accuracy → Q4.",
-    debate: "Is speed-to-competence-for-everyone the right Q3 theme, and does \"Back to School\" capture it — or is there a stronger frame? And what would <i>you</i> own: which ongoing-training or certification piece would you carry for your team?"
-  },
-  {
-    id: "mgr-sales-comp",
-    title: "Quarterly sales-comp component — for managers",
-    context: "The underlying problem: <b>frontline managers (BMs) have nothing that directly influences them to drive sales.</b> One proposed fix is a <b>separate, weighted quarterly sales-comp component</b> — not a raw multiplier on their pay — with the Amanda + Matisen quarterly-pace board as the prerequisite so attainment is visible and fair. But a new pay component isn't the only way to close the gap.",
-    lean: "The pay-component version on the table is a <b>separate weighted sales component tied to branch attainment</b>, with upside <b>gated on hitting other-KPI thresholds</b> (so a manager can't win on sales while other numbers slip) and real teeth on those thresholds. <b>But the current lean is not to add it this year.</b> Note the flex-day design in question 1 shifted from earned-by-attainment to a floor — a floor keeps people from sinking, it doesn't pull anyone to 105% — so the direct sales pull would instead come from the sales competition (question 5), with sales attainment still sitting inside the flex-day floor. Named revisit, not a punt: if branch attainment doesn't move by the Q4 QGR, the pay component comes back on the table — and the Amanda + Matisen pace board gets built in Q3 either way, since it's the prerequisite for that conversation.",
-    debate: "Do managers need a sales-comp component at all — or is the mix enough: the sales competition (question 5) as the direct pull, sales attainment inside the flex-day floor, and ongoing coaching? If we DO add pay, is \"branch attainment, gated on other KPIs\" the right structure — or does it distort behavior?"
-  },
-  {
-    id: "sales-competition",
-    title: "A sales competition this quarter",
-    context: "Different animal from question 4 &mdash; that one is about <b>pay</b>, this one is about a <b>contest</b>. They're linked: if we run real competitions, that may be the thing that pulls managers toward sales without touching comp at all. Right now there is no sales competition on the Q3 calendar.",
-    lean: null,
-    leanNote: "Leadership hasn't written a lean here yet &mdash; <b>deliberately</b>. Bring the version you'd actually want to run, not a vote on the idea in the abstract.",
-    options: [
-      {v:"yes-q3",    label:"Yes — run one this quarter",      cls:"good", title:"Design it in the room, launch in Q3"},
-      {v:"yes-later", label:"Yes — but not until after peak",  cls:"mid",  title:"Right idea, wrong timing — say when in your reasoning"},
-      {v:"no",        label:"No — not this quarter",           cls:"bad",  title:"Make the case for what we do instead"},
-      {v:"undecided", label:"Undecided — debate it live",      cls:"und",  title:"Write down what would swing you"}
-    ],
-    debate: "Should we run a sales competition this quarter? If yes, answer the four things that decide whether it works: <b>(a) who's eligible</b> &mdash; BMs only, whole branches, individual reps, CX too? <b>(b) what are the guardrails and conditions</b> &mdash; what has to be true to win, and what stops someone gaming it? <b>(c) monthly winners or quarterly only?</b> <b>(d) what's the prize</b> &mdash; and is it big enough that behavior actually changes?"
-  },
-  {
-    id: "sales-training",
-    title: "Sales training — our biggest opportunities",
-    forLeaders: ["amanda"],
-    openEnded: true,
-    context: "This one is aimed at <b>you and Nhel</b> &mdash; talk it through with her and answer for both of you. It feeds the Q3 theme directly: if speed to competence covers CX the same way it covers the field, sales training is where it shows up first. Two Q2 facts that matter: estimate accuracy landed at <b>46.3%</b> on the 20%-variance measure (red against a 50% green bar), and Nhel's own #1 named roadblock was having no real-time view to coach against.",
-    debate: "Two questions. <b>(a)</b> What are our biggest opportunities to improve sales training? <b>(b)</b> If you could re-certify people on anything &mdash; one skill, one script, one part of the system &mdash; what would it be, and why that one first?"
-  },
-  {
-    id: "carly-magic-moments",
-    title: "Carly's capacity — more Magic Moments?",
-    forLeaders: ["amanda"],
-    openEnded: true,
-    context: "Magic Moments has been parked since roughly March while Carly was out. The rollout vision is still on the shelf and ready to go &mdash; truck kit, EMMA hooks, scripts, the app piece. The question is purely capacity, not appetite.",
-    debate: "Will Carly have more time to roll out more Magic Moments this quarter? Give the honest read on her capacity &mdash; and if the answer is yes, what would she realistically get to, and what comes off her plate to make room?"
-  },
-  {
-    id: "conversion-standard",
-    title: "Our new standard for conversion rate by dollar",
-    context: "The company bar has been <b>Conversion Rate $ = 40%</b>. A quarter of aggressive summer pricing, the Q2 numbers, and the constraint work (Houston conversion showed up as a binding constraint) all raise the question of whether 40% is still the right standard — and whether one company number is even the right shape, vs. per-branch or per-season bars.",
-    lean: null,
-    leanNote: "Leadership hasn't written a lean here yet — <b>deliberately</b>. Come with your own number and the reasoning behind it; the bar gets set in the room.",
-    options: [
-      {v:"raise",  label:"Raise the bar",        cls:"good", title:"We can and should convert more than 40% — name your number in the reasoning"},
-      {v:"hold",   label:"Hold 40%",             cls:"mid",  title:"40% is still the right standard for now"},
-      {v:"lower",  label:"Adjust it down / reshape it", cls:"bad", title:"40% flat is the wrong shape — argue for the right one (per-branch, per-season, different number)"},
-      {v:"undecided", label:"Undecided — debate it live", cls:"und", title:"Write down what data would settle it for you"}
-    ],
-    debate: "What should our standard for conversion rate by dollar be going into Q3 — a number, and a shape (one company bar vs. per-branch/per-season)? Base it on what you actually saw this quarter, not on what the old bar says."
-  },
-  {
-    id: "cos-to-bms",
-    title: "Pushing the COS system down to branch managers",
-    context: "All 7 Roundtable leaders now run an AI chief of staff, and the network has a governance layer, a tool library, and an adoption ladder. Meanwhile managers are already touching AI through the tools we ship them (the AAR tool's Claude interview, dashboards). The question is whether we deliberately extend the COS system to <b>certain branch managers</b> — and if so, who goes first, and what support model keeps it from becoming shelf-ware.",
-    lean: null,
-    leanNote: "Leadership hasn't written a lean here yet — <b>deliberately</b>. Your read on your own managers' readiness is exactly the input the room needs.",
-    options: [
-      {v:"pilot-now", label:"Yes — pilot with a few BMs now", cls:"good", title:"Pick 2-3 high-readiness managers and start in Q3"},
-      {v:"after-q3",  label:"Yes — but after the Q3 theme lands", cls:"mid", title:"Right move, wrong quarter — training theme comes first"},
-      {v:"no",        label:"Not yet",                cls:"bad",  title:"The leadership network needs to mature first — make the case"},
-      {v:"undecided", label:"Undecided — debate it live", cls:"und", title:"Write down what would swing you"}
-    ],
-    debate: "Do we push the COS system to certain branch managers — and if yes: who first, what do they get (a full COS vs. shared tools), and what's the support model so it sticks?"
-  }
-];
+const DEBATES = [];
 
 /* ------------------------------------------------------------
    CORE vs OPTIONAL. Core questions are the ones everyone has to
@@ -408,8 +331,7 @@ const DEBATES = [
    ⚠ Cameron: add/remove ids here to change what counts as core.
    ------------------------------------------------------------ */
 const CORE_QIDS = new Set([
-  "flex-days", "damages-metric", "q3-theme", "mgr-sales-comp", "sales-competition",
-  "sales-training", "carly-magic-moments"   // Amanda-targeted — core for her, invisible to everyone else
+  // October core question ids go here when DEBATES is refilled (Amanda-targeted ones included).
 ]);
 function isCore(d){ return CORE_QIDS.has(d.id); }
 
@@ -421,39 +343,16 @@ function debatesFor(leaderId){
 }
 
 /* ============================================================
-   SPEED-TO-COMPETENCE BUILD SHEET — the Q3 theme, designed by role.
-   Ballot question 3 asks IS this the theme. This asks HOW we run it.
-   ⚠ REDLINE ZONE: these are Cameron's questions — edit freely.
-   `gate:true` = this role gets Green / Super Green inputs.
+   THEME BUILD SHEET — GRAYED this cycle (BUILDSHEET_OPEN = false).
+   October theme ideas are collected in the Meeting OS checklist, so this
+   section shows a one-line note instead. Code paths are intact: refill
+   TRACKS + THEME_WORKING_NAME and flip BUILDSHEET_OPEN to revive.
+   Shape of one track: { id, label, icon, gate:true|false, prompt(html), ph }
+   (`gate:true` = this role gets Green / Super Green inputs). July's five
+   role tracks are preserved in archive/2026-q3-cycle-july-tools/.
    ============================================================ */
-const THEME_WORKING_NAME = "Back to School";
-const TRACKS = [
-  {
-    id:"movers", label:"Movers", icon:"📦", gate:true,
-    prompt:"Is this just completing the mover training app &mdash; which only pertains to <b>leads in training</b> &mdash; or does it reach movers already on the truck? Should existing movers take additional recertifications? Is there a <b>back-to-basics recertification</b> so everyone gets retrained on the fundamentals the new app rolls out? Should training days get an enhanced focus, and if so, what actually changes about them?",
-    ph:"What the mover track really is in Q3 — who it touches, and what they do differently."
-  },
-  {
-    id:"leads", label:"Leads", icon:"🎓", gate:false,
-    prompt:"If we did want leads to go through some sort of retraining, <b>how would we go about handling it?</b> They're the ones running crews, so pulling them costs the most &mdash; what's the mechanism that doesn't wreck the schedule?",
-    ph:"How lead retraining works in practice — or the case for why it shouldn't happen this quarter."
-  },
-  {
-    id:"managers", label:"Managers (BMs / OMs)", icon:"🧭", gate:true,
-    prompt:"Is overseeing the mover-app rollout a big enough change on its own, while they stay on top of sales and hiring and everything else? Or do managers take additional recertifications too? One idea on the table: <b>a menu they pick from</b> &mdash; the Scrum HQ, the CHOICES module, reading something like <i>Ideal Team Player</i> &mdash; and if they complete a certain number <b>and we evaluate their comprehension</b> of the material, they achieve a status.",
-    ph:"Rollout-only, or rollout plus a certification menu? If a menu — what's on it, how many, and how do we test comprehension?"
-  },
-  {
-    id:"cx", label:"CX Reps (CERs)", icon:"🎧", gate:true,
-    prompt:"How does this apply to Customer Experience Reps? Do they need to review a certain amount of <b>automated grades</b>? Achieve competency by taking recertifications? Do they need to read anything? What's the equivalent of a training day for someone on the phones?",
-    ph:"The CX version of the theme — what a rep actually does differently this quarter."
-  },
-  {
-    id:"support", label:"Employee Experience + IT", icon:"🛠", gate:false,
-    prompt:"How do <b>Employee Experience</b> and <b>IT</b> contribute to this theme? Every leader owns something, and these two aren't running crews or phones &mdash; so what's their piece? (Hiring-funnel speed, onboarding, the systems that make training measurable, something else entirely?)",
-    ph:"What EX and IT own in a speed-to-competence quarter."
-  }
-];
+const THEME_WORKING_NAME = "";
+const TRACKS = [];
 
 // Financial deck: set to the Cloudflare-gated URL once Cameron finalizes + gates the deck
 // (Q1 pattern). Tile auto-links when non-null; until then it shows "gated link lands here."
@@ -475,116 +374,35 @@ const CV_ANCHORS = {1:"active problem",2:"below the bar",3:"meets the bar",4:"st
 const CV_SUBS = {1:"problem",2:"below bar",3:"meets bar",4:"strong",5:"the standard"};
 const CV_OPTIONS = [1,2,3,4,5].map(n=>({v:String(n),label:String(n),sub:CV_SUBS[n],cls:n>=4?"good":n===3?"mid":"bad",title:CV_ANCHORS[n]}));
 
-/* Per-leader data-collection action items — DRAFT list, Cameron confirms.
-   These are the start-of-month-pattern asks: the data each leader collects
-   for the packet + room. Keep entries short; done-state saves per leader. */
-const ACTION_ITEMS = {
-  _all: [
-    "Push a fresh /status from your COS ≥30 min before the QGR",
-    "Close out your Q2 praise giving — ~9 days left in the quarter"
-  ],
-  cameron: ["KP marketing spend confirm (Fri)", "Bookings feed handoff → Ben", "Q2 praise-counts pull"],
-  paul:    ["Ben breakeven final", "Sage-2025 zip", "Forecaster row-6 target validation (w/ Matisen)", "Branch-Visits redefinition confirm (w/ Cameron)"],
-  amanda:  ["Confirm the CX-Sales + Claims/Magic-Moments numbers folded in the packet are final", "Call-grading % graded — final Q2 number"],
-  brian:   ["Games quarter-close comms (finals + reconciliation messaging, w/ Matisen)"],
-  mike:    ["Samsara deep-dive ✓ landed 7/22 (dismissal CSVs received — thank you)", "Dallas-14-trucks target validation (w/ Cameron)"],
-  matisen: ["Dream Team roster", "Games scores reconciled (data day 7/27–28)", "Forecaster row-6 target validation (w/ Paul)", "Conversion-YoY view (ships separately, preliminary OK)"],
-  anne:    ["Rippling org-chart reconcile (3 manager-name rulings + 6 vacant seats)", "Final hiring-targets staffing % confirm"]
-};
+/* Per-leader data-collection action items — EMPTY for October. The July list
+   (packet numbers, /status pushes, praise counts) was stale, so the section
+   is a grayed placeholder until Cameron writes the October list. Shape:
+   { _all:[text,...], <leaderId>:[text,...] } — done-state saves per leader. */
+const ACTION_ITEMS = { _all: [] };
 
 /* ============================================================
-   Q3 SHORTLIST — each leader's slice of the walked shortlist.
-   Source: Cameron's 196-card triage walk (7/24) + the Master
-   Backlog true-up (7/24) + his 7/25 rulings (A1 fresh pulse,
-   A2 reuse). Every card links to its LIVE reference pulse —
-   Cameron's model: after the room, you duplicate the reference
-   pulse onto your own board for tracking.
-   ⚠ DELIBERATE OMISSIONS (Cameron's rulings — do not "fix"):
-   · NO draft Green/Super Green bars are shown, even where
-     drafts exist — every leader writes their own from blank.
-   · NO critical flags from the triage walk are shown — leaders
-     nominate their OWN 2 criticals below.
-   `shared` = the same target is on another leader's list too
-   (deliberate, Cameron 7/24 — label it, never collapse it).
-   7/25 late: every card now has a LIVE pulse — the 2 archived
-   ones replaced with fresh reference pulses (12626630060,
-   12626624482), A4 got its pulse (12626620998), and M1 merged
-   into 11728355420 (Cameron: same thing as the handbook card —
-   M1 predated the every-tile-needs-a-pulse rule). Mike = 7 cards.
+   Q4 SHORTLIST — EMPTY for the October cycle. It is built from Cameron and
+   Paul's 10/19 walk of the backlog shortlist (~Wed 10/21). Refill, then set
+   BALLOT_UNLOCKED = true. Shape: SHORTLIST[leaderId] = [
+     { k:"<pulse id or CONSOL-id>", name:"…", pulse:"<pulse id>|null", shared?:["leaderId",…] }, … ]
+   Deliberate: NO draft Green/Super Green bars and NO critical flags are shown —
+   every leader writes their own from blank. July's shortlist is preserved in
+   archive/2026-q3-cycle-july-tools/.
    ============================================================ */
 const MB_BOARD_URL = "https://einsteinmoving.monday.com/boards/18408300070/pulses/";
-const SHORTLIST = {
-  cameron: [
-    {"k": "12556457451", "name": "Q3 Theme Stewardship — \"Back to School\" Launch + Scoreboard", "pulse": "12556457451"},
-    {"k": "11741160101", "name": "Cameron/KP — Oversee Website Redesign (Smart Move System Rollout Part 2)", "pulse": "11741160101", "shared": ["kickpoint"]},
-    {"k": "11728346747", "name": "Evaluate Flex Fridays or Compressed Schedule for Slow Season", "pulse": "11728346747"},
-    {"k": "11728360355", "name": "Build out ECP Certification and Training Course for Managers — ECP Coaching Tool", "pulse": "11728360355"},
-    {"k": "11728346695", "name": "Implement One-Page Personal Plans for Leadership Team Trial", "pulse": "11728346695"},
-    {"k": "12442555987", "name": "COS/World Model Part 2 — Tier 3 pilot as Q3 rock + beta test COS with power-user BMs (Claude Tags)", "pulse": "12442555987"},
-    {"k": "12556198241", "name": "AI/Tool Governance — Central Data Bus + EMMA Toolkit + Monthly Big Rocks Review", "pulse": "12556198241", "shared": ["matisen"]},
-    {"k": "12626630060", "name": "Ongoing Education — Books, Seminars, Conferences, Courses", "pulse": "12626630060"}
-  ],
-  paul: [
-    {"k": "11728336219", "name": "Acquisition Case Study — New Branch vs. Acquisition Model", "pulse": "11728336219"},
-    {"k": "11728362120", "name": "Improve Invoicing + AR Collections Tracking", "pulse": "11728362120"},
-    {"k": "11728394236", "name": "Improve BM Financial Accountability Meetings — Proactive Approach", "pulse": "11728394236"},
-    {"k": "11752733644", "name": "Annual Mover Comp Review — Pay Structure + Promotion Paths", "pulse": "11752733644"}
-  ],
-  amanda: [
-    {"k": "11733923810", "name": "Call Grading at Volume — Distribution + Coaching Loop", "pulse": "11733923810"},
-    {"k": "12556457452", "name": "Demand Pursuit Muscle — Speed-to-Lead SLA + Follow-Up Cadence", "pulse": "12556457452"},
-    {"k": "11728336248", "name": "Chatbot Launch + Leadferno Sunset (carry, finish line)", "pulse": "11728336248", "shared": ["matisen"]},
-    {"k": "12596528246", "name": "Extend New Email Design System to Full Email Suite — Shorter, Video-First, Fewer Words", "pulse": "12596528246"},
-    {"k": "11864128674", "name": "Lead Treatment Framework — Triage Cohort A vs Cohort B vs directBook", "pulse": "11864128674"},
-    {"k": "CONSOL-1784751127966", "name": "Incentivize Manager Sales — Quarterly Sales Comp (if not removed entirely)", "pulse": "11728354521"},
-    {"k": "CONSOL-1784751836566", "name": "Magic Moments Toolkit — Draft + Pilot in 1 Market", "pulse": "11728346788"}
-  ],
-  brian: [
-    {"k": "11733927754", "name": "Training Day Overhaul (Stations + Quizzes + Games Integration)", "pulse": "11733927754"},
-    {"k": "12579679101", "name": "Connection Cadence — quarterly regional outing + mover-manager roundtables (bundles the 5 eNPS asks)", "pulse": "12579679101"},
-    {"k": "11728362071", "name": "ATX Flex Manager + SA Ops Manager Development", "pulse": "11728362071"},
-    {"k": "11728362090", "name": "CTXH Quarterly Theme Mgmt — Ensure All Managers Hit QGs", "pulse": "11728362090"},
-    {"k": "11728355560", "name": "CTXH Branch Audits — 3 of 5 Branches per Quarter", "pulse": "11728355560"},
-    {"k": "11728336199", "name": "Scrum Accountability Part 3 — Huddle Grading + Value Tracking", "pulse": "11728336199"}
-  ],
-  mike: [
-    {"k": "11728355420", "name": "Mover Training App — Company-Wide Rollout + Driver-Training Port + Digital Training Handbook", "pulse": "11728355420"},
-    {"k": "11741153314", "name": "DFWT Staffing + New-Manager Development", "pulse": "11741153314"},
-    {"k": "12625952608", "name": "Fleet Safety Pt 3 — Carry the Red, Restructured", "pulse": "12625952608"},
-    {"k": "11728346683", "name": "Standardize Inventory + Reduce Inventory Loss Costs (automate)", "pulse": "11728346683"},
-    {"k": "11733914538", "name": "Fleet Damage Tracking App (Replit Beta)", "pulse": "11733914538"},
-    {"k": "12556464031", "name": "Dept-Head/Regional Split — FDE Boots-on-Ground Weeks + Dept-Head QGs as Critical Number", "pulse": "12556464031"},
-    {"k": "11728336223", "name": "Sell Remaining Trucks + Fund 2026 Fleet Purchases", "pulse": "11728336223"}
-  ],
-  matisen: [
-    {"k": "12556198241", "name": "Central Data Bus + Tool Registry (AI/Tool Governance build)", "pulse": "12556198241", "shared": ["cameron"]},
-    {"k": "11728336246", "name": "Transition Performance Log Tracking to Monday Board (pending mover app / Rippling)", "pulse": "11728336246"},
-    {"k": "11728336248", "name": "Replace Leadferno with AI Chatbot on Website", "pulse": "11728336248", "shared": ["amanda"]},
-    {"k": "11864233705", "name": "QG and COS Support Blocks (16 Half Lab Days)", "pulse": "11864233705"},
-    {"k": "11733926383", "name": "EMMA API External Access (Unblocks AI COS + KPIs)", "pulse": "11733926383"},
-    {"k": "12626624482", "name": "Improve Damage Score Assignment — Individual Mover Attribution", "pulse": "12626624482"}
-  ],
-  anne: [
-    {"k": "12626354209", "name": "Trial-Day Elimination → HPE Go-Live Aug 1", "pulse": "12626354209"},
-    {"k": "11728362147", "name": "Mover Promotion Framework — First Cohort Live", "pulse": "11728362147"},
-    {"k": "11728362110", "name": "Onboarding Experience — Close It Out (carry, finish line)", "pulse": "11728362110"},
-    {"k": "12626620998", "name": "eNPS Voluntary Transition + Engagement Follow-Through", "pulse": "12626620998"},
-    {"k": "11752777323", "name": "100-Point Behavioral System — Q2 Rock 2 Companion", "pulse": "11752777323"},
-    {"k": "11728350964", "name": "Implement Weekly Start/Stop/Keep Conversations — Scaling Up Practice", "pulse": "11728350964"},
-    {"k": "CONSOL-1784750824169", "name": "Workers Comp Process Improvements — On-Site Incident Workflow + Compliance", "pulse": "11728357310"},
-    {"k": "CONSOL-1784750943250", "name": "Implement WHO/Culture Interviews — Improved Phone Interview + Position Scorecards", "pulse": "11752750983"}
-  ]
-};
+const SHORTLIST = {};
 const PICK_MAX = 5;
-/* Route-a-card targets — each leader's directs, for the "didn't make my five" dropdown. */
+/* Route-a-card targets — each leader's directs, for the "didn't make my five" dropdown.
+   Refreshed 10/5/2026 to the current org (people skill + org chart): Calvin Hughes = N. Austin Flex under Daniel; Hector Zavala = S. Austin Ops; Jake Petersen = new S. Austin FM (Cameron 10/5);
+   Daniel Behseresht is the N. Austin BM (moved from S. Austin OM); Tampa (Steven Anderson BM,
+   Shane Heaberlin Ops Mgr) sits under Mike. */
 const DIRECTS = {
   cameron: ["Amanda", "Brian", "Mike", "Matisen", "Anne", "Paul"],
   paul:    ["Ben (Prosper)"],
   amanda:  ["Nhel", "Carly"],
-  // Brian + Mike get their FULL manager seats (BM + OM + FM), mirroring the mgr-AAR tool's
-  // named roster — Cameron's 7/25 correction: BMs alone was missing people.
-  brian:   ["Calvin Hughes (N. Austin)", "Nick Dagel (N. Austin)", "Rance Pope (N. Austin)",
-            "Chris Anderson (S. Austin)", "Daniel Behseresht (S. Austin)", "Hector Zavala (S. Austin)", "Jespah Lara (S. Austin Flex)",
+  // Brian + Mike get their FULL manager seats (BM + OM + FM), mirroring the mgr-AAR tool's named roster.
+  brian:   ["Daniel Behseresht (N. Austin)", "Nick Dagel (N. Austin)", "Rance Pope (N. Austin)", "Calvin Hughes (N. Austin Flex)",
+            "Chris Anderson (S. Austin)", "Hector Zavala (S. Austin Ops)", "Jake Petersen (S. Austin FM)", "Jespah Lara (S. Austin Flex)",
             "Frank Williams (Leander)", "Garrison Cobe (Leander)",
             "Dustin Street (San Antonio)", "Lukas Konrad (San Antonio)", "Cameron Klepac (San Antonio)",
             "Sergio Buenrostro (Houston)", "Joel Villatoro (Houston)", "Alex Tran (Houston)"],
@@ -600,22 +418,16 @@ function shortlistFor(leaderId){ return SHORTLIST[leaderId] || []; }
 function pickTargetFor(leaderId){ return Math.min(PICK_MAX, shortlistFor(leaderId).length); }
 
 /* ============================================================
-   YOUR DIRECTS' Q3 SLATE — Phase 2b (added 7/27). Five leaders
-   (amanda, anne, matisen, mike, brian) draft candidate Q3 goals
-   for their OWN directs. DRAFTS ONLY — finalized in the room.
-   Source: triage-room WALK_SEED_2026_07_24 — every card owned by
-   jalissa/tet/carly/nhel/fabian with band:"shortlist" and
-   decision !== "kill" is seeded here (Cameron's ruling 7/27 — no
-   cap, every shortlisted card that belongs to a direct MUST show).
-   Names + pulse ids joined from the triage room's card definitions
-   (same file, not duplicated logic — this is a point-in-time
-   extraction, matching the "snapshot at prep" QGR-tool lifecycle
-   rule). Checked: no consolidated card in WALK_SEED_2026_07_24 has
-   a leaderId in this group (all four consolidations are anne/amanda).
+   YOUR DIRECTS' Q4 SLATE — five leaders (amanda, anne, matisen, mike,
+   brian) draft candidate Q4 goals for their OWN directs. DRAFTS ONLY —
+   finalized in the room. LIVE from day one in the October cycle.
+   July's seeded candidate cards (they came from the July triage walk) are
+   CLEARED: leaders add their own rows; cards a leader routes from their
+   pick-5 appear here automatically once the ballot unlocks (~10/21).
    ============================================================ */
 const DIRECT_SLATE_LEADERS = ["amanda","anne","matisen","mike","brian"];
 function isDirectSlateLeader(id){ return DIRECT_SLATE_LEADERS.indexOf(id) !== -1; }
-/* Which directs each of the five sees. Amanda's includes Tet (sales
+/* Which directs each of the five sees (checked 10/5/2026 against the org chart). Amanda's includes Tet (sales
    enablement, under Nhel) — she answers for the sales org. Mike/Brian
    get their full FLM rosters straight from DIRECTS (already the
    mgr-AAR-parity roster) — no separate list to maintain. */
@@ -628,42 +440,11 @@ function directRosterFor(leaderId){
   if(leaderId==="mike" || leaderId==="brian") return DIRECTS[leaderId] || [];
   return DIRECT_SLATE_ROSTER[leaderId] || [];
 }
-const SEED_DIRECT_CANDIDATES = {
-  "Jalissa": [
-    {code:"MB-11733894186", pulse:"11733894186", name:"Anne — Hiring Targets 105% (Summer Peak)"},
-    {code:"MB-11728352496",  pulse:"11728352496",  name:"ClearCo ATS Rollout + Hiring Funnel Visibility"}
-  ],
-  "Tet": [
-    {code:"C4",              pulse:null,          name:"New-Rep Ramp — Sales Speed-to-Competence"},
-    {code:"MB-11733922022",  pulse:"11733922022",  name:"Tet — Sales Class Level 2 (Advanced Objection Handling + VP Positioning)"},
-    {code:"MB-11728354506",  pulse:"11728354506",  name:"Tet — Sales Training Improvements (update sales training)"},
-    {code:"MB-12601585701",  pulse:"12601585701",  name:"Coordinate Jules doing training / ride-alongs with low-performer sales team members"}
-  ],
-  "Carly": [
-    {code:"MB-11728354519",  pulse:"11728354519",  name:"Transition ROS to Carly — Update Training for Rippling, ClearCo, EMMA"},
-    {code:"MB-11728355487",  pulse:"11728355487",  name:"Auto-Email for Damage Claims — Meet Our Claim Rep + Policy Info"},
-    {code:"MB-11733922589",  pulse:"11733922589",  name:"Carly — CX Q2 Theme Execution (Carly's Contribution)"},
-    {code:"MB-11728354516",  pulse:"11728354516",  name:"Launch Customer Outreach Program — Stop/Start/Keep + Case Studies"},
-    {code:"O-CAR1",           pulse:null,          name:"Carly — Ramp-Back + Magic Moments Phase 2"}
-  ],
-  "Nhel": [
-    {code:"MB-11728355473",  pulse:"11728355473",  name:"Design Quarterly Sales Re-Certification — Practice Calls for All Reps"},
-    {code:"MB-11728336249",  pulse:"11728336249",  name:"Nhel — Plan CET Philippines Conference (March 2027)"},
-    {code:"MB-11733924241",  pulse:"11733924241",  name:"Nhel — Manager Sales Accountability (Weekly RM Reporting)"},
-    {code:"MB-11728354543",  pulse:"11728354543",  name:"Launch Sales Competitions — Small Bonus Incentives to Drive Engagement"}
-  ],
-  "Fabian": [
-    {code:"MB-11728336247",  pulse:"11728336247",  name:"Improve Sales/Revenue Dashboard — Weighted Conversions + High-Value Leads"},
-    {code:"MB-11728352511",  pulse:"11728352511",  name:"Refine Automated QA Process — AI Agent for Bug Hunting"},
-    {code:"MB-11728346777",  pulse:"11728346777",  name:"Roll Out Mobile App Update — UX Improvements + First Feature"},
-    {code:"MB-11728346836",  pulse:"11728346836",  name:"EMMA V4 Quality-of-Life Sprints — 2 QOL Rounds"},
-    {code:"MB-12612475417",  pulse:"12612475417",  name:"Fabian — BigQuery Reconciliation + Data Cleanup (post mobile-app rollout)"},
-    {code:"MB-12612484145",  pulse:"12612484145",  name:"Fabian — Move Reporting Basis: email-dropdown → move-status/tag + sales dashboard adjustments"},
-    {code:"MB-11728354542",  pulse:"11728354542",  name:"Refactor Dispatch + Data Trigger Workflows — NPS, Missed Estimates"}
-  ]
-};
+/* Seeds are EMPTY for October. Shape if ever refilled:
+   { "<direct name>": [ {code:"MB-<pulse>", pulse:"<pulse id>|null", name:"…"}, … ] } */
+const SEED_DIRECT_CANDIDATES = {};
 function seedCandidatesFor(directName){ return SEED_DIRECT_CANDIDATES[directName] || []; }
-/* Cards a leader routed to a direct via the pick-5 "didn't make my five"
+/* Cards a leader routed to a direct via the pick-5 (empty until the ballot unlocks) "didn't make my five"
    dropdown — read live off THIS leader's own goalwork.routes, same
    stored state the goal module uses. Deduped against seeds by pulse id. */
 function routedCardsFor(leader, ballot, directName){
@@ -752,8 +533,8 @@ function emptyBallot(leader){
     actions: {},                            // action-item text -> true when done
     prework: { own:"", goals:[{},{},{}] },  // LEGACY (pre-v1.8) — kept so old saves round-trip; no longer rendered
     goalwork: { picks:[], crits:[], bars:{}, routes:{}, additions:[] }, // pick-5 module: bars[k]={green,superGreen,measure}, routes[k]=string, additions=[{name,why,green,superGreen,measure}]
-    buildsheet: { themeName:"", tracks:{} },// Q3 theme by role — track id -> {take, green, superGreen}
-    directSlates: {}, // your directs' Q3 slate (5-leader module) — directName -> {overrides:{code->{why,critical,removed}}, additions:[{name,why,critical,removed}], note}
+    buildsheet: { themeName:"", tracks:{} },// theme by role (grayed this cycle) — track id -> {take, green, superGreen}
+    directSlates: {}, // your directs' Q4 slate (5-leader module) — directName -> {overrides:{code->{why,critical,removed}}, additions:[{name,why,critical,removed}], note}
     startedAt: null,
     leader: { id: leader.id, name: leader.name, role: leader.role }
   };
@@ -833,26 +614,43 @@ function goalworkPoints(ballot){
 }
 const GOALWORK_POINTS = 3;
 
+/* Best Things + Legend are STANDARD in October (Cameron): 3 points for the three
+   stories (one each) + 1 for the legend (a pick AND a story). */
+const BESTTHINGS_POINTS = 3;
+const LEGEND_POINTS = 1;
+function bestThingsPoints(ballot){
+  const items = (ballot && ballot.bestThings && ballot.bestThings.items) || [];
+  return Math.min(BESTTHINGS_POINTS, items.filter(it=>it && (it.story||"").trim()).length);
+}
+function legendPoints(ballot){
+  const lg = (ballot && ballot.legend) || {};
+  return (lg.who && (lg.story||"").trim()) ? LEGEND_POINTS : 0;
+}
 function ballotProgress(ballot){
-  // CORE ballot questions (position + reasoning; open-ended ones are reasoning only)
-  // + CHOICES (a score with its note per value) + the build sheet's 3 points.
+  // Computed over what is OPEN. Always open: CHOICES (a score with its note per value),
+  // best things (3) and the legend (1). Counted only when unlocked: CORE ballot questions
+  // (position + reasoning; open-ended = reasoning only) and the pick-5 goal module (3).
+  // The build sheet's 3 points count only if BUILDSHEET_OPEN.
   // NOTE: callers may pass a RAW stored ballot (e.g. renderLanding), so guard every
-  // field here — a legacy save missing `choices`/`votes` must never throw and blank the page.
+  // field here — a legacy save missing a field must never throw and blank the page.
   const lid = (ballot && ballot.leader && ballot.leader.id) || null;
-  const core = debatesFor(lid).filter(isCore);
+  const core = BALLOT_UNLOCKED ? debatesFor(lid).filter(isCore) : [];
   const votes = (ballot && ballot.votes) || {};
   const items = (ballot && ballot.choices && ballot.choices.items) || {};
   const notes = (ballot && ballot.choices && ballot.choices.itemNotes) || {};
   let done = 0;
-  let total = core.reduce((n,d)=>n + (d.openEnded?1:2), 0) + CORE_VALUES.length + BUILDSHEET_POINTS + GOALWORK_POINTS;
+  let total = core.reduce((n,d)=>n + (d.openEnded?1:2), 0) + CORE_VALUES.length + BESTTHINGS_POINTS + LEGEND_POINTS
+    + (BUILDSHEET_OPEN ? BUILDSHEET_POINTS : 0) + (BALLOT_UNLOCKED ? GOALWORK_POINTS : 0);
   core.forEach(d=>{
     const v = votes[d.id]||{};
     if(!d.openEnded && v.position) done++;
     if((v.reasoning||"").trim()) done++;
   });
   CORE_VALUES.forEach(cv=>{ if(items[cv] && (notes[cv]||"").trim()) done++; });
-  done += buildsheetPoints(ballot);
-  done += goalworkPoints(ballot);
+  done += bestThingsPoints(ballot);
+  done += legendPoints(ballot);
+  if(BUILDSHEET_OPEN) done += buildsheetPoints(ballot);
+  if(BALLOT_UNLOCKED) done += goalworkPoints(ballot);
   return total ? Math.round(done/total*100) : 0;
 }
 function choicesDone(ballot){ return CORE_VALUES.every(cv=>ballot.choices.items[cv]); }
@@ -864,6 +662,7 @@ function votedCount(ballot, leaderId){
   return debatesFor(leaderId).filter(d=>questionAnswered(ballot, d)).length;
 }
 function coreOpenCount(ballot, leaderId){
+  if(!BALLOT_UNLOCKED) return 0;
   return debatesFor(leaderId).filter(d=>isCore(d) && !questionAnswered(ballot, d)).length;
 }
 
@@ -871,7 +670,9 @@ function coreOpenCount(ballot, leaderId){
 function renderLanding(){
   const wrap = document.getElementById("view-landing");
   let html = '<div class="landing-intro"><h2>Walk into the QGR already prepared</h2>'+
-    '<p>This is your prep hub for the Q3 QGR (July 29&ndash;30). The heart of it is the <b>debate ballot</b> &mdash; the biggest open decisions on the table, with the context and where leadership is currently leaning &mdash; plus the <b>build sheet</b> for the Q3 theme, and — new — <b>your Q3 goals</b>: the walked shortlist is loaded, you pick your five, name your two criticals, and draft your own Green / Super Green bars. You register your positions <i>before</i> the room, ideally after talking it through with your AI chief of staff. Plan on <b>45&ndash;60 focused minutes</b>; a handful of ballot questions are marked optional, so the must-answer core is shorter than the full list looks. Everything saves automatically on this computer; nothing is shared until you export and send it to Cameron.</p></div>';
+    '<p>This is your prep hub for the <b>October 2026 QGR</b> (Q3 review &middot; Q4 planning), Tue&ndash;Wed Oct 27&ndash;28. <b>Open now:</b> your <b>CHOICES self-eval</b>, your <b>directs&rsquo; Q4 slates</b> (add your own rows; aim to finish the people parts by Fri 10/23), your <b>3 best things from Q3</b>, and your <b>Legend of the Quarter</b> &mdash; those last two are a standard prep step this cycle, not optional. '+
+    '<b>Unlocks around Wed 10/21</b>, after Cameron and Paul&rsquo;s 10/19 walk of the backlog shortlist: the <b>debate ballot</b> and <b>your Q4 goals</b> (pick your five). They are grayed out until then &mdash; come back and finish them. Theme ideas go in your Meeting OS checklist this cycle, not here. '+
+    '<b>When you are done, export one file</b> from the bottom of your hub and turn it in on the Workshop Hub item on your Meeting OS checklist (due Mon 10/26) &mdash; no need to DM it to Cameron. Everything saves automatically on this computer; nothing is shared until you export and turn it in.</p></div>';
   html += privacyBandHtml();
   html += '<div class="leader-grid">';
   LEADERS.forEach(l=>{
@@ -886,7 +687,7 @@ function renderLanding(){
 }
 
 function privacyBandHtml(){
-  return '<div class="privacy-band"><span class="pb-ico">🗳</span><div><b>Your ballot is yours alone until the room.</b> Nobody sees anybody else\'s position before the QGR &mdash; on purpose. You get the question, the context, and the current lean; you form your own take. Cameron collects everyone\'s exported ballots and brings the honest spread into the room. First independent thought, then the debate.</div></div>';
+  return '<div class="privacy-band"><span class="pb-ico">🗳</span><div><b>Your answers are yours alone until the room.</b> Nobody sees anybody else\'s position before the QGR &mdash; on purpose. When the ballot unlocks you get the question, the context, and the current lean; you form your own take. Cameron collects everyone\'s exported file from the Meeting OS checklist and brings the honest spread into the room. First independent thought, then the debate.</div></div>';
 }
 
 /* ============ Leader hub ============ */
@@ -918,8 +719,8 @@ function renderHub(){
   const keepY = window.scrollY; // full re-render must not move the page under the user
 
   let html = '<button class="backlink" id="backBtn">&larr; All leaders</button>';
-  html += '<div class="hub-head"><div><h2>'+esc(leader.name)+'</h2><div class="sub">'+esc(leader.role)+' · Q3 2026 QGR prep</div></div>'+
-    '<div class="progress-wrap"><span class="tiny muted">Ballot '+pct+'% complete</span><div class="progress-track"><div class="progress-fill" style="width:'+pct+'%"></div></div></div></div>';
+  html += '<div class="hub-head"><div><h2>'+esc(leader.name)+'</h2><div class="sub">'+esc(leader.role)+' · October 2026 QGR prep</div></div>'+
+    '<div class="progress-wrap"><span class="tiny muted">'+pct+'% of what\'s open now</span><div class="progress-track"><div class="progress-fill" style="width:'+pct+'%"></div></div></div></div>';
   html += privacyBandHtml();
   html += tilesHtml(leader);
   html += actionsSectionHtml(leader, ballot);
@@ -940,30 +741,38 @@ function renderHub(){
 /* ---- Hub shell tiles (V1 = links to what exists, not rebuilds) ---- */
 function tilesHtml(leader){
   const dsTile = isDirectSlateLeader(leader.id)
-    ? '<div class="tile live"><h4>🧑‍🤝‍🧑 Your Directs’ Q3 Slate <span class="now">New</span></h4><p>Draft candidate Q3 goals for your own directs &mdash; pre-seeded where the shortlist walk already surfaced something, plus anything routed to them from your five. Drafts only; nothing goes to your directs until you finalize in the room.</p><a class="tlink" href="#sec-directslates" data-scrollto="sec-directslates">Open your directs’ slates ↓</a></div>'
+    ? '<div class="tile live"><h4>🧑‍🤝‍🧑 Your Directs’ Q4 Slate <span class="now">Open now</span></h4><p>Draft candidate Q4 goals for your own directs &mdash; add your own rows now (people parts: aim for Fri 10/23). Anything you route to them from your five shows up here once the goals unlock. Drafts only; nothing goes to your directs until you finalize in the room.</p><a class="tlink" href="#sec-directslates" data-scrollto="sec-directslates">Open your directs’ slates ↓</a></div>'
     : '';
-  // Tile order mirrors the page: sections in on-page order first, then the external/reference tiles (Cameron's 7/27 ruling).
+  // Tile order mirrors the page: sections in on-page order first, then the external/reference tiles.
   return '<div class="tile-grid">'+
-    '<div class="tile soft"><h4>✅ My Action Items <span class="now pend">Pending</span></h4><p>Your draft list is visible below, but it\'s <b>all pending</b> for now — Cameron confirms and activates it before anything here needs you. Nothing to do yet.</p><a class="tlink" href="#sec-actions" data-scrollto="sec-actions">See your list ↓</a></div>'+
-    '<div class="tile live"><h4>🗳 Debate Ballot <span class="now">Start here</span></h4><p>The open decisions of this QGR. Read, think, talk it through with your COS, register your take, export. This is the piece that has to land before the room &mdash; the must-answer core is marked, the rest are optional.</p><a class="tlink" href="#sec-debates" data-scrollto="sec-debates">Jump to the ballot ↓</a></div>'+
-    '<div class="tile live"><h4>🏗 Theme Build Sheet <span class="now">New</span></h4><p>Q3 = speed to competence. The ballot asks <i>whether</i>; this asks <b>how</b> &mdash; what it means for movers, leads, managers and CX reps, and the Green / Super Green gates we\'d grade against. Answer the tracks you have a real view on.</p><a class="tlink" href="#sec-buildsheet" data-scrollto="sec-buildsheet">Open the build sheet ↓</a></div>'+
-    '<div class="tile live"><h4>🪞 Self-Eval (CHOICES) <span class="now">Do it here</span></h4><p>Score yourself 1–5 on the seven values — same scale, same anchors as the exercise your managers run. It\'s built into this page and rides along in your export.</p><a class="tlink" href="#sec-choices" data-scrollto="sec-choices">Jump to your self-eval ↓</a> &nbsp; <a class="tlink" href="https://einsteinadmin.github.io/einstein-mgr-aar-476141c7097f/" target="_blank" rel="noopener">Your team\'s version →</a></div>'+
-    '<div class="tile"><h4>🏆 Best of Q2 + Legend of the Quarter <span class="soon">Optional</span></h4><p><b>Optional this quarter — we\'ll do these live in the room.</b> Two celebration beats: your <b>3 best things</b> from last quarter (personal and professional both count, photos welcome) and your <b>Legend of the Quarter</b> — one Roundtable teammate and the story behind them. If you do fill them in, photos and stories ride inside your normal export and go up on the room wall; if not, just come ready to tell them out loud. Becomes a standard prep step next quarter.</p><a class="tlink" href="#sec-bestthings" data-scrollto="sec-bestthings">Add your best things ↓</a> &nbsp; <a class="tlink" href="#sec-legend" data-scrollto="sec-legend">Name your legend ↓</a></div>'+
-    '<div class="tile live"><h4>🎯 Your Q3 Goals — Pick Your 5 <span class="now">Must-do</span></h4><p>Your slice of the walked shortlist — the backlog work is done, so this is a <b>selection</b>, not an invention: pick your five, route the rest, name your two criticals, and draft the Green / Super Green / how-measured bars in your own words.</p><a class="tlink" href="#sec-goals" data-scrollto="sec-goals">Pick your five ↓</a></div>'+
+    '<div class="tile soft"><h4>✅ My Action Items <span class="now pend">Placeholder</span></h4><p>Not set for this cycle yet &mdash; Cameron writes the October list. Nothing to do here.</p><a class="tlink" href="#sec-actions" data-scrollto="sec-actions">See the placeholder ↓</a></div>'+
+    '<div class="tile soft"><h4>🗳 Debate Ballot <span class="now pend">Locked</span></h4><p>'+UNLOCK_BANNER+'. The open decisions of this QGR land here once the shortlist is walked; until then there is nothing to answer.</p><a class="tlink" href="#sec-debates" data-scrollto="sec-debates">See the lock note ↓</a></div>'+
+    '<div class="tile soft"><h4>🏗 Theme Build Sheet <span class="now pend">Not this cycle</span></h4><p>Theme ideas go in your Meeting OS checklist this cycle.</p><a class="tlink" href="#sec-buildsheet" data-scrollto="sec-buildsheet">See the note ↓</a></div>'+
+    '<div class="tile live"><h4>🪞 Self-Eval (CHOICES) <span class="now">Open now</span></h4><p>Score yourself 1–5 on the seven values — same scale, same anchors as the exercise your managers run. It\'s built into this page and rides along in your export.</p><a class="tlink" href="#sec-choices" data-scrollto="sec-choices">Jump to your self-eval ↓</a> &nbsp; <a class="tlink" href="https://einsteinadmin.github.io/einstein-mgr-aar-476141c7097f/" target="_blank" rel="noopener">Your team\'s version →</a></div>'+
+    '<div class="tile live"><h4>🏆 Best of Q3 + Legend of the Quarter <span class="now">Standard</span></h4><p>Two celebration beats, and part of your prep this cycle: your <b>3 best things</b> from the quarter (personal and professional both count, photos welcome) and your <b>Legend of the Quarter</b> &mdash; one Roundtable teammate and the story behind them. Both count in your progress bar. Photos and stories ride inside your normal export and go up on the room wall.</p><a class="tlink" href="#sec-bestthings" data-scrollto="sec-bestthings">Add your best things ↓</a> &nbsp; <a class="tlink" href="#sec-legend" data-scrollto="sec-legend">Name your legend ↓</a></div>'+
+    '<div class="tile soft"><h4>🎯 Your Q4 Goals — Pick Your 5 <span class="now pend">Locked</span></h4><p>'+UNLOCK_BANNER+'. Your slice of the walked shortlist loads here: pick your five, route the rest, name your two criticals, and draft the Green / Super Green bars in your own words.</p><a class="tlink" href="#sec-goals" data-scrollto="sec-goals">See the lock note ↓</a></div>'+
     dsTile+
-    '<div class="tile live"><h4>🧮 People Analyzer — Your Directs <span class="now">Live</span></h4><p>Run the analyzer on <b>your own directs</b> — CHOICES 1–5, GWC, rehire call. Private until you export; Cameron aggregates everyone\'s reads into one gut-check view for the room. Your roster is pre-seeded.</p><a class="tlink" href="https://einsteinadmin.github.io/einstein-pa-directs-da2d210013ca/" target="_blank" rel="noopener">Open the Directs Analyzer →</a></div>'+
-    '<div class="tile live"><h4>🧱 Quarter in Review — Your Tiles <span class="now">New</span></h4><p>The "What We Built &amp; What\'s Coming" showcase — the catch-up your frontline teams get at the FLM QGRs on everything built behind the scenes this quarter. Find the tile(s) with <b>your name</b> on the presenter chip, run them past your COS, and bring your corrections + the ⚠-noted item (a link, a screenshot, a sign-off) to Thursday\'s 15-minute redline.</p><a class="tlink" href="q2-quarter-in-review.html" target="_blank" rel="noopener">Open the showcase draft →</a></div>'+
-    '<div class="tile"><h4>📅 Agenda</h4><p>Two full days, July 29&ndash;30, execution-focused. Day 1 = review the quarter (AARs, packet, grade sync). Day 2 = decide Q3 (theme, rocks, the ballot debates). The detailed agenda lands here before the QGR.</p></div>'+
-    '<div class="tile"><h4>📊 My QG Success Rates</h4><p>The QG Success Tracker — every leader\'s quarterly SG/G/R record back to 2024, Q2 2026 now loaded (PROJ until the Day-1 grade sync). Know your own line cold before you walk in.</p><a class="tlink" href="'+QG_TRACKER_URL+'" target="_blank" rel="noopener">Open the QG Success Tracker →</a></div>'+
-    '<div class="tile soft"><h4>📈 Financial Packet + Presentation <span class="now pend">Not yet</span></h4>'+(FIN_PACKET_URL
-      ? '<p>The Q2 financial analysis deck — gated; use the access Cameron gave you.</p><a class="tlink" href="'+FIN_PACKET_URL+'" target="_blank" rel="noopener">Open the financial deck →</a>'
+    '<div class="tile live"><h4>🧮 People Analyzer — Your Directs <span class="now">Open now</span></h4><p>Rate your own directs on CHOICES, ITP and GWC. Private on your computer until you export; turn it in on your Meeting OS checklist (PA on your directs, due Fri 10/23).</p><a class="tlink" href="https://einsteinadmin.github.io/einstein-pa-directs-da2d210013ca/" target="_blank" rel="noopener">Open the People Analyzer →</a></div>'+
+    '<div class="tile soft"><h4>🧱 Quarter in Review — Your Tiles <span class="now pend">Placeholder</span></h4><p>The October showcase isn&rsquo;t built yet. When it is, you&rsquo;ll find the tile(s) with your name on the presenter chip here. Nothing to review today.</p></div>'+
+    '<div class="tile"><h4>📅 Agenda</h4><p>Two full days, Tue&ndash;Wed Oct 27&ndash;28, 9 AM, execution-focused. Day 1 = review the quarter (AARs, packet, grade sync). Day 2 = decide Q4. The detailed agenda lands before the QGR.</p></div>'+
+    '<div class="tile"><h4>📊 My QG Success Rates</h4><p>The QG Success Tracker — every leader\'s quarterly SG/G/R record back to 2024. Q3 2026 shows as projected until the Day-1 grade sync. Know your own line cold before you walk in.</p><a class="tlink" href="'+QG_TRACKER_URL+'" target="_blank" rel="noopener">Open the QG Success Tracker →</a></div>'+
+    '<div class="tile soft"><h4>📈 Financial Packet + Presentation <span class="now pend">Placeholder</span></h4>'+(FIN_PACKET_URL
+      ? '<p>The financial analysis deck — gated; use the access Cameron gave you.</p><a class="tlink" href="'+FIN_PACKET_URL+'" target="_blank" rel="noopener">Open the financial deck →</a>'
       : '<p>Not distributed yet — Cameron will either walk it live in the room or light this section up here before then. Nothing to review today.</p>')+'</div>'+
-    '<div class="tile soft"><h4>🧭 Frontline Packet <span class="now pend">Not yet</span></h4><p>The plain-English company story your teams will get after the QGR — What / So What / Now What. Not ready for distribution yet: Cameron shows it live in the room, or this section lights up here when it\'s ready. Nothing to review today.</p></div>'+
+    '<div class="tile soft"><h4>🧭 Frontline Packet <span class="now pend">Placeholder</span></h4><p>The plain-English company story your teams will get after the QGR — What / So What / Now What. Not ready for distribution yet: Cameron shows it live in the room, or this section lights up here when it\'s ready. Nothing to review today.</p></div>'+
     '</div>';
 }
 
 /* ---- Debate section ---- */
 function debateSectionHtml(leader, ballot){
+  if(!BALLOT_UNLOCKED){
+    const preview = debatesFor(leader.id);
+    return '<div class="section pending locked" id="sec-debates"><div class="shead"><h3>🗳 The debate ballot</h3><span class="tiny muted">LOCKED — nothing to answer yet</span></div>'+
+      '<div class="lock-banner">🔒 '+UNLOCK_BANNER+'.</div>'+
+      '<div class="shelp">The ballot is the set of biggest open decisions for this QGR. October&rsquo;s questions come out of the 10/19 walk, so they are not written yet. When they unlock you will get the context and where leadership is currently leaning, register your position, and export it with the rest of your hub.</div>'+
+      (preview.length ? '<ul class="lock-list">'+preview.map(d=>'<li>'+esc(d.title)+'</li>').join("")+'</ul>' : '')+
+      '</div>';
+  }
   const qs = debatesFor(leader.id);
   const coreQs = qs.filter(isCore);
   const coreDone = coreQs.filter(d=>questionAnswered(ballot, d)).length;
@@ -1011,17 +820,21 @@ function debateSectionHtml(leader, ballot){
   return html;
 }
 
-/* ---- Speed-to-competence build sheet (the Q3 theme, by role) ---- */
+/* ---- Theme build sheet (by role; grayed in the Oct 2026 cycle) ---- */
 function buildsheetSectionHtml(leader, ballot){
+  if(!BUILDSHEET_OPEN){
+    return '<div class="section pending locked" id="sec-buildsheet"><div class="shead"><h3>🏗 Theme build sheet</h3><span class="tiny muted">NOT THIS CYCLE</span></div>'+
+      '<div class="lock-banner">Theme ideas go in your Meeting OS checklist this cycle.</div></div>';
+  }
   const bs = ballot.buildsheet;
   const pts = buildsheetPoints(ballot);
-  let html = '<div class="section" id="sec-buildsheet"><div class="shead"><h3>🏗 Speed to competence — the build sheet</h3>'+
+  let html = '<div class="section" id="sec-buildsheet"><div class="shead"><h3>🏗 The theme build sheet</h3>'+
     (pts>=BUILDSHEET_POINTS?'<span class="done-chip">✓ complete</span>':'<span class="tiny muted">'+pts+' of '+BUILDSHEET_POINTS+' done</span>')+'</div>'+
-    '<div class="shelp">Ballot question 3 asks whether speed to competence is the right theme. <b>This asks how we actually run it.</b> A theme that just means "finish the training app" reaches leads in training and nobody else &mdash; so the real question is what it means for every role. '+
-    'Answer the tracks you have a genuine view on; <b>nobody is expected to fill all five.</b> Green / Super Green are the gates we\'d grade the quarter against &mdash; a rough number beats no number.</div>'+
+    '<div class="shelp"><b>This asks how we actually run the theme.</b> The real question is what it means for every role. '+
+    'Answer the tracks you have a genuine view on; <b>nobody is expected to fill every one.</b> Green / Super Green are the gates we\'d grade the quarter against &mdash; a rough number beats no number.</div>'+
     '<div class="bs-name"><label>What should we call this theme?</label>'+
-    '<input type="text" data-bsname value="'+esc(bs.themeName||"")+'" placeholder="'+esc(THEME_WORKING_NAME)+' — beat it">'+
-    '<div class="bs-hint">The working name is <b>&ldquo;'+esc(THEME_WORKING_NAME)+'&rdquo;</b> and it is very much beatable. This is the phrase people repeat in a branch huddle for three months &mdash; if you have a better one, put it here.</div></div>';
+    '<input type="text" data-bsname value="'+esc(bs.themeName||"")+'" placeholder="'+esc(THEME_WORKING_NAME||"Your idea for the theme name")+'">'+
+    '<div class="bs-hint">'+(THEME_WORKING_NAME?'The working name is <b>&ldquo;'+esc(THEME_WORKING_NAME)+'&rdquo;</b> and it is very much beatable. ':'')+'This is the phrase people repeat in a branch huddle for three months &mdash; if you have a good one, put it here.</div></div>';
   TRACKS.forEach(t=>{
     const take = trackVal(ballot,t.id,"take");
     const green = trackVal(ballot,t.id,"green");
@@ -1050,8 +863,9 @@ function actionsSectionHtml(leader, ballot){
   const items = actionsFor(leader.id);
   const doneCount = items.filter(t=>ballot.actions[t]).length;
   let html = '<div class="section pending" id="sec-actions"><div class="shead"><h3>✅ Your data collection &amp; action items</h3>'+
-    '<span class="tiny muted">ALL PENDING — Cameron activates this list</span></div>'+
-    '<div class="shelp"><b>Nothing to do here yet.</b> This is a visible draft of what the packet and the room may need from you — Cameron confirms and activates it before anything here is on you. When it goes live, the checkboxes unlock and you\'ll get a heads-up.</div>';
+    '<span class="tiny muted">PLACEHOLDER — Cameron sets this list</span></div>'+
+    '<div class="shelp"><b>Nothing to do here yet.</b> This is a placeholder for what the packet and the room may need from you &mdash; Cameron writes the October list before anything here is on you. When it goes live, you\'ll get a heads-up.</div>';
+  if(!items.length) html += '<div class="lean-none">Not set for this cycle yet.</div>';
   items.forEach(t=>{
     const done = !!ballot.actions[t];
     html += '<label class="ai-line'+(done?' done':'')+'"><input type="checkbox" disabled data-action="'+esc(t)+'"'+(done?' checked':'')+'><span>'+esc(t)+'</span></label>';
@@ -1063,13 +877,18 @@ function actionsSectionHtml(leader, ballot){
 /* ---- Pick-5 goal module (Phase 2 — replaces the pre-work scaffold) ---- */
 function leaderLabel(id){ const l = leaderById(id); return l ? l.name.split(" ")[0] : (id === "kickpoint" ? "Kickpoint" : id); }
 function goalworkSectionHtml(leader, ballot){
+  if(!BALLOT_UNLOCKED){
+    return '<div class="section pending locked" id="sec-goals"><div class="shead"><h3>🎯 Your Q4 goals — pick your five</h3><span class="tiny muted">LOCKED — nothing to answer yet</span></div>'+
+      '<div class="lock-banner">🔒 '+UNLOCK_BANNER+'.</div>'+
+      '<div class="shelp">Your slice of the walked backlog shortlist loads here: pick the five you will carry, route the rest, name your two criticals, and write your own Green / Super Green bars and how each is measured. Nothing is pre-drafted on purpose. Until the walk is done there is nothing to pick from.</div></div>';
+  }
   const gw = ballot.goalwork;
   const cards = shortlistFor(leader.id);
   const target = pickTargetFor(leader.id);
   const picked = gw.picks.filter(k=>cards.some(c=>c.k===k));
   const pts = goalworkPoints(ballot);
   const barsDone = picked.filter(k=>barsComplete(gw, k)).length;
-  let html = '<div class="section" id="sec-goals"><div class="shead"><h3>🎯 Your Q3 goals — pick your '+target+'</h3>'+
+  let html = '<div class="section" id="sec-goals"><div class="shead"><h3>🎯 Your Q4 goals — pick your '+target+'</h3>'+
     (pts>=GOALWORK_POINTS?'<span class="done-chip">✓ complete</span>':'<span class="tiny muted">'+pts+' of '+GOALWORK_POINTS+' done</span>')+'</div>'+
     '<div class="shelp">This is the shortlist that survived the full backlog walk — <b>your</b> slice of it, '+cards.length+' cards. The selection work is done; what\'s left is the commitment: <b>pick the '+target+' you\'ll actually carry, and every card you don\'t pick gets routed</b> — the room decides it, a direct takes it, or it parks. Then, on your five only: write the <b>Green</b> bar, the <b>Super Green</b> bar, and <b>how it\'s measured</b> — in your own words, from your seat. Nothing is pre-drafted on purpose. Nominate <b>your two criticals</b> — the two of your five that, if they slip, the quarter slipped. Each card links to its reference pulse on the Master Backlog; after the room locks your goals, you\'ll duplicate those pulses onto your own board for tracking. Use the COS prompt at the bottom to pressure-test your bars before you export.</div>'+
     '<div class="gw-counter">'+
@@ -1097,7 +916,7 @@ function goalworkSectionHtml(leader, ballot){
       html += '<div class="gbars">'+
         '<div><label>Green</label><textarea data-gbar="'+esc(c.k)+':green" placeholder="What does achieved look like — specific enough to grade?">'+esc(bars.green||"")+'</textarea></div>'+
         '<div><label>Super Green</label><textarea data-gbar="'+esc(c.k)+':superGreen" placeholder="What does exceeded look like?">'+esc(bars.superGreen||"")+'</textarea></div>'+
-        '<div><label>How measured</label><textarea data-gbar="'+esc(c.k)+':measure" placeholder="The data source and the number — where would we LOOK on Oct 1?">'+esc(bars.measure||"")+'</textarea></div>'+
+        '<div><label>How measured</label><textarea data-gbar="'+esc(c.k)+':measure" placeholder="The data source and the number — where would we LOOK at the Jan 2027 review?">'+esc(bars.measure||"")+'</textarea></div>'+
         '</div>';
     } else {
       const route = gw.routes[c.k] || "";
@@ -1137,10 +956,10 @@ function directSlatesSectionHtml(leader, ballot){
   if(!isDirectSlateLeader(leader.id)) return "";
   const roster = directRosterFor(leader.id);
   const isFLM = (leader.id === "mike" || leader.id === "brian");
-  let html = '<div class="section" id="sec-directslates"><div class="shead"><h3>🧑‍🤝‍🧑 Your Directs’ Q3 Slate <span class="opt-chip">New</span></h3></div>'+
-    '<div class="shelp"><b>DRAFTS — these get finalized in the room at the QGR.</b> You draft candidate Q3 goals for your own directs here. You finalize your directs’ slates; nothing here is sent to your directs.</div>';
+  let html = '<div class="section" id="sec-directslates"><div class="shead"><h3>🧑‍🤝‍🧑 Your Directs’ Q4 Slate</h3></div>'+
+    '<div class="shelp"><b>DRAFTS — these get finalized in the room at the QGR.</b> You draft candidate Q4 goals for your own directs here: add your own rows for each person (people parts: aim for Fri 10/23). Goals you route to a direct from your five show up here automatically once the goals unlock (~10/21). You finalize your directs’ slates; nothing here is sent to your directs.</div>';
   if(isFLM){
-    html += '<div class="lean-none">Your FLM slates draft best AFTER the theme locks Wednesday — these feed your FLM QGRs Aug 4&ndash;5. Add early thoughts if you have them; nothing here is due today.</div>';
+    html += '<div class="lean-none">Your FLM slates draft best once the room sets Q4 priorities (Oct 27&ndash;28) &mdash; they feed your FLM QGRs after that. Add early thoughts if you have them; the Workshop Hub item on your Meeting OS checklist is due Mon 10/26.</div>';
     html += '<details class="lean-reveal"><summary>Show your '+roster.length+' FLM seats <span class="lr-hint">— still fully editable now</span></summary>';
     html += directRosterBlocksHtml(leader, ballot, roster);
     html += '</details>';
@@ -1161,7 +980,7 @@ function directRosterBlocksHtml(leader, ballot, roster){
     html += '<div class="track ds-direct"><div class="thead"><h4>'+esc(name)+'</h4>'+
       '<span class="tdone">'+kept.length+' candidate'+(kept.length===1?"":"s")+'</span></div>';
     if(!cands.length){
-      html += '<div class="lean-none">No pre-seeded candidates — add your own.</div>';
+      html += '<div class="lean-none">Nothing here yet — add your own goal rows below.</div>';
     } else {
       cands.forEach(c=>{ html += directCandidateRowHtml(name, c); });
     }
@@ -1192,13 +1011,13 @@ function directCandidateRowHtml(directName, c){
     (c.source==="own" ? '<button class="ds-del" data-dsdel data-ds-direct="'+esc(directName)+'" data-ds-idx="'+c._addIdx+'">✕ delete</button>' : '')+
     '</div></div>'+
     '<div class="q-block"><label>Why / theme hook <span class="qhint">— optional</span></label>'+
-    '<textarea data-dswhy data-ds-direct="'+esc(directName)+'" data-ds-source="'+c.source+'" data-ds-key="'+esc(keyAttr)+'" placeholder="Why this belongs on '+esc(directName)+'’s slate, or how it ties to the Q3 theme.">'+esc(c.why)+'</textarea></div>'+
+    '<textarea data-dswhy data-ds-direct="'+esc(directName)+'" data-ds-source="'+c.source+'" data-ds-key="'+esc(keyAttr)+'" placeholder="Why this belongs on '+esc(directName)+'’s slate, or how it ties to the Q4 theme.">'+esc(c.why)+'</textarea></div>'+
     '</div>';
 }
 function buildDirectSlatesCosPrompt(leader, ballot){
   const roster = directRosterFor(leader.id);
-  let p = "You are my thinking partner for drafting my directs' Q3 goal slates at Einstein Moving Company, going into the QGR (July 29–30). I'm "+leader.name+", "+leader.role+".\n\n"+
-    "## How this works\nThese are DRAFTS — I finalize each direct's slate in the room; nothing here goes to them yet. For each direct below I have a starting list of candidate goals: some pre-seeded from the shortlist walk, some routed over from my own five, some I've added myself.\n\n";
+  let p = "You are my thinking partner for drafting my directs' Q4 goal slates at Einstein Moving Company, going into the October 2026 QGR (Oct 27–28). I'm "+leader.name+", "+leader.role+".\n\n"+
+    "## How this works\nThese are DRAFTS — I finalize each direct's slate in the room; nothing here goes to them yet. For each direct below I have a starting list of candidate goals: some routed over from my own five (once those unlock), some I've added myself.\n\n";
   roster.forEach(name=>{
     const cands = candidatesForDirect(leader, ballot, name).filter(c=>(c.name||"").trim());
     p += "### "+name+"\n";
@@ -1211,7 +1030,7 @@ function buildDirectSlatesCosPrompt(leader, ballot){
   p += "## What I need from you\n"+
     "1. For each direct, sanity-check the list against what you know about their seat — is anything missing, or does anything not actually fit them?\n"+
     "2. Push me to name the one or two that matter most per direct, not just keep everything.\n"+
-    "3. Flag anything that reads like busywork versus something that actually moves the Q3 theme for that person.\n"+
+    "3. Flag anything that reads like busywork versus something that actually moves the Q4 theme for that person.\n"+
     "4. Help me write a tight why/theme-hook note for anything still blank.\n\n"+
     "I'll paste the results back into each direct's slate before I finalize it in the room.";
   return p;
@@ -1243,12 +1062,12 @@ function celebrationsSectionHtml(leader, ballot){
   const c = ballot.celebrations;
   return '<div class="section" id="sec-celebrations"><div class="shead"><h3>🎉 Celebrations &amp; prizes</h3>'+
     (((c.celebration||"").trim()||(c.prizes||"").trim())?'<span class="done-chip">✓ ideas in</span>':'')+'</div>'+
-    '<div class="shelp">The Q3 theme needs a celebration engine, not just a scoreboard. Bring the room 1&ndash;3 ideas: how we celebrate wins tied to the theme, and what the prizes actually are (theme milestones, Games, certifications, training-day wins). Cheap and memorable beats expensive and forgettable.</div>'+
+    '<div class="shelp">The Q4 theme needs a celebration engine, not just a scoreboard. Bring the room 1&ndash;3 ideas: how we celebrate wins tied to the theme, and what the prizes actually are (theme milestones, Games, certifications, training-day wins). Cheap and memorable beats expensive and forgettable.</div>'+
     '<div class="q-block"><label>Celebration ideas <span class="qhint">— how we mark theme wins so people feel them</span></label><textarea data-celeb="celebration" placeholder="e.g., a certification wall per branch, a graduation moment at the all-hands…">'+esc(c.celebration||"")+'</textarea></div>'+
     '<div class="q-block"><label>Prize ideas <span class="qhint">— what winning actually gets you</span></label><textarea data-celeb="prizes" placeholder="e.g., prize budget per branch competition, gear, experiences, bragging rights that stick…">'+esc(c.prizes||"")+'</textarea></div></div>';
 }
 
-/* ---- 3 best things from Q2 (v1.11) ---- */
+/* ---- 3 best things from Q3 (v1.11; standard from v2.0.0) ---- */
 const BT_KINDS = [
   {v:"professional", label:"Professional", cls:"good"},
   {v:"personal",     label:"Personal",     cls:"mid"}
@@ -1258,9 +1077,9 @@ function bestThingsInCount(ballot){ return ballot.bestThings.items.filter(it=>(i
 function bestThingsSectionHtml(leader, ballot){
   const items = ballot.bestThings.items;
   const inCount = bestThingsInCount(ballot);
-  let html = '<div class="section" id="sec-bestthings"><div class="shead"><h3>🏆 Your 3 best things from Q2 <span class="opt-chip">optional this quarter</span></h3>'+
-    (inCount>=3?'<span class="done-chip">✓ all 3 in</span>':(inCount?'<span class="tiny muted">'+inCount+' of 3 in</span>':''))+'</div>'+
-    '<div class="shelp"><b>Optional this quarter</b> — this landed close to the room, so we\'ll do it live at the QGR instead; just come ready to share three. Filling it in here is a bonus (photos especially — they go up on the room wall), never a requirement. Next quarter this becomes a standard prep step. Before the room debates anything, it celebrates. Bring your <b>three best things from last quarter — personal and professional both count</b>, and the mix is yours: a kid\'s graduation sits next to a branch record just fine. Write each one the way you\'d actually tell it, and <b>add photos if you have them</b> — they save on this computer, ride inside your normal export, and go up on the Best-of-Q2 wall in the room. Phone photos are perfect; they get shrunk automatically.</div>';
+  let html = '<div class="section" id="sec-bestthings"><div class="shead"><h3>🏆 Your 3 best things from Q3</h3>'+
+    (inCount>=3?'<span class="done-chip">✓ all 3 in</span>':'<span class="tiny muted">'+inCount+' of 3 in</span>')+'</div>'+
+    '<div class="shelp">Part of your prep this cycle &mdash; it counts in your progress bar. Before the room debates anything, it celebrates. Bring your <b>three best things from last quarter &mdash; personal and professional both count</b>, and the mix is yours: a kid\'s graduation sits next to a branch record just fine. Write each one the way you\'d actually tell it, and <b>add photos if you have them</b> &mdash; they save on this computer, ride inside your normal export, and go up on the Best-of-Q3 wall in the room. Phone photos are perfect; they get shrunk automatically.</div>';
   items.forEach((it,i)=>{
     const photos = it.photos||[];
     html += '<div class="bt-card"><div class="bt-num">Best thing '+(i+1)+'</div>'+
@@ -1284,9 +1103,9 @@ function legendDone(ballot){ return !!(ballot.legend.who && (ballot.legend.story
 function legendSectionHtml(leader, ballot){
   const lg = ballot.legend;
   const picked = lg.who ? leaderById(lg.who) : null;
-  let html = '<div class="section" id="sec-legend"><div class="shead"><h3>🌟 Your Legend of the Quarter <span class="opt-chip">optional this quarter</span></h3>'+
+  let html = '<div class="section" id="sec-legend"><div class="shead"><h3>🌟 Your Legend of the Quarter</h3>'+
     (legendDone(ballot)?'<span class="done-chip">✓ legend named</span>':'')+'</div>'+
-    '<div class="shelp"><b>Optional this quarter</b> — we\'ll do this live in the room; come with a name and a story in your head. Writing it here first is a bonus, not homework. Pick <b>one person on the Roundtable</b> who was your legend of the quarter &mdash; the teammate whose Q2 you\'d want the whole room to hear about. Then <b>write up the story to share</b>: what they did, what it took, and what it made possible. You\'ll tell it in the room, so write it in your telling voice. There\'s no wrong pick and no vote &mdash; if three people name the same legend, that\'s three great stories.</div>'+
+    '<div class="shelp">Part of your prep this cycle &mdash; it counts in your progress bar. Pick <b>one person on the Roundtable</b> who was your legend of the quarter &mdash; the teammate whose Q3 you\'d want the whole room to hear about. Then <b>write up the story to share</b>: what they did, what it took, and what it made possible. You\'ll tell it in the room, so write it in your telling voice. There\'s no wrong pick and no vote &mdash; if three people name the same legend, that\'s three great stories.</div>'+
     '<div class="q-block"><label>My legend</label>'+
     '<div class="chiprow">'+LEADERS.filter(l=>l.id!==leader.id).map(l=>
       '<button class="chip'+(lg.who===l.id?' sel good':'')+'" data-lgwho="'+esc(l.id)+'" title="'+esc(l.role)+'">'+esc(l.name.split(" ")[0])+'</button>'
@@ -1301,7 +1120,7 @@ function legendSectionHtml(leader, ballot){
 function buildLegendCosPrompt(leader, ballot){
   const lg = ballot.legend;
   const picked = lg.who ? leaderById(lg.who) : null;
-  return "You are my thinking partner for a short recognition story I'll tell aloud at Einstein Moving Company's quarterly QGR (July 29–30). I'm "+leader.name+", "+leader.role+".\n\n"+
+  return "You are my thinking partner for a short recognition story I'll tell aloud at Einstein Moving Company's quarterly QGR (October 2026, Oct 27–28). I'm "+leader.name+", "+leader.role+".\n\n"+
     "## The exercise\nEvery leader names one \"Legend of the Quarter\" — one Roundtable teammate — and tells the story of why. Not a toast, a story: what they did, what it took, what it made possible.\n\n"+
     "## My pick\n"+(picked?picked.name+" ("+picked.role+")":"(not picked yet — help me think through who earned it this quarter)")+"\n\n"+
     "## My rough notes\n"+((lg.story||"").trim()||"(blank — interview me for the raw material)")+"\n\n"+
@@ -1309,7 +1128,7 @@ function buildLegendCosPrompt(leader, ballot){
     "1. Interview me for specifics: the moment, the stakes, what would have happened without them. Vague praise dies in a room; a specific scene lands.\n"+
     "2. Keep it 60–90 seconds spoken — one story, not a highlight reel.\n"+
     "3. Write it in MY voice, the way I actually talk — no corporate speak, no award-show language.\n\n"+
-    "I'll paste the final story back into my prep hub and it exports to Cameron with my ballot.";
+    "I'll paste the final story back into my prep hub and it goes in my export file with the rest of my hub.";
 }
 /* Browser-side photo shrink: max 1280px long edge, JPEG — keeps three photos
    per item comfortably inside localStorage. HEIC in Chrome fails to decode →
@@ -1335,10 +1154,10 @@ function compressImageFile(file, cb){
 
 /* ---- Export section ---- */
 function exportSectionHtml(leader, ballot){
-  return '<div class="section" id="sec-export"><div class="shead"><h3>📤 Submit your ballot</h3></div>'+
-    '<div class="shelp">When the ballot, the build sheet, your CHOICES self-eval, and your celebration ideas are in: <b>download the JSON and send the file to Cameron</b> (Slack DM or email) — he aggregates everyone\'s before the room. One export carries all of it. The markdown copy is the readable version for your own notes or your COS.</div>'+
+  return '<div class="section" id="sec-export"><div class="shead"><h3>📤 Turn in your hub</h3></div>'+
+    '<div class="shelp">What is open now (your CHOICES self-eval, your directs\' slates, your best things and your legend) saves on this computer as you go &mdash; aim to finish the people parts by Fri 10/23. The debate ballot and your Q4 goals unlock around Wed 10/21. <b>Export once, after they unlock, so the file carries everything:</b> download the JSON and turn it in on the <b>Workshop Hub item on your Meeting OS checklist (due Mon 10/26)</b> &mdash; no need to DM it to Cameron. The markdown copy is the readable version for your own notes or your COS.</div>'+
     '<div class="export-actions">'+
-      '<button id="btnJson">Download JSON ballot → send to Cameron</button>'+
+      '<button id="btnJson">Download JSON → turn it in on Meeting OS</button>'+
       '<button id="btnMd" class="secondary">Copy markdown version</button>'+
       '<button id="btnMdPreview" class="secondary">Preview</button>'+
     '</div><textarea class="mdpreview" id="mdPreview" readonly></textarea></div>';
@@ -1644,8 +1463,12 @@ function wireHub(leader, ballot){
   });
   document.getElementById("btnJson").addEventListener("click", ()=>{
     const openCore = coreOpenCount(ballot, leader.id);
-    downloadFile("qgr-ballot-"+leader.id+"-q3-2026.json", JSON.stringify(buildJsonBallot(leader, ballot), null, 2), "application/json");
-    toast(openCore ? "Ballot downloaded — heads up, "+openCore+" must-answer question"+(openCore>1?"s":"")+" still incomplete" : "Ballot downloaded — send the file to Cameron");
+    const jsonText = JSON.stringify(buildJsonBallot(leader, ballot), null, 2);
+    downloadFile("qgr-ballot-"+leader.id+"-"+CYCLE+".json", jsonText, "application/json");
+    const kb = Math.round(jsonText.length/1024);
+    toast(kb > 480 ? "File is about "+kb+" KB — Meeting OS takes up to roughly 500 KB, so drop a photo or two if it\'s refused"
+        : (!BALLOT_UNLOCKED ? "Downloaded — the ballot and goals aren\'t unlocked yet, so export again after ~10/21 if you want them in the file"
+        : (openCore ? "Downloaded — heads up, "+openCore+" must-answer question"+(openCore>1?"s":"")+" still incomplete" : "Downloaded — turn it in on your Meeting OS checklist")));
   });
   document.getElementById("btnMd").addEventListener("click", ()=>{
     const md = buildMarkdown(leader, ballot);
@@ -1671,7 +1494,10 @@ function copyText(text, okMsg){
 /* ============ Export builders ============ */
 function buildJsonBallot(leader, ballot){
   return {
-    schema: "einstein-qgr-ballot/v7",
+    // v8 (Oct 2026) = v7 shape unchanged, plus cycle + locked flags. Readers matching the einstein-qgr-ballot/ prefix still work.
+    schema: "einstein-qgr-ballot/v8",
+    cycle: CYCLE,
+    locked: { ballotAndGoals: !BALLOT_UNLOCKED, buildsheet: !BUILDSHEET_OPEN },
     exportedAt: new Date().toISOString(),
     quarter: QUARTER,
     leader: { id: leader.id, name: leader.name, role: leader.role },
@@ -1761,7 +1587,8 @@ function buildJsonBallot(leader, ballot){
 }
 function buildMarkdown(leader, ballot){
   const d = new Date().toISOString().slice(0,10);
-  let md = "# QGR Ballot — "+leader.name+" — "+d+"\n*"+leader.role+" · Q3 2026 QGR (7/29–30)*\n\n";
+  let md = "# QGR Hub — "+leader.name+" — "+d+"\n*"+leader.role+" · October 2026 QGR (10/27–28)*\n\n";
+  if(!BALLOT_UNLOCKED) md += "_Debate ballot + Q4 goals: locked — unlock after the 10/19 walk (~Wed 10/21)._\n\n";
   debatesFor(leader.id).forEach((q,i)=>{
     const v = ballot.votes[q.id]||{};
     md += "## "+(i+1)+" · "+q.title+(isCore(q)?"":" _(optional)_")+"\n";
@@ -1770,7 +1597,8 @@ function buildMarkdown(leader, ballot){
     md += "- My "+(q.openEnded?"answer":"reasoning")+": "+((v.reasoning||"").trim()||"—")+"\n\n";
   });
   const bs = ballot.buildsheet;
-  md += "## Speed to competence — build sheet\n";
+  if(BUILDSHEET_OPEN){
+  md += "## Theme build sheet\n";
   md += "- Theme name: "+((bs.themeName||"").trim()||"— (working name: "+THEME_WORKING_NAME+")")+"\n";
   TRACKS.forEach(t=>{
     const take = trackVal(ballot,t.id,"take").trim();
@@ -1781,15 +1609,16 @@ function buildMarkdown(leader, ballot){
     if(t.gate && (green||sg)) md += "  - Green: "+(green||"—")+" · Super Green: "+(sg||"—")+"\n";
   });
   md += "\n";
+  }
   md += "## CHOICES self-eval (1–5)\n";
   CORE_VALUES.forEach(cv=>{
     const s = ballot.choices.items[cv], note = (ballot.choices.itemNotes[cv]||"").trim();
     md += "- "+cv+": "+(s||"—")+(note?" — "+note:"")+"\n";
   });
-  md += "\n## Celebrations & prizes (Q3 theme)\n";
+  md += "\n## Celebrations & prizes (Q4 theme)\n";
   md += "- Celebration ideas: "+((ballot.celebrations.celebration||"").trim()||"—")+"\n";
   md += "- Prize ideas: "+((ballot.celebrations.prizes||"").trim()||"—")+"\n";
-  md += "\n## My 3 best things from Q2\n";
+  md += "\n## My 3 best things from Q3\n";
   ballot.bestThings.items.forEach((it,i)=>{
     const story = (it.story||"").trim();
     const nPh = (it.photos||[]).length;
@@ -1805,7 +1634,8 @@ function buildMarkdown(leader, ballot){
   const gw = ballot.goalwork;
   const cards = shortlistFor(leader.id);
   const cardOf = k => cards.find(c=>c.k===k);
-  md += "\n## My Q3 goals — my "+pickTargetFor(leader.id)+" ("+gw.picks.length+" picked)\n";
+  if(BALLOT_UNLOCKED){
+  md += "\n## My Q4 goals — my "+pickTargetFor(leader.id)+" ("+gw.picks.length+" picked)\n";
   gw.picks.forEach(k=>{
     const c = cardOf(k) || {name:k};
     const b = gw.bars[k]||{};
@@ -1829,8 +1659,9 @@ function buildMarkdown(leader, ballot){
       md += "  - Why: "+((x.g.why||"").trim()||"—")+"\n  - Green: "+((x.g.green||"").trim()||"—")+" · Super Green: "+((x.g.superGreen||"").trim()||"—")+" · How measured: "+((x.g.measure||"").trim()||"—")+"\n";
     });
   }
+  }
   if(isDirectSlateLeader(leader.id)){
-    md += "\n## Your directs' Q3 slate (drafts — finalized in the room)\n";
+    md += "\n## Your directs' Q4 slate (drafts — finalized in the room)\n";
     directRosterFor(leader.id).forEach(name=>{
       const ds = directSlateFor(ballot, name);
       const cands = candidatesForDirect(leader, ballot, name).filter(c=>(c.name||"").trim());
@@ -1847,7 +1678,7 @@ function buildMarkdown(leader, ballot){
 }
 function buildCosPrompt(leader, ballot, d){
   const v = ballot.votes[d.id]||{};
-  const head = "You are my thinking partner for the leadership prep at Einstein Moving Company's quarterly QGR (July 29–30). I'm "+leader.name+", "+leader.role+". Nobody sees my ballot before the room, so be honest, not diplomatic.\n\n";
+  const head = "You are my thinking partner for the leadership prep at Einstein Moving Company's quarterly QGR (October 2026, Oct 27–28). I'm "+leader.name+", "+leader.role+". Nobody sees my ballot before the room, so be honest, not diplomatic.\n\n";
   if(d.openEnded){
     return head+
       "## The question I've been asked\n"+d.title+"\n\n"+
@@ -1859,7 +1690,7 @@ function buildCosPrompt(leader, ballot, d){
       "2. Push back where my draft is generic — make me name specific people, specific moments, specific numbers.\n"+
       "3. Tell me what I'm likely leaving out because I'm too close to it.\n"+
       "4. Then help me land a tight answer in MY voice — specific, from my seat, no corporate speak.\n\n"+
-      "I'll paste the final answer back into my ballot and export it to Cameron before the QGR.";
+      "I'll paste the final answer back into my ballot and turn it in on my Meeting OS checklist before the QGR.";
   }
   const posLabel = v.position ? posLabelFor(d, v.position) : "no position yet";
   const optLabels = (d.options||POSITIONS).map(p=>p.label).join(" / ");
@@ -1878,13 +1709,13 @@ function buildCosPrompt(leader, ballot, d){
     "2. Pressure-test my draft against what you know about my department and my seat: where does this decision hit MY world, and what would I see go wrong first?\n"+
     "3. Ask me the 2–3 questions that would most change my answer.\n"+
     "4. Then help me land a final position ("+optLabels+") and 3–6 sentences of reasoning in MY voice — specific, from my seat, no corporate speak.\n\n"+
-    "I'll paste the final reasoning back into my ballot and export it to Cameron before the QGR.";
+    "I'll paste the final reasoning back into my ballot and turn it in on my Meeting OS checklist before the QGR.";
 }
 function buildBuildsheetCosPrompt(leader, ballot){
   const bs = ballot.buildsheet;
-  let p = "You are my thinking partner for the Q3 planning at Einstein Moving Company's quarterly QGR (July 29–30). I'm "+leader.name+", "+leader.role+".\n\n"+
-    "## The theme\nLeadership is converging on Q3 = SPEED TO COMPETENCE, for everyone — movers, leads, managers, and CX reps, not just the field. The working name is \""+THEME_WORKING_NAME+"\" and it's beatable.\n\n"+
-    "The trap we're trying to avoid: a theme that just means \"finish the mover training app\" only reaches leads who are currently in training, and nobody else. So the real design question is what this theme means for EVERY role, and what gates we'd grade the quarter against.\n\n"+
+  let p = "You are my thinking partner for the Q4 planning at Einstein Moving Company's quarterly QGR (October 2026, Oct 27–28). I'm "+leader.name+", "+leader.role+".\n\n"+
+    "## The theme\nWe are designing the Q4 theme"+(THEME_WORKING_NAME?" (working name \""+THEME_WORKING_NAME+"\", and it's beatable)":" (no name yet)")+".\n\n"+
+    "The design question is what this theme means for EVERY role, and what gates we'd grade the quarter against.\n\n"+
     "## The tracks I've been asked to think through\n";
   TRACKS.forEach(t=>{
     p += "\n### "+t.label+(t.gate?" (needs a Green and Super Green gate)":"")+"\n"+stripHtml(t.prompt)+"\n";
@@ -1894,22 +1725,22 @@ function buildBuildsheetCosPrompt(leader, ballot){
     p += "My draft: "+(take||"(blank)")+"\n";
     if(t.gate) p += "My draft gates — Green: "+(green||"(blank)")+" · Super Green: "+(sg||"(blank)")+"\n";
   });
-  p += "\n## My theme name idea\n"+((bs.themeName||"").trim()||"(blank — working name is \""+THEME_WORKING_NAME+"\")")+"\n\n"+
+  p += "\n## My theme name idea\n"+((bs.themeName||"").trim()||"(blank"+(THEME_WORKING_NAME?" — working name is \""+THEME_WORKING_NAME+"\"":"")+")")+"\n\n"+
     "## What I need from you\n"+
     "1. Work the tracks where I have real standing — you know my seat. Don't make me fake expertise on roles I don't touch; tell me which ones I should leave to someone else.\n"+
     "2. For every track we do work: make it CONCRETE. Who does what, how often, and how we'd know it happened. \"More training\" is not an answer.\n"+
-    "3. On the gates: push me toward numbers we could actually measure by the end of Q3 with the data we already have. If a gate needs data we don't collect yet, say so — that's a finding worth bringing to the room.\n"+
+    "3. On the gates: push me toward numbers we could actually measure by the end of Q4 with the data we already have. If a gate needs data we don't collect yet, say so — that's a finding worth bringing to the room.\n"+
     "4. Stress-test the manager track specifically: is overseeing the app rollout enough on its own, given they're also carrying sales and hiring? Argue both ways.\n"+
-    "5. Give me 3 candidate theme names better than \""+THEME_WORKING_NAME+"\" — something a mover would actually repeat in a branch huddle.\n\n"+
-    "I'll paste the results back into my build sheet and export it to Cameron before the QGR.";
+    "5. Give me 3 candidate theme names"+(THEME_WORKING_NAME?" better than \""+THEME_WORKING_NAME+"\"":"")+" — something a mover would actually repeat in a branch huddle.\n\n"+
+    "I'll paste the results back into my build sheet and turn it in on my Meeting OS checklist before the QGR.";
   return p;
 }
 function buildGoalworkCosPrompt(leader, ballot){
   const gw = ballot.goalwork;
   const cards = shortlistFor(leader.id);
   const cardOf = k => cards.find(c=>c.k===k);
-  let p = "You are my thinking partner for my Q3 quarterly goals at Einstein Moving Company, going into the QGR (July 29–30). I'm "+leader.name+", "+leader.role+".\n\n"+
-    "## How this works\nThe company already walked the full goal backlog and shortlisted "+cards.length+" candidates for me. My job is to PICK "+pickTargetFor(leader.id)+" I'll actually carry, route the rest, mark my TWO criticals (the ones that, if they slip, my quarter slipped), and write three things for each pick: a GREEN bar (achieved), a SUPER GREEN bar (exceeded), and HOW IT'S MEASURED (the data source and number we'd look at on Oct 1).\n\n";
+  let p = "You are my thinking partner for my Q4 quarterly goals at Einstein Moving Company, going into the October 2026 QGR (Oct 27–28). I'm "+leader.name+", "+leader.role+".\n\n"+
+    "## How this works\nThe company already walked the full goal backlog and shortlisted "+cards.length+" candidates for me. My job is to PICK "+pickTargetFor(leader.id)+" I'll actually carry, route the rest, mark my TWO criticals (the ones that, if they slip, my quarter slipped), and write three things for each pick: a GREEN bar (achieved), a SUPER GREEN bar (exceeded), and HOW IT'S MEASURED (the data source and number we'd look at at the Jan 2027 review).\n\n";
   p += "## My shortlist\n";
   cards.forEach(c=>{
     p += "- "+(gw.picks.indexOf(c.k)!==-1?"[PICKED"+(gw.crits.indexOf(c.k)!==-1?" · CRITICAL":"")+"] ":"[not picked] ")+c.name+"\n";
@@ -1925,7 +1756,7 @@ function buildGoalworkCosPrompt(leader, ballot){
     "3. On \"how measured\": name the actual data source. If the data doesn't exist yet, that's a finding — the goal may need a data-collection milestone inside it.\n"+
     "4. Challenge my criticals: are these truly the two that sink the quarter, or just the two I like most?\n"+
     "5. Then hand back tightened bars in MY voice — specific, from my seat, no corporate speak.\n\n"+
-    "I'll paste the results back into my hub and export everything to Cameron before the QGR.";
+    "I'll paste the results back into my hub and turn everything in on my Meeting OS checklist before the QGR.";
   return p;
 }
 function downloadFile(filename, text, mime){
